@@ -11,7 +11,7 @@ tags:
 
 ## 前言
 
-在上一篇文章[《Rust 实战教程之用 Rust 写一个命令行 TODO List（一）》](https://www.sayhub.me/blog/write-todo-by-rust/) 中，我们完成了项目的初始化，以及实现了基本的功能，但是还有一些问题和可优化的点，在这篇文章中，我们将继续完善这个项目。
+在上一篇文章[《Rust 实战教程之用 Rust 写一个命令行 TODO List（一）》](https://liruifengv.com/blog/write-todo-by-rust/) 中，我们完成了项目的初始化，以及实现了基本的功能，但是还有一些问题和可优化的点，在这篇文章中，我们将继续完善这个项目。
 
 没有看上篇的同学请先看上篇文章，上期代码在这里：[todo-rs part-1](https://github.com/liruifengv/todo-rs/tree/part-1)
 
@@ -430,4 +430,4 @@ let mut db = Database::open();
 
 ## 往期文章
 
-- [《Rust 实战教程之用 Rust 写一个命令行 TODO List（一）》](https://www.sayhub.me/blog/write-todo-by-rust/)
+- [《Rust 实战教程之用 Rust 写一个命令行 TODO List（一）》](https://liruifengv.com/blog/write-todo-by-rust/)
