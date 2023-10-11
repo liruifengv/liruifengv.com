@@ -5,6 +5,7 @@ description: "2022 年是难以言表的一年，没完没了的疫情席卷着�
 pubDatetime: 2022-12-28
 featured: false
 draft: false
+postSlug: 2022-year-end-summary
 tags:
   - 年终总结
 ---

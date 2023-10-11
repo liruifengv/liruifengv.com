@@ -5,6 +5,7 @@ pubDatetime: 2023-02-18
 author: liruifengv
 featured: false
 draft: false
+postSlug: github-action-release
 tags:
   - 开源
 ---

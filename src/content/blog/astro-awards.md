@@ -5,6 +5,7 @@ author: liruifengv
 pubDatetime: 2023-08-31
 featured: true
 draft: false
+postSlug: astro-awards
 tags:
   - front-end
   - 开源

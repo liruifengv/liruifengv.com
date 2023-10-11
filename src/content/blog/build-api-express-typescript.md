@@ -5,6 +5,7 @@ author: liruifengv
 pubDatetime: 2023-03-30
 featured: false
 draft: false
+postSlug: build-api-express-typescript
 tags:
   - Deno
 ---

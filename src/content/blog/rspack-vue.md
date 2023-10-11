@@ -5,6 +5,7 @@ pubDatetime: 2023-03-10
 author: liruifengv
 featured: false
 draft: false
+postSlug: rspack-vue
 tags:
   - Vue
   - WebPack

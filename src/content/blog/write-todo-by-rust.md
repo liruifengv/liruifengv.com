@@ -5,6 +5,7 @@ pubDatetime: 2023-09-06
 author: liruifengv
 featured: true
 draft: false
+postSlug: write-todo-by-rust
 tags:
   - Rust
 ---

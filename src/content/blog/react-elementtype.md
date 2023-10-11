@@ -5,6 +5,7 @@ pubDatetime: 2021-12-10
 author: liruifengv
 featured: false
 draft: false
+postSlug: react-elementtype
 tags:
   - React
 ---

@@ -5,6 +5,7 @@ pubDatetime: 2018-01-02
 author: liruifengv
 featured: false
 draft: false
+postSlug: js-data-type
 tags:
   - front-end
   - JavaScript

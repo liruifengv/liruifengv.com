@@ -5,6 +5,7 @@ pubDatetime: 2023-01-10
 author: liruifengv
 featured: false
 draft: false
+postSlug: copy-text
 tags:
   - front-end
   - JavaScript
