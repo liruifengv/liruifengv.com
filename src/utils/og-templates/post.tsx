@@ -61,6 +61,7 @@ export default (post: CollectionEntry<"blog">) => {
               maxHeight: "84%",
               overflow: "hidden",
             }}
+            lang="zh-CN"
           >
             {post.data.title}
           </p>
