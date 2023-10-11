@@ -12,7 +12,7 @@ tags:
   - mysql
 ---
 
-上一篇文章[使用 Ghost 从零搭建博客系统](https://liruifengv.com/blog/ghost/) 写了如何搭建 Ghost，但是 Ghost 默认使用 SQLite 数据库，我们想使用 mysql 数据库，这篇文章就实践一下。
+上一篇文章[使用 Ghost 从零搭建博客系统](https://liruifengv.com/posts/ghost/) 写了如何搭建 Ghost，但是 Ghost 默认使用 SQLite 数据库，我们想使用 mysql 数据库，这篇文章就实践一下。
 
 之前是使用的 docker 镜像，那么我们直接使用 通过 [docker stack deploy](https://docs.docker.com/engine/reference/commandline/stack_deploy/) or [docker-compose](https://github.com/docker/compose) 的方式，同时启动多个服务。
 
@@ -86,4 +86,4 @@ show tables;
 
 至此，说明我们切换 mysql 成功了！
 
-往期文章：[使用 Ghost 从零搭建博客系统](https://liruifengv.com/blog/ghost/)
+往期文章：[使用 Ghost 从零搭建博客系统](https://liruifengv.com/posts/ghost/)
