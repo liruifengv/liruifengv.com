@@ -12,6 +12,7 @@ export default (post: CollectionEntry<"blog">) => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        fontFamily: "IBM Plex Sans",
       }}
     >
       <div
