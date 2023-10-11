@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import { Image } from 'astro:assets';
+import myImage from '../assets/placeholder-about.jpg';
 ---
 
 <Layout title="Welcome to Astro.">
@@ -38,6 +40,7 @@ import Card from '../components/Card.astro';
 			To get started, open the directory <code>src/pages</code> in your project.<br />
 			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
 		</p>
+    <Image src={myImage} alt="A description of my image." />
 		<ul role="list" class="link-card-grid">
 			<Card
 				href="https://docs.astro.build/"
