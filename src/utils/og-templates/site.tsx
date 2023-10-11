@@ -3,6 +3,7 @@ import { SITE } from "@config";
 export default () => {
   return (
     <div
+      lang="zh-CN"
       style={{
         background: "#fefbfb",
         width: "100%",

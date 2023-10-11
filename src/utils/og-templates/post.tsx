@@ -4,6 +4,7 @@ import type { CollectionEntry } from "astro:content";
 export default (post: CollectionEntry<"blog">) => {
   return (
     <div
+      lang="zh-CN"
       style={{
         background: "#fefbfb",
         width: "100%",
