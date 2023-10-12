@@ -15,7 +15,7 @@ const { name, size = "sm" } = Astro.props;
   <a
     href={`/tags/${name.toLowerCase()}`}
     transition:name={name.toLowerCase()}
-    class={`${size === "sm" ? "text-sm" : "text-lg"} pr-2 group`}
+    class={`${size === "sm" ? "text-lg" : "text-xl"} pr-2 group`}
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
