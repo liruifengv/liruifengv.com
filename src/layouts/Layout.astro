@@ -1,5 +1,5 @@
 ---
-import { SITE } from "@config";
+import { SITE, OG } from "@config";
 import "@styles/base.css";
 import { ViewTransitions } from "astro:transitions";
 
@@ -17,12 +17,12 @@ const {
   title = SITE.title,
   author = SITE.author,
   description = SITE.desc,
-  ogImage = SITE.ogImage,
+  ogImage = OG.ogImage,
   canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
 } = Astro.props;
 
 const socialImageURL = new URL(
-  ogImage ?? SITE.ogImage ?? "og.png",
+  ogImage ?? OG.ogImage ?? "og.png",
   Astro.url.origin
 ).href;
 ---

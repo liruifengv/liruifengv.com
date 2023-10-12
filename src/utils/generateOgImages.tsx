@@ -3,7 +3,8 @@ import { Resvg } from "@resvg/resvg-js";
 import { type CollectionEntry } from "astro:content";
 import postOgImage from "./og-templates/post";
 import siteOgImage from "./og-templates/site";
-import { SITE } from "@config";
+import { SITE, OG } from "@config";
+import { getIconCode, loadEmoji } from "./twemoji";
 
 const isDev = import.meta.env.DEV;
 const website = isDev ? "http://localhost:4321/" : SITE.website;
@@ -32,6 +33,21 @@ const options: SatoriOptions = {
       style: "normal",
     },
   ],
+  loadAdditionalAsset: async (code: string, segment: string) => {
+    if (code === "emoji") {
+      // if segment is an emoji
+      return (
+        `data:image/svg+xml;base64,` +
+        btoa(await loadEmoji("twemoji", getIconCode(segment)))
+      );
+    }
+
+    // if segment is normal text
+    return (
+      `data:image/svg+xml;base64,` +
+      btoa(await loadEmoji(OG.emojiType, "1f92f"))
+    );
+  },
 };
 
 function svgBufferToPngBuffer(svg: string) {
