@@ -11,6 +11,10 @@ tags:
   - WebPack
 ---
 
+## Table of contents
+
+## 前言
+
 今天，字节跳动刚刚开源了 [Rspack](https://github.com/web-infra-dev/rspack)，一个 Rust 写的打包构建工具，功能和用法上对齐 webpack。
 
 官方仓库：https://github.com/web-infra-dev/rspack

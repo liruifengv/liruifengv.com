@@ -11,6 +11,10 @@ tags:
   - nginx
 ---
 
+## Table of contents
+
+## 前言
+
 作为一个前端开发工程师，拥有自己的服务器和网站是必不可少的，网站默认是使用 HTTP 协议，要使用 HTTPS 需要申请证书，而证书也不太便宜。今天就教大家使用 [Certbot](https://certbot.eff.org/) 来申请免费的 HTTPS 证书。
 
 以下所有操作均运行在 Centos 服务器。

@@ -53,6 +53,7 @@ export default (post: CollectionEntry<"blog">) => {
           }}
         >
           <p
+            lang="zh-CN"
             style={{
               fontSize: 72,
               fontWeight: "bold",
