@@ -3,7 +3,6 @@ export type Site = {
   author: string;
   desc: string;
   title: string;
-  ogImage?: string;
   lightAndDarkMode: boolean;
   postPerPage: number;
 };
@@ -40,3 +39,15 @@ export type SocialMedia =
   | "Steam"
   | "Telegram"
   | "Mastodon";
+
+export type emojiType =
+  | "openmoji"
+  | "twemoji"
+  | "blobmoji"
+  | "fluent"
+  | "fluentFlat";
+
+export type OG_Type = {
+  emojiType: emojiType;
+  ogImage: string;
+};

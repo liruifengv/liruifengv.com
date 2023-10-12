@@ -1,11 +1,10 @@
-import type { Site, SocialObjects } from "./types";
+import type { Site, SocialObjects, OG_Type } from "./types";
 
 export const SITE: Site = {
   website: "https://liruifengv.com/",
   author: "liruifengv",
   desc: "我的抓码人生，研究互联网产品和编程技术，提供原创中文精品文章及教程，涵盖前端、后端、运维、Rust、Vue、React、Node、Deno、Electron、Tauri 等多个领域。",
   title: "我的抓码人生",
-  ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerPage: 10,
 };
@@ -39,3 +38,8 @@ export const SOCIALS: SocialObjects = [
     active: true,
   },
 ];
+
+export const OG: OG_Type = {
+  emojiType: "twemoji",
+  ogImage: "astropaper-og.jpg",
+};
