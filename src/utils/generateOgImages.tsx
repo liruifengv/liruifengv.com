@@ -34,9 +34,7 @@ const options: SatoriOptions = {
     },
   ],
   loadAdditionalAsset: async (code: string, segment: string) => {
-    console.log("code", code);
     if (code === "emoji") {
-      console.log("segment", segment);
       // if segment is an emoji
       return (
         `data:image/svg+xml;base64,` +
