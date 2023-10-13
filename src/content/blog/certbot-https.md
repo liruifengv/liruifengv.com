@@ -45,7 +45,7 @@ certbot certonly -d test.com --manual --preferred-challenges dns
 
 这时会出现下图的界面
 
-![image.png](https://images.sayhub.me/blog/certbot-https/https.png)
+![image.png](https://bucket.liruifengv.com/certbot-https/https.png)
 
 你需要按照提示，在你的域名服务商处，添加对应的 DNS TXT 解析记录。
 

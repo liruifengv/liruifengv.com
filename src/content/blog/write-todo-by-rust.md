@@ -45,7 +45,7 @@ tags:
 
 ### 先看要实现的最终效果
 
-![最终效果图](https://images.sayhub.me/blog/Rust/p2.png)
+![最终效果图](https://bucket.liruifengv.com/Rust/p2.png)
 
 我们给这个 cli 起名叫 `rodo`，它拥有几个命令，分别是：
 
@@ -70,7 +70,7 @@ tags:
 cargo new todo-rs
 ```
 
-![初始化项目](https://images.sayhub.me/blog/Rust/p1.png)
+![初始化项目](https://bucket.liruifengv.com/Rust/p1.png)
 
 新建出来的项目目录结构如上图。执行 `cargo run` 会输出 `Hello, world!`。
 
@@ -155,9 +155,9 @@ Unknown command: test
 
 既然是 todo list，那么数据需要有地方存储。这里我们写一个超简易的数据库，实际就是个文本文件，每一行是一个 todo，由 id 和内容组成，用逗号分隔。
 
-```txt
-1, test
-2, test2
+```js
+1, test;
+2, test2;
 ```
 
 新建一个 `database.rs` 文件。
@@ -262,8 +262,8 @@ $ cargo run add test
 
 同时会在 `.rododb` 文件中看到一条记录。
 
-```txt
-1,test
+```js
+1, test;
 ```
 
 #### 实现列表方法

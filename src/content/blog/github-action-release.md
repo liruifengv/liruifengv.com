@@ -40,7 +40,7 @@ pnpm exec changeset init
 pnpm exec changeset
 ```
 
-![](https://images.sayhub.me/blog/github-action-release/changeset.png)
+![](https://bucket.liruifengv.com/github-action-release/changeset.png)
 
 这里会提示我们选择这次更改的类型。不了解的可以自行搜索 npm semver 版本号规范。
 
@@ -48,11 +48,11 @@ pnpm exec changeset
 
 输入本次修改的信息，一路回车就行。
 
-![](https://images.sayhub.me/blog/github-action-release/changeset-patch.png)
+![](https://bucket.liruifengv.com/github-action-release/changeset-patch.png)
 
 这时候它会在`.changeset` 文件夹生成一个随机名字的 md 文件，包含你刚才提交的信息。
 
-![](https://images.sayhub.me/blog/github-action-release/changeset-file.png)
+![](https://bucket.liruifengv.com/github-action-release/changeset-file.png)
 
 接下来生成版本号。
 
@@ -150,17 +150,17 @@ jobs:
 
 登录你的 npm 账号，点击头像选择 Access tokens。
 
-![](https://images.sayhub.me/blog/github-action-release/npm_setting.png)
+![](https://bucket.liruifengv.com/github-action-release/npm_setting.png)
 
 点击 Generate New Token。可以选择一键生成也可以更细粒度的控制权限。
 
-![](https://images.sayhub.me/blog/github-action-release/npm_token_ge.png)
+![](https://bucket.liruifengv.com/github-action-release/npm_token_ge.png)
 
 生成之后记得复制，关闭页面之后就看不到了。
 
 回到 GitHub，你的仓库，点击 Settings，选择 Secrets and variables。创建一个 NPM_TOKEN。这样 GitHub Action 中就能取到它了。
 
-![](https://images.sayhub.me/blog/github-action-release/github-new-token.png)
+![](https://bucket.liruifengv.com/github-action-release/github-new-token.png)
 
 ## 完整工作流程
 
@@ -180,7 +180,7 @@ pnpm exec changeset
 
 ### 发起 PR
 
-![](https://images.sayhub.me/blog/github-action-release/changeset-bot.png)
+![](https://bucket.liruifengv.com/github-action-release/changeset-bot.png)
 
 这里我安装了[changeset-bot](https://github.com/apps/changeset-bot)。它可以自动探测 PR 中是否包含了 `changeset` 文件并进行评论。你可以点击链接安装它。
 
@@ -190,13 +190,13 @@ pnpm exec changeset
 
 PR 合并进 main 分支之后，就触发了我们前面设置的 action。
 
-![](https://images.sayhub.me/blog/github-action-release/workflow.png)
+![](https://bucket.liruifengv.com/github-action-release/workflow.png)
 
 点击 Actions 查看，我们刚才的提交，触发了一个叫做 Release 的工作流。你可以点开查看，它会在 CI 环境里执行我们预设好的脚本。
 
 我们的脚本就是，如果检测到提交携带有 `changeset` 信息，就会自动发起一个叫做 `[ci] release ` 的 PR。这个 PR 中，CI 自动帮我们做好了 `CHANGELOG` 的生成，版本号的升级。
 
-![](https://images.sayhub.me/blog/github-action-release/release-pr.png)
+![](https://bucket.liruifengv.com/github-action-release/release-pr.png)
 
 当你点击 merge，合并到 main 分支之后，它就会自动地发布版本，同时发布到 npm 仓库和 GitHub release。
 

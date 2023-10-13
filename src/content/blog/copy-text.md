@@ -68,7 +68,7 @@ document.body.removeChild(textArea);
 
 这时候我有查了下`execCommand`的 MDN，https://developer.mozilla.org/zh-CN/docs/Web/API/Document/execCommand
 
-![](https://images.sayhub.me/blog/copy-text/exexcommand.png)
+![](https://bucket.liruifengv.com/copy-text/exexcommand.png)
 
 该特性已经被弃用，之所以还能用，是因为有些浏览器还没删除实现。可能不知道哪天就删了，也可能永远不删。
 
@@ -121,13 +121,13 @@ const copyText = async val => {
 
 继续排查（又 two thousand years later）。
 
-![](https://images.sayhub.me/blog/copy-text/error)
+![](https://bucket.liruifengv.com/copy-text/error)
 
 点击复制的时候，报错`Write permission denied`。
 
 查看 MDN：https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/clipboard
 
-![](https://images.sayhub.me/blog/copy-text/clipboard.png)
+![](https://bucket.liruifengv.com/copy-text/clipboard.png)
 
 > 只有在用户事先授予网站或应用对剪切板的访问许可之后，才能使用异步剪切板读写方法。许可操作必须通过取得权限 Permissions API 的 "clipboard-read" 和/或 "clipboard-write" 项获得。
 
@@ -135,13 +135,13 @@ Navigator 这种新 API 都是需要事先授予权限的，而权限是通过 `
 
 [Permissions API MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Permissions_API)
 
-![Permissions API 兼容性](https://images.sayhub.me/blog/copy-text/permission.png)
+![Permissions API 兼容性](https://bucket.liruifengv.com/copy-text/permission.png)
 
 看这里，原来 `Permissions API` 在安卓的 WebView 中是没实现的。
 
 [CGQAQ](https://github.com/CGQAQ) 同学帮我找了一下 [android_webview](https://chromium.googlesource.com/chromium/src/+/refs/heads/master/android_webview/browser/aw_permission_manager.cc#:~:text=case%20PermissionType::CLIPBOARD_READ_WRITE) 的源码
 
-![](https://images.sayhub.me/blog/copy-text/webview)
+![](https://bucket.liruifengv.com/copy-text/webview)
 
 果不其然，这里并没实现，直接返回了`PermissionStatus::DENIED` 状态。
 

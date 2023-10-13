@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" class="motion-safe:scroll-smooth text-base">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Astro v2.0.16">
+
+<!-- Primary Meta Tags -->
+<title>SayHub</title>
+<meta name="title" content="SayHub">
+<meta name="description" content="李瑞丰/liruifengv的博客网站，包括个人文章、自我介绍等内容，技术文章涵盖前端、后端、运维、Rust、Vue、React、Node、Deno等多个领域。">
+<link rel="shortcut icon" href="https://images.sayhub.me/logo.png">
+
+
+    
+  <link rel="stylesheet" href="/_astro/404.913c0a4f.css" />
+<link rel="stylesheet" href="/_astro/_...slug_.258635cf.css" /><script type="module">(function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?25fe062a2732666635d67e6585c7ea35";var t=document.getElementsByTagName("script")[0];t.parentNode?.insertBefore(e,t)})();
+</script></head>
+  
+    <header class="sticky top-0 z-40 mx-auto w-full bg-white" id="header">
+  <div class="py-3 px-3 mx-auto w-full md:flex md:justify-between max-w-7xl">
+    <div class="flex justify-between">
+      <a class="flex items-center flex-shrink-0" href="/">
+        <img class="w-10 h-10 rounded-3xl" src="https://images.sayhub.me/logo.png" alt="logo">
+        <span class="ml-4 text-2xl text-gray-900 font-bold">SayHub</span>
+      </a>
+      <div class="flex items-center md:hidden">
+        <button type="button" class="ml-1.5 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center transition" aria-label="Toggle Menu" id="toggle-menu">
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="w-6 h-6" astro-icon="tabler:menu"><g class="icon-tabler" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16"/><path d="M4 16h16"/></g></svg>
+</button>
+      </div>
+    </div>
+    <nav class="items-center w-full md:w-auto hidden md:flex text-gray-600 h-screen md:h-auto" aria-label="Main navigation">
+      <ul class="flex flex-col pt-8 md:pt-0 md:flex-row md:self-center w-full md:w-auto text-2xl md:text-base">
+        <li>
+          <a href="/" class="text-primary-600 font-medium hover:text-gray-900 px-4 py-3 flex items-center transition duration-150 ease-in-out astro-EIMMU3LG">
+  首页
+</a>
+        </li>
+        <li>
+          <a href="/blog" class="font-medium hover:text-gray-900 px-4 py-3 flex items-center transition duration-150 ease-in-out astro-EIMMU3LG">
+  文章
+</a>
+        </li>
+        <li>
+          <a href="/tag/读后感" class="font-medium hover:text-gray-900 px-4 py-3 flex items-center transition duration-150 ease-in-out astro-EIMMU3LG">
+  读后感
+</a>
+        </li>
+        <li>
+          <a href="/about" class="font-medium hover:text-gray-900 px-4 py-3 flex items-center transition duration-150 ease-in-out astro-EIMMU3LG">
+  关于
+</a>
+        </li>
+        <li>
+          <a href="https://sayhub.me/rss.xml" class="font-medium hover:text-gray-900 px-4 py-3 flex items-center transition duration-150 ease-in-out astro-EIMMU3LG" target="_blank">
+  RSS 订阅
+</a>
+        </li>
+        <li class="md:hidden">
+          <a class="font-medium hover:text-gray-900 px-4 py-3 flex items-center transition duration-150 ease-in-out" href="https://github.com/liruifengv" aria-label="liruifengv Github" target="_blank">Github
+          </a>
+        </li>
+      </ul>
+      <div class="md:self-center flex items-center mb-4 md:mb-0 ml-2">
+        <div class="hidden items-center md:flex">
+          <a href="https://github.com/liruifengv" class="inline-block text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-lg text-sm p-2.5" aria-label="liruifengv Github" target="_blank">
+            <svg viewBox="0 0 24 24" class="w-5 h-5" astro-icon="tabler:brand-github"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header><main>
+    <div class="max-w-7xl flex mx-auto flex-col md:flex-row">
+    <section class="px-6 py-8 sm:py-12 lg:py-16 max-w-5xl">
+      <div class="mb-6 text-3xl text-center">最近更新</div>
+      <ul>
+        <li class="mt-5 md:mb-8">
+              <div class="flex flex-col md:flex-row text-gray-900">
+  <div class="md:shrink-0 w-full md:h-full md:w-80">
+        <a href="/blog/rspack-vue/">
+          <picture>
+	<source type="image/avif" srcset="/_astro/rspack_ZbPuFW.avif 400w,/_astro/rspack_Z1BGMTP.avif 900w" sizes="(max-width: 900px) 400px, 900px"><source type="image/webp" srcset="/_astro/rspack_ZBEibv.webp 400w,/_astro/rspack_Z22vApo.webp 900w" sizes="(max-width: 900px) 400px, 900px"><source type="image/png" srcset="/_astro/rspack_Z2mumSi.png 400w,/_astro/rspack_1hPsGK.png 900w" sizes="(max-width: 900px) 400px, 900px">
+	<img alt="快速尝鲜字节刚刚开源的 Rspack，卷不动了？" src="/_astro/rspack_1hPsGK.png" loading="lazy" decoding="async">
+</picture>
+        </a>
+      </div>
+  <div class="mt-2 md:mt-0 md:px-6">
+    <div class="text-xl font-heading font-bold">
+      <a class="hover:text-primary-600 transition ease-in duration-200" href="/blog/rspack-vue/">
+        快速尝鲜字节刚刚开源的 Rspack，卷不动了？
+      </a>
+    </div>
+    <div class="mt-2 font-normal">你还卷得动吗？今天，字节跳动刚刚开源了 Rspack，一个 Rust 写的打包构建工具，功能和用法上对齐 webpack。</div>
+    <div class="mt-2 font-light">发表日期：2023-03-10</div>
+    <ul class="mt-2">
+      <li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/Vue">Vue</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/front-end">front-end</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/webpack">webpack</a>
+        </li>
+    </ul>
+  </div>
+</div>
+            </li><li class="mt-5 md:mb-8">
+              <div class="flex flex-col md:flex-row text-gray-900">
+  <div class="md:shrink-0 w-full md:h-full md:w-80">
+        <a href="/blog/certbot-https/">
+          <picture>
+	<source type="image/avif" srcset="/_astro/HTTPS-cover_2qmMfY.avif 400w,/_astro/HTTPS-cover_10vu26.avif 900w" sizes="(max-width: 900px) 400px, 900px"><source type="image/webp" srcset="/_astro/HTTPS-cover_20xYKq.webp 400w,/_astro/HTTPS-cover_zGGwx.webp 900w" sizes="(max-width: 900px) 400px, 900px"><source type="image/png" srcset="/_astro/HTTPS-cover_19N7gO.png 400w,/_astro/HTTPS-cover_Zg3aW4.png 900w" sizes="(max-width: 900px) 400px, 900px">
+	<img alt="使用Certbot申请免费 HTTPS 证书及自动续期" src="/_astro/HTTPS-cover_Zg3aW4.png" loading="lazy" decoding="async">
+</picture>
+        </a>
+      </div>
+  <div class="mt-2 md:mt-0 md:px-6">
+    <div class="text-xl font-heading font-bold">
+      <a class="hover:text-primary-600 transition ease-in duration-200" href="/blog/certbot-https/">
+        使用Certbot申请免费 HTTPS 证书及自动续期
+      </a>
+    </div>
+    <div class="mt-2 font-normal">今天来使用 Certbot 来申请免费的HTTPS证书，并且自动续期</div>
+    <div class="mt-2 font-light">发表日期：2023-03-02</div>
+    <ul class="mt-2">
+      <li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/HTTPS">HTTPS</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/nginx">nginx</a>
+        </li>
+    </ul>
+  </div>
+</div>
+            </li><li class="mt-5 md:mb-8">
+              <div class="flex flex-col md:flex-row text-gray-900">
+  <div class="md:shrink-0 w-full md:h-full md:w-80">
+        <a href="/blog/chatgpt-vue3/">
+          <picture>
+	<source type="image/avif" srcset="/_astro/deno-code_cUh1O.avif 400w,/_astro/deno-code_Z1cV1c4.avif 900w" sizes="(max-width: 900px) 400px, 900px"><source type="image/webp" srcset="/_astro/deno-code_ZcSvsJ.webp 400w,/_astro/deno-code_Z1CJNGC.webp 900w" sizes="(max-width: 900px) 400px, 900px">
+	<img alt="我用 ChatGPT 读 Vue3 源码" src="/_astro/deno-code_Z1CJNGC.webp" loading="lazy" decoding="async">
+</picture>
+        </a>
+      </div>
+  <div class="mt-2 md:mt-0 md:px-6">
+    <div class="text-xl font-heading font-bold">
+      <a class="hover:text-primary-600 transition ease-in duration-200" href="/blog/chatgpt-vue3/">
+        我用 ChatGPT 读 Vue3 源码
+      </a>
+    </div>
+    <div class="mt-2 font-normal">ChatGPT 最近十分火爆，今天我也来让 ChatGPT 帮我阅读一下 Vue3 的源代码。看看Vue3 的 setup函数是怎么回事。</div>
+    <div class="mt-2 font-light">发表日期：2023-02-23</div>
+    <ul class="mt-2">
+      <li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/Vue">Vue</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/ChatGPT">ChatGPT</a>
+        </li>
+    </ul>
+  </div>
+</div>
+            </li><li class="mt-5 md:mb-8">
+              <div class="flex flex-col md:flex-row text-gray-900">
+  <div class="md:shrink-0 w-full md:h-full md:w-80">
+        <a href="/blog/create-lint-config/">
+          <picture>
+	<source type="image/avif" srcset="/_astro/screenshot_tzGKY.avif 400w,/_astro/screenshot_ZVgArT.avif 900w" sizes="(max-width: 900px) 400px, 900px"><source type="image/webp" srcset="/_astro/screenshot_3KTgq.webp 400w,/_astro/screenshot_Z1m5nWs.webp 900w" sizes="(max-width: 900px) 400px, 900px"><source type="image/png" srcset="/_astro/screenshot_ZR6jUB.png 400w,/_astro/screenshot_Z2hWC9u.png 900w" sizes="(max-width: 900px) 400px, 900px">
+	<img alt="写一个命令行CLI，一键生成各种烦人的lint配置" src="/_astro/screenshot_Z2hWC9u.png" loading="lazy" decoding="async">
+</picture>
+        </a>
+      </div>
+  <div class="mt-2 md:mt-0 md:px-6">
+    <div class="text-xl font-heading font-bold">
+      <a class="hover:text-primary-600 transition ease-in duration-200" href="/blog/create-lint-config/">
+        写一个命令行CLI，一键生成各种烦人的lint配置
+      </a>
+    </div>
+    <div class="mt-2 font-normal">前端工程中各种配置文件eslint、prettier等搞得我很头大，那就写一个命令行工具来搞定它吧。</div>
+    <div class="mt-2 font-light">发表日期：2023-02-21</div>
+    <ul class="mt-2">
+      <li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/开源">开源</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/CLI">CLI</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/工具">工具</a>
+        </li>
+    </ul>
+  </div>
+</div>
+            </li><li class="mt-5 md:mb-8">
+              <div class="flex flex-col md:flex-row text-gray-900">
+  <div class="md:shrink-0 w-full md:h-full md:w-80">
+        <a href="/blog/github-action-release/">
+          <picture>
+	<source type="image/avif" srcset="/_astro/github_ZMnuCM.avif 400w,/_astro/github_Z2deMQF.avif 900w" sizes="(max-width: 900px) 400px, 900px"><source type="image/webp" srcset="/_astro/github_Z1dci8l.webp 400w,/_astro/github_2r8xrH.webp 900w" sizes="(max-width: 900px) 400px, 900px"><source type="image/jpeg" srcset="/_astro/github_Z2Tprk.jpeg 400w,/_astro/github_Z1sKHFd.jpeg 900w" sizes="(max-width: 900px) 400px, 900px">
+	<img alt="使用 GitHub Action 自动化发布 npm 版本" src="/_astro/github_Z1sKHFd.jpeg" loading="lazy" decoding="async">
+</picture>
+        </a>
+      </div>
+  <div class="mt-2 md:mt-0 md:px-6">
+    <div class="text-xl font-heading font-bold">
+      <a class="hover:text-primary-600 transition ease-in duration-200" href="/blog/github-action-release/">
+        使用 GitHub Action 自动化发布 npm 版本
+      </a>
+    </div>
+    <div class="mt-2 font-normal">本文将介绍如何利用 GitHub Action 自动化发布 npm 包版本和 GitHub release。</div>
+    <div class="mt-2 font-light">发表日期：2023-02-18</div>
+    <ul class="mt-2">
+      <li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/开源">开源</a>
+        </li>
+    </ul>
+  </div>
+</div>
+            </li>
+      </ul>
+      <a href="/blog" class="hover:text-primary-600 mt-6 text-xl flex flex-row-reverse">查看更多&gt;</a>
+    </section>
+    <div class="px-6 py-8 mt-2 text-base max-w-sm">
+      <div class="mt-6 text-3xl">全部标签</div>
+      <ul class="text-base mt-6">
+      <li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/Vue">Vue</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/front-end">front-end</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/webpack">webpack</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/HTTPS">HTTPS</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/nginx">nginx</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/ChatGPT">ChatGPT</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/开源">开源</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/CLI">CLI</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/工具">工具</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/读后感">读后感</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/JavaScript">JavaScript</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/HTML">HTML</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/WebView">WebView</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/React">React</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/Promise">Promise</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/年终总结">年终总结</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/ghost">ghost</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/建站">建站</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/blog">blog</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/mysql">mysql</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/Deno">Deno</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/restful">restful</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/font">font</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/web">web</a>
+        </li><li class="text-primary-600 hover:underline bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-4 py-0.5 px-2">
+          <a href="/tag/CSS">CSS</a>
+        </li>
+    </ul>
+    </div>
+  </div>
+  </main><footer class="astro-SZ7XMLTE">
+  <a class="hover:text-primary-600 hover:underline astro-SZ7XMLTE" target="_blank" href="https://beian.miit.gov.cn/#/Integrated/index" rel="noreferrer">
+    冀ICP备17036505号-1
+  </a>
+  <div class="astro-SZ7XMLTE">
+    &copy; 2023 SayHub. All rights reserved.
+  </div>
+</footer>
+    
+    <script>
+      window.onload = function () {
+        const menuIcon = document.querySelector('#toggle-menu')
+        menuIcon.addEventListener('click', () => {
+          menuIcon.classList.toggle('expanded')
+          document.body.classList.toggle('overflow-hidden')
+          document.getElementById('header')?.classList.toggle('h-screen')
+          document.querySelector('#header nav')?.classList.toggle('hidden')
+        })
+      }
+    </script>
+  </html>

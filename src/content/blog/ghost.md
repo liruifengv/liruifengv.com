@@ -59,7 +59,7 @@ ghost install local
 
 出现了个报错，安装失败
 
-![插图](https://images.sayhub.me/blog/ghost/img1.webp)
+![插图](https://bucket.liruifengv.com/ghost/img1.webp)
 
 看下报错信息说我的 Node.js 版本不支持。
 
@@ -71,13 +71,13 @@ ghost install local
 ghost install local
 ```
 
-![插图](https://images.sayhub.me/blog/ghost/img2.webp)
+![插图](https://bucket.liruifengv.com/ghost/img2.webp)
 
 运行成功！
 
 浏览器打开 http://localhost:2368/ghost/
 
-![插图](https://images.sayhub.me/blog/ghost/img3.webp)
+![插图](https://bucket.liruifengv.com/ghost/img3.webp)
 
 第一步让创建一个管理员账号，我们输入相关信息，
 
@@ -85,21 +85,21 @@ ghost install local
 
 进入后看到的是一个管理员的后台界面。我们可以看到左上角我们设置的网站名称
 
-![插图](https://images.sayhub.me/blog/ghost/img4.webp)
+![插图](https://bucket.liruifengv.com/ghost/img4.webp)
 
 点击 View stie，能看到普通用户的前端页面
 
-![插图](https://images.sayhub.me/blog/ghost/img5.webp)
+![插图](https://bucket.liruifengv.com/ghost/img5.webp)
 
 同时我们可以看到侧边栏，有文章，草稿，页面等管理项。
 
 我们先点击左下角的设置。
 
-![插图](https://images.sayhub.me/blog/ghost/img6.webp)
+![插图](https://bucket.liruifengv.com/ghost/img6.webp)
 
 有一些设置选项，通用、设计、导航等。点击通用
 
-![插图](https://images.sayhub.me/blog/ghost/img7.webp)
+![插图](https://bucket.liruifengv.com/ghost/img7.webp)
 
 可以设置网站名称和描述
 
@@ -111,7 +111,7 @@ https://ghost.org/docs/themes/helpers/translate/
 
 到这一步需要了解一下项目的目录结构了。打开一开始创建的目录，会发现 ghost 在该目录下生成了一个项目
 
-![插图](https://images.sayhub.me/blog/ghost/img8.jpeg)
+![插图](https://bucket.liruifengv.com/ghost/img8.jpeg)
 
 那么如何设置语言呢，在 content/themes 下，是 Ghost 的主题，默认主题是 casper。我们可以在官网找到很多主题，有收费的有免费的。
 
@@ -119,7 +119,7 @@ https://ghost.org/docs/themes/helpers/translate/
 
 一切都搞定之后，使用 `ghost restart` 命令重启，使得新增文件生效。
 
-![插图](https://images.sayhub.me/blog/ghost/img9.webp)
+![插图](https://bucket.liruifengv.com/ghost/img9.webp)
 
 ok，我们改的一些文字生效了。
 
@@ -153,7 +153,7 @@ docker exec -it my-ghost /bin/bash
 
 这时候我想在容器里面执行一下 ghost 命令。
 
-![插图](https://images.sayhub.me/blog/ghost/img10.png)
+![插图](https://bucket.liruifengv.com/ghost/img10.png)
 
 突然报错说不能使用 root 用户来运行命令。查看对应文档。不得不说 ghost 的报错信息提示还是很不错的，每个报错都对应了文档链接。这里说让创建个普通用户来执行 ghost 命令。
 

@@ -102,17 +102,17 @@ Mac 安装最简单的方法是使用 Homebrew：
 
 ## 安装 Vscode 扩展
 
-![](https://images.sayhub.me/blog/deno-http/img1.awebp)
+![](https://bucket.liruifengv.com/deno-http/img1.webp)
 
 ## 启动一个 Deno 服务
 
 首先新建一个 index.ts 文件，写入以下代码
 
-![](https://images.sayhub.me/blog/deno-http/img2.awebp)
+![](https://bucket.liruifengv.com/deno-http/img2.webp)
 
 使用`deno run index.ts` 命令运行它。
 
-![](https://images.sayhub.me/blog/deno-http/img3.awebp)
+![](https://bucket.liruifengv.com/deno-http/img3.webp)
 
 先下载了一些依赖项，最后在编译的步骤上报错了，提示我们没有网络权限，这其实是 Deno 的 安全沙箱 Sandbox 的问题。Deno 有一个安全沙箱，可以防止程序做一些你不允许的事情。
 那么我们在上面的运行命令上加上 `--allow-net`
@@ -121,11 +121,11 @@ Mac 安装最简单的方法是使用 Homebrew：
 deno run --allow-net app.ts
 ```
 
-![](https://images.sayhub.me/blog/deno-http/img4.awebp)
+![](https://bucket.liruifengv.com/deno-http/img4.webp)
 
 运行成功了，该应用程序现在监听在 8000 端口上运行着 HTTP 服务器：
 
-![](https://images.sayhub.me/blog/deno-http/img5.awebp)
+![](https://bucket.liruifengv.com/deno-http/img5.webp)
 
 ## 构建 REST-API
 
@@ -157,7 +157,7 @@ const HOST = env.HOST || "127.0.0.1";
 ```
 
 编写应用代码
-![](https://images.sayhub.me/blog/deno-http/img6.awebp)
+![](https://bucket.liruifengv.com/deno-http/img6.webp)
 
 使用命令来运行它
 
@@ -165,7 +165,7 @@ const HOST = env.HOST || "127.0.0.1";
 deno run --allow-env --allow-net app.ts
 ```
 
-![](https://images.sayhub.me/blog/deno-http/img7.awebp)
+![](https://bucket.liruifengv.com/deno-http/img7.webp)
 
 接下来我们来编写我们的 API 吧。
 
@@ -321,29 +321,29 @@ export const deleteBook = ({
 
 - 获取所有书的列表
 
-![](https://images.sayhub.me/blog/deno-http/img8.awebp)
+![](https://bucket.liruifengv.com/deno-http/img8.webp)
 
 - 获取某一本书的详情
-  ![](https://images.sayhub.me/blog/deno-http/img9.awebp)
+  ![](https://bucket.liruifengv.com/deno-http/img9.webp)
 
 - 添加一本书
-  ![](https://images.sayhub.me/blog/deno-http/img10.awebp)
+  ![](https://bucket.liruifengv.com/deno-http/img10.webp)
 
 再次查询，发现刚才添加的书已经在列表中了。
-![](https://images.sayhub.me/blog/deno-http/img11.awebp)
+![](https://bucket.liruifengv.com/deno-http/img11.webp)
 
 - 修改一本书
-  ![](https://images.sayhub.me/blog/deno-http/img12.awebp)
+  ![](https://bucket.liruifengv.com/deno-http/img12.webp)
 
 再次查询，发现 bookOne 的简介更新了。
-![](https://images.sayhub.me/blog/deno-http/img13.awebp)
+![](https://bucket.liruifengv.com/deno-http/img13.webp)
 
 - 删除一本书
-  ![](https://images.sayhub.me/blog/deno-http/img14.awebp)
+  ![](https://bucket.liruifengv.com/deno-http/img14.webp)
 
 再次查询，发现 bookOne 已经从列表中删除了
 
-![](https://images.sayhub.me/blog/deno-http/img15.awebp)
+![](https://bucket.liruifengv.com/deno-http/img15.webp)
 
 以上，我们已经完成了我们的 REST API 了。可以看到 Deno 写代码与 Node.js 并没有太大的差异，不同的在于 Deno 的依赖管理方式，下一篇文章我们将讲一讲 Deno 项目如何管理引入依赖，以及它的优缺点。
 

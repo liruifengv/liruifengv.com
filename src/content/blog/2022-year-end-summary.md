@@ -20,23 +20,23 @@ tags:
 
 生活上呢，上半年疫情没有扩散的时候，过得还不错，由于女朋友在北京，所以频频来往于北京和天津，去过了北海公园、天坛、雍和宫。
 
-![白塔](https://images.sayhub.me/blog/2022-year-end-summary/baita)
+![白塔](https://bucket.liruifengv.com/2022-year-end-summary/baita.jpg)
 
-![天坛](https://images.sayhub.me/blog/2022-year-end-summary/tiantan)
+![天坛](https://bucket.liruifengv.com/2022-year-end-summary/tiantan.jpg)
 
 又去了趟杭州旅行，看了西湖，逛了灵隐寺，许了愿。
 
-![西湖](https://images.sayhub.me/blog/2022-year-end-summary/xihu)
+![西湖](https://bucket.liruifengv.com/2022-year-end-summary/xihu.jpg)
 
-![灵隐寺](https://images.sayhub.me/blog/2022-year-end-summary/lingyin)
+![灵隐寺](https://bucket.liruifengv.com/2022-year-end-summary/lingyin.jpg)
 
-![灵隐寺](https://images.sayhub.me/blog/2022-year-end-summary/lingyin2)
+![灵隐寺](https://bucket.liruifengv.com/2022-year-end-summary/lingyin2.jpg)
 
 下半年比较糟，疫情爆发，频频封在家里，北京弹窗宝一直弹窗 3，很是烦人。
 
 最后关头终于开放，我也有幸感染了新冠。
 
-![阳了](https://images.sayhub.me/blog/2022-year-end-summary/kangyuan)
+![阳了](https://bucket.liruifengv.com/2022-year-end-summary/kangyuan.jpg)
 
 ### 工作
 

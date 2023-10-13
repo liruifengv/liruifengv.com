@@ -70,7 +70,7 @@ deno hello.ts
 
 这时候我们可以看到输出：
 
-![](https://images.sayhub.me/blog/deno/hello-world.awebp)
+![](https://bucket.liruifengv.com/deno/hello-world.webp)
 
 哇，我们成功的写完了我们的第一个 deno 程序。
 
