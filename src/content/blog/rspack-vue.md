@@ -23,9 +23,9 @@ tags:
 
 我在第一时间进行了试用，速度确实很快。看一下官方给出的数据：
 
-![image.png](https://images.sayhub.me/blog/rspack-vue/dev-compare.png)
+![image.png](https://bucket.liruifengv.com/rspack-vue/dev-compare.png)
 
-![image.png](https://images.sayhub.me/blog/rspack-vue/build-compare.png)
+![image.png](https://bucket.liruifengv.com/rspack-vue/build-compare.png)
 
 > 你猜为什么没有跟 Vite 比？
 
@@ -35,7 +35,7 @@ tags:
 
 官方说法：
 
-![image.png](https://images.sayhub.me/blog/rspack-vue/rspack-vue-support.png)
+![image.png](https://bucket.liruifengv.com/rspack-vue/rspack-vue-support.png)
 
 对于单文件组件，大家都知道需要 vue-loader 进行转换。目前支持不是太好，官方例子里，写了个简单的 vue-loader，见：https://github.com/web-infra-dev/rspack/tree/main/examples/vue
 
@@ -128,4 +128,4 @@ Rspack 的目标是对齐 webpack，对于已有的 Loader 和 Plugin 进行兼�
 
 你还记得 **Modern.js** 吗
 
-![image.png](https://images.sayhub.me/blog/rspack-vue/evan-rspack)
+![image.png](https://bucket.liruifengv.com/rspack-vue/evan-rspack.jpg)

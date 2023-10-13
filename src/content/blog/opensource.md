@@ -140,11 +140,11 @@ Astro 在 2022 年非常火爆，我也尝了把鲜，使用 Astro 把我的[个
 
 我在翻译 Astro 的文档：「[将现有项目迁移到 Astro](https://docs.astro.build/zh-cn/guides/migrate-to-astro/)」的时候，不小心留下一个错别字。
 
-![](https://images.sayhub.me/blog/opensource/astro-doc.png)
+![](https://bucket.liruifengv.com/opensource/astro-doc.png)
 
 感兴趣的同学可以修改一下。
 
-![](https://images.sayhub.me/blog/opensource/avatar.png)
+![](https://bucket.liruifengv.com/opensource/avatar.png)
 
 修复之后，你的头像就会出现在[这里](https://docs.astro.build/zh-cn/getting-started/)。找到我的头像了吗？
 

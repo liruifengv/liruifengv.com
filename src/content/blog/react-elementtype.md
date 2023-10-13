@@ -16,7 +16,7 @@ tags:
 
 在用 React 进行开发的过程中，要用到 PropTypes 对组件的 props 进行类型检查。其中有两个类型，element 和 elementType，让我百思不得其解。这两个的区别到底是什么，在跟小伙伴探讨和实践之后，产生了这篇文章。
 
-![](https://images.sayhub.me/blog/react-elementtype/img1.webp)
+![](https://bucket.liruifengv.com/react-elementtype/img1.webp)
 
 从官方文档来看，element 比较好理解，就是 React 元素，即组件。比如 `<Foo /> `。
 
@@ -30,7 +30,7 @@ elementType 给出的解释是 React 元素类型，即 Foo 。
 
 后来和小伙伴探讨，从 [isValidElementType](https://github.com/facebook/react/blob/ca106a02d1648f4f0048b07c6b88f69aac175d3c/packages/shared/isValidElementType.js#L34) 这个方法发现，elementType 其实是个类型集合。
 
-![](https://images.sayhub.me/blog/react-elementtype/img2.webp)
+![](https://bucket.liruifengv.com/react-elementtype/img2.webp)
 
 从这里可以看出，他支持多种类型，有 string、function、Fragment 等等。
 
@@ -42,7 +42,7 @@ https://codesandbox.io/s/xenodochial-mountain-e4cfr?file=/src/App.js
 
 再回过头看官方文档
 
-![](https://images.sayhub.me/blog/react-elementtype/img3.webp)
+![](https://bucket.liruifengv.com/react-elementtype/img3.webp)
 
 原来真的是放在标签 </> 里的类型。element 是<Foo/> 或者<Fragment/>，elementType 是 Foo 或者 Fragment，elementType 的目标是生成 element。
 
@@ -50,7 +50,7 @@ https://codesandbox.io/s/xenodochial-mountain-e4cfr?file=/src/App.js
 
 #### 再看我第一次的写法
 
-![](https://images.sayhub.me/blog/react-elementtype/img4.jpeg)
+![](https://bucket.liruifengv.com/react-elementtype/img4.jpeg)
 
 把 element 当作一个方法来调用，虽然也没报错并且成功渲染了，那是因为函数式组件的原因。但是实际使用方式是错误的，这也解了我之前的疑惑，为什么不用 func。原来根本不是一个用途。
 

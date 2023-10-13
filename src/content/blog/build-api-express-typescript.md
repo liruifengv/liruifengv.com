@@ -25,7 +25,7 @@ tags:
 
 这就是我们创建这个教程的原因。使用 Deno，你不需要配置 TypeScript，因此你可以使用最少的依赖项启动并运行。
 
-![](https://images.sayhub.me/blog/build-api-express-typescript/deno1.png)
+![](https://bucket.liruifengv.com/build-api-express-typescript/deno1.png)
 
 你可以直接观看这篇文章的[油管视频](https://www.youtube.com/watch?v=TDFv2hBRUtQ)。
 
@@ -77,7 +77,7 @@ app.listen(port, () => {
 
 让我们启动我们的服务器：
 
-![](https://images.sayhub.me/blog/build-api-express-typescript/deno-run-permissions.png)
+![](https://bucket.liruifengv.com/build-api-express-typescript/deno-run-permissions.png)
 
 当我们开发 API 时，我们必须引入各种各样的代码，从地理信息、人工智能、广告服务器到其他任何其他输入，这些输入必须结合在一起才能产生所需的内容。当然，我们不希望 Express 引入漏洞，但是 Express 只是你需要构建某些东西的堆栈的一部分。
 
@@ -85,11 +85,11 @@ app.listen(port, () => {
 
 现在，我们有了一个运行的 API 服务，我们可以使用 curl 进行查询：
 
-![](https://images.sayhub.me/blog/build-api-express-typescript/deno-express-hello.png)
+![](https://bucket.liruifengv.com/build-api-express-typescript/deno-express-hello.png)
 
 我们现在确定框架正常工作，所以我们确定了我们的安装以及其他所有内容。但是，它还不是一个很好的工作环境，所以让我们设置我们的 `deno.jsonc` 文件来定义一些辅助脚本：
 
-![](https://images.sayhub.me/blog/build-api-express-typescript/deno-tasks-config.png)
+![](https://bucket.liruifengv.com/build-api-express-typescript/deno-tasks-config.png)
 
 这与 `package.json` 脚本类似（事实上，Deno 甚至可以使用 `package.json` 脚本，但是推荐使用 `deno.jsonc`），其中我们有一个用于开发的任务，另一个用于在不监视和重新加载更改的情况下启动服务器。
 

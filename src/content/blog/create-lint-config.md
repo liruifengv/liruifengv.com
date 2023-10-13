@@ -18,7 +18,7 @@ tags:
 
 写一个前端工程，要配置特别多的配置文件，大量的配置文件让我们很烦心，占用了大量写代码的时间。
 
-![](https://images.sayhub.me/blog/create-lint-config/mulu.png)
+![](https://bucket.liruifengv.com/create-lint-config/mulu.png)
 
 就像上图，看着就头大。
 
@@ -51,7 +51,7 @@ pnpm create lint-config@latest
 
 执行结果如下：
 
-![screenshot](https://images.sayhub.me/blog/create-lint-config/screenshot.png)
+![screenshot](https://bucket.liruifengv.com/create-lint-config/screenshot.png)
 
 这个命令，一次执行，创建了 Eslint、StyleLint、prettier、commitlint、husy、lint-staged 等所有配置文件。
 

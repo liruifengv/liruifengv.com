@@ -56,17 +56,17 @@ services:
 docker stack deploy -c stack.yml ghost
 ```
 
-![插图](https://images.sayhub.me/blog/ghost-mysql/img1.webp)
+![插图](https://bucket.liruifengv.com/ghost-mysql/img1.webp)
 
 `docker service ls` 看到了两个服务
 
-![插图](https://images.sayhub.me/blog/ghost-mysql/img2.webp)
+![插图](https://bucket.liruifengv.com/ghost-mysql/img2.webp)
 
 ```sh
 docker ps
 ```
 
-![插图](https://images.sayhub.me/blog/ghost-mysql/img3.webp)
+![插图](https://bucket.liruifengv.com/ghost-mysql/img3.webp)
 
 打开网站，发现我们的博客也顺利启动起来了，那么看一下数据库链接是否变成了 mysql
 
@@ -81,7 +81,7 @@ use ghost;
 show tables;
 ```
 
-![插图](https://images.sayhub.me/blog/ghost-mysql/img4.webp)
+![插图](https://bucket.liruifengv.com/ghost-mysql/img4.webp)
 
 我们能看到 mysql 中新建了 ghost 数据库，以及相关的表。
 

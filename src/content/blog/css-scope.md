@@ -69,7 +69,7 @@ CSS：
 ```
 
 效果如下：
-![image.png](https://images.sayhub.me/blog/css-scope/p1.png)
+![image.png](https://bucket.liruifengv.com/css-scope/p1.png)
 
 ### 例二
 
@@ -99,7 +99,7 @@ CSS：
 ```
 
 效果如下：
-![image.png](https://images.sayhub.me/blog/css-scope/p2.png)
+![image.png](https://bucket.liruifengv.com/css-scope/p2.png)
 
 ### 例三
 
@@ -124,7 +124,7 @@ HTML CSS 混合：
 
 效果如下：
 
-![image.png](https://images.sayhub.me/blog/css-scope/p3.png)
+![image.png](https://bucket.liruifengv.com/css-scope/p3.png)
 
 ## 总结
 

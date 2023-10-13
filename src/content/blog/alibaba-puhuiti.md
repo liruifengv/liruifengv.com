@@ -29,7 +29,7 @@ tags:
 
 ### 截图
 
-![alibaba-puhuiti](https://images.sayhub.me/blog/alibaba-puhuiti/screenshot.png)
+![alibaba-puhuiti](https://bucket.liruifengv.com/alibaba-puhuiti/screenshot.png)
 
 ### 阿里巴巴普惠体下载链接
 

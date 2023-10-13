@@ -142,12 +142,12 @@ fn main() {
 
 接下来我们运行一下看看效果：
 
-![](https://images.sayhub.me/blog/Rust/p3.png)
+![](https://bucket.liruifengv.com/Rust/p3.png)
 
 上图是分别执行`cargo run -- -V` 和 `cargo run -- -h` 的效果。
 可以看到打印出了版本号和帮助信息，非常漂亮。
 
-![](https://images.sayhub.me/blog/Rust/p4.png)
+![](https://bucket.liruifengv.com/Rust/p4.png)
 
 然后执行 `cargo run add -h` 和 `cargo run rm -h` ，可以看到也打印出了子命令的帮助信息。
 
@@ -303,7 +303,7 @@ Ok，到此我们的项目结构基本定型了，`main.rs` 作为主入口，`c
 
 windows 在 `C:\Users\<your_username>`下，macOS 在 `/Users/<your_username>` 下。
 
-![](https://images.sayhub.me/blog/Rust/p5.png)
+![](https://bucket.liruifengv.com/Rust/p5.png)
 
 上图是我的 windows 电脑的用户目录，可以看到我们熟悉的各种文件都在这里。同样还有我们的 `.rododb` 文件，我们希望它能存储在这里。
 
@@ -407,7 +407,7 @@ let mut db = Database::open();
 
 ## 最终效果：
 
-![](https://images.sayhub.me/blog/Rust/p2.png)
+![](https://bucket.liruifengv.com/Rust/p2.png)
 
 ## 总结
 

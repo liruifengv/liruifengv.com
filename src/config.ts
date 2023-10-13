@@ -43,3 +43,5 @@ export const OG: OG_Type = {
   emojiType: "twemoji",
   ogImage: "astropaper-og.jpg",
 };
+
+export const CND_URL: string = "https://bucket.liruifengv.com";

@@ -25,7 +25,7 @@ ChatGPT 最近十分火爆，今天我也来让 ChatGPT 帮我阅读一下 Vue3 
 
 `setup` 函数在什么位置呢，我们不知道他的实现函数名称，于是问一下 ChatGPT：
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/829a535dcb364669811ed8866529693f~tplv-k3u1fbpfcp-watermark.image?)
+![image.png](https://bucket.liruifengv.com/chatgpt-vue3/p1.webp)
 
 ChatGPT 告诉我，`setup` 函数在`packages/runtime-core/src/component.ts` 文件中。众所周知，`runtime-core`是 Vue3 的运行时核心代码。我们进去看一眼。
 
@@ -35,7 +35,7 @@ ChatGPT 告诉我，`setupComponent` 函数是在`createComponentInstance`函数
 
 直接复制给 ChatGPT：
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bbc498d1967d450a868b7a2d821a6513~tplv-k3u1fbpfcp-watermark.image?)
+![image.png](https://bucket.liruifengv.com/chatgpt-vue3/p2.webp)
 
 我们根据 ChatGPT 的解释来阅读代码，发现`createComponentInstance`只是创建了组件的实例并返回。并没有像它上面说的在函数中执行了 `setupComponent`，笨笨的 ChatGPT。
 
@@ -99,13 +99,13 @@ export function setupComponent(
 
 把代码喂给 ChatGPT：
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/05cdb740246949e880896cb03f4f83ef~tplv-k3u1fbpfcp-watermark.image?)
+![image.png](https://bucket.liruifengv.com/chatgpt-vue3/p3.webp)
 
 `setupComponent` 函数中，处理完 props 和 slots 后，根据是否是有状态组件调用了`setupStatefulComponent`。
 
 直接整个 `setupStatefulComponent`喂给 ChatGPT：
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4cfea15ff75b4bda9bb2dda2442eec41~tplv-k3u1fbpfcp-watermark.image?)
+![image.png](https://bucket.liruifengv.com/chatgpt-vue3/p4.webp)
 
 太长了，大概意思：
 

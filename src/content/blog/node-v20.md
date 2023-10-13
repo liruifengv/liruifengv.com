@@ -44,7 +44,7 @@ tags:
 
 ## 搞起来
 
-![](https://images.sayhub.me/blog/node-v20/node-20.png)
+![](https://bucket.liruifengv.com/node-v20/node-20.png)
 
 下面就我感兴趣的两个点进行详细介绍和代码实践。
 
@@ -201,7 +201,7 @@ node --experimental-permission --allow-fs-read=/Users/liruifeng/  --allow-fs-wri
 
 成功了，输出如下：
 
-```
+```bash
 test
 canWrite: false
 canWriteTest: true
@@ -282,7 +282,7 @@ Ok，我们成功打包了一个可以在未安装 Node.js 的机器上执行的
 
 ## 版本时间表
 
-![](https://images.sayhub.me/blog/node-v20/release-schedule.png)
+![](https://bucket.liruifengv.com/node-v20/release-schedule.png)
 
 上面是 Node.js 官方的版本维护时间表。
 
