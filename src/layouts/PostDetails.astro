@@ -9,7 +9,7 @@ import slugify, { slugifyStr } from "@utils/slugify";
 import PostFooter from "@components/PostFooter.astro";
 import ScrollToTop from "@components/ScrollToTop.astro";
 import { Image } from "astro:assets";
-
+import type { ImageMetadata } from "astro";
 export interface Props {
   post: CollectionEntry<"blog">;
 }
@@ -54,23 +54,13 @@ const ogUrl = new URL(
     {
       ogImage && (
         <div class="flex justify-center">
-          {typeof ogImage === "string" ? (
-            <Image
-              src={ogImage}
-              alt={title}
-              class="rounded-lg"
-              width={720}
-              height={500}
-            />
-          ) : (
-            <Image
-              src={ogImage}
-              alt={title}
-              class="rounded-lg"
-              width={720}
-              height={500}
-            />
-          )}
+          <Image
+            src={ogImage as ImageMetadata}
+            alt={title}
+            class="rounded-lg"
+            width={720}
+            height={500}
+          />
         </div>
       )
     }
