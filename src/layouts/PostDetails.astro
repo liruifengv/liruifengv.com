@@ -8,6 +8,7 @@ import type { CollectionEntry } from "astro:content";
 import slugify, { slugifyStr } from "@utils/slugify";
 import PostFooter from "@components/PostFooter.astro";
 import ScrollToTop from "@components/ScrollToTop.astro";
+import { Image } from "astro:assets";
 
 export interface Props {
   post: CollectionEntry<"blog">;
@@ -50,6 +51,29 @@ const ogUrl = new URL(
   <main id="main-content">
     <h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
     <Datetime datetime={pubDatetime} size="lg" className="my-2" />
+    {
+      ogImage && (
+        <div class="flex justify-center">
+          {typeof ogImage === "string" ? (
+            <Image
+              src={ogImage}
+              alt={title}
+              class="rounded-lg"
+              width={720}
+              height={500}
+            />
+          ) : (
+            <Image
+              src={ogImage}
+              alt={title}
+              class="rounded-lg"
+              width={720}
+              height={500}
+            />
+          )}
+        </div>
+      )
+    }
     <article
       id="article"
       role="article"

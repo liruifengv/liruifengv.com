@@ -1,4 +1,5 @@
 ---
+
 title: "2022 年终总结"
 author: liruifengv
 description: "2022 年是难以言表的一年，没完没了的疫情席卷着我们。所幸的是，2022 年末的时候，迎来了新的转机。抓住 12 月的尾巴，写一下今年的年终总结。"
@@ -6,6 +7,8 @@ pubDatetime: 2022-12-28
 featured: false
 draft: false
 postSlug: 2022-year-end-summary
+# ogImage: https://bucket.liruifengv.com/2022-year-end-summary/2022.jpg
+ogImage: "../../assets/images/2022-year-end-summary/2022.jpg"
 tags:
   - 年终总结
 ---
