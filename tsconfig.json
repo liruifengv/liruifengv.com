@@ -12,6 +12,7 @@
       "@pages/*": ["pages/*"],
       "@styles/*": ["styles/*"],
       "@utils/*": ["utils/*"]
-    }
+    },
+    "types": ["astro/client"]
   }
 }
