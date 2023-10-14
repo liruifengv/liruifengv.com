@@ -40,7 +40,7 @@ pnpm exec changeset init
 pnpm exec changeset
 ```
 
-![](https://bucket.liruifengv.com/github-action-release/changeset.png)
+![changeset](https://bucket.liruifengv.com/github-action-release/changeset.png)
 
 这里会提示我们选择这次更改的类型。不了解的可以自行搜索 npm semver 版本号规范。
 

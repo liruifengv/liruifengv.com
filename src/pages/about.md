@@ -40,7 +40,7 @@ title: "About"
 - Twitter / X：https://twitter.com/liruifengv
 - 微信公众号: SayHub
 
-![](https://bucket.liruifengv.com/qrcode.png)
+![My WeChat QRCode](https://bucket.liruifengv.com/qrcode.png)
 
 ### 联系方式
 

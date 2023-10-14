@@ -20,7 +20,7 @@ tags:
 
 Astro 会把开源的捐赠，每个月拿出一部分给优秀的贡献者做奖励，而我很荣幸获得了 250 美金！！！
 
-![](https://bucket.liruifengv.com/astro-awards/winner.png)
+![astro winner](https://bucket.liruifengv.com/astro-awards/winner.png)
 
 ## 起因
 
@@ -32,11 +32,11 @@ Astro 会把开源的捐赠，每个月拿出一部分给优秀的贡献者做�
 
 于是，我组织了一波社区的同学来参与 Astro 的中文文档翻译：
 
-![](https://bucket.liruifengv.com/astro-awards/x1.jpg)
+![twitter 1](https://bucket.liruifengv.com/astro-awards/x1.jpg)
 
 社区的同学非常热情，来了很多同学，在我们的努力下，一个多月的时间就把 Astro 中文文档全部翻译完成了！！！
 
-![](https://bucket.liruifengv.com/astro-awards/x2.jpg)
+![twitter 2](https://bucket.liruifengv.com/astro-awards/x2.jpg)
 
 社区力量太强大了，感谢所有参与翻译的小伙伴，感谢 webworker 播客的辛宝帮忙转发宣传，介绍了印记中文的大佬跟我认识，给了我很多建议，翻译流程规范也参考了印记中文。同时，还有沈青川大佬一开始建议做这件事并帮忙转发，我才开始组织人手。
 
@@ -46,9 +46,9 @@ Astro 会把开源的捐赠，每个月拿出一部分给优秀的贡献者做�
 
 Astro 还给一些译者赠送了一个 Astro logo 的帽子和定制贴纸。（贴纸的中文翻译也询问了我的意见。）
 
-![](https://bucket.liruifengv.com/astro-awards/cap.jpg)
+![Astro cap](https://bucket.liruifengv.com/astro-awards/cap.jpg)
 
-![](https://bucket.liruifengv.com/astro-awards/stick.jpg)
+![Astro stick](https://bucket.liruifengv.com/astro-awards/stick.jpg)
 
 ## Astro v3.0 已发布 🚀🚀🚀
 

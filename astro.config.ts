@@ -9,6 +9,9 @@ import { SITE } from "./src/config";
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
+  image: {
+    domains: ["bucket.liruifengv.com"],
+  },
   integrations: [
     tailwind({
       applyBaseStyles: false,

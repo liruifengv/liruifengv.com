@@ -1,5 +1,5 @@
 ---
-
+import { Picture } from "astro:assets";
 ---
 
 <div>
@@ -33,5 +33,11 @@
     </a>
   </p>
   <br />
-  <img src="https://bucket.liruifengv.com/qrcode.png" />
+  <Picture
+    src="https://bucket.liruifengv.com/qrcode.png"
+    alt="My Wechat QRCode"
+    width={290}
+    height={108}
+    formats={["avif", "webp"]}
+  />
 </div>

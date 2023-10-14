@@ -25,7 +25,7 @@ tags:
 
 在看到 Starlight 的 demo 之后，我看到侧边栏是没有展开收起的功能的，所以我就想给它加上这个功能。
 
-![](https://bucket.liruifengv.com/a-starlight-pr/starlight-sidebar.png)
+![starlight-sidebar](https://bucket.liruifengv.com/a-starlight-pr/starlight-sidebar.png)
 
 喏，就是这个功能。
 
@@ -124,7 +124,7 @@ Ok，到此为止，基本实现了一个侧边栏的展开收起功能。看到
 
 我把这个功能实现之后，提交了一个 PR，然后就等待着 Review。这个项目的负责人是 Chris，他来 Review 了我的 PR，然后给了我一些反馈。
 
-![](https://bucket.liruifengv.com/a-starlight-pr/review.png)
+![get review](https://bucket.liruifengv.com/a-starlight-pr/review.png)
 
 Chris 说，如果没有 JavaScript 难道没办法实现这个功能吗？ 他说可以把整个节点使用 `<details open></details>` 包裹，并且把标题放在 `<summary>` 标签中，这样就可以在不使用 JS 的情况下实现同样的展开收起的功能。
 
