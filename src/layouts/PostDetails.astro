@@ -38,19 +38,7 @@ const ogUrl = new URL(
   canonicalURL={canonicalURL}
 >
   <Header />
-  <div class="mx-auto flex w-full max-w-5xl justify-start px-4">
-    <button
-      class="focus-outline mb-2 mt-8 flex hover:opacity-75"
-      onclick="history.back()"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg"
-        ><path
-          d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
-        ></path>
-      </svg><span>Go back</span>
-    </button>
-  </div>
-  <section class="flex w-full max-w-5xl gap-6">
+  <section class="mt-4 flex w-full max-w-5xl gap-6">
     <main id="main-content" class="w-full sm:w-3/4">
       <h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
       <Datetime datetime={pubDatetime} size="lg" className="my-2" />

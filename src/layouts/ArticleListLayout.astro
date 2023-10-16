@@ -14,14 +14,15 @@ import slugify from "@utils/slugify";
 interface Props {
   page: Page<CollectionEntry<"blog">>;
   title: string;
+  description?: string;
 }
 
-const { page, title } = Astro.props;
+const { page, title, description } = Astro.props;
 ---
 
 <Layout title={`${title} - ${SITE.title}`}>
   <Header activeNav="posts" />
-  <Main pageTitle="Posts" pageDesc={title}>
+  <Main pageTitle={title} pageDesc={description}>
     <article class="flex flex-col gap-2 sm:flex-row">
       <div class="sm:w-[80%]">
         {

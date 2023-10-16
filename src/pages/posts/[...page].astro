@@ -1,0 +1,45 @@
+---
+import ArticleListLayout from "@layouts/ArticleListLayout.astro";
+import type { GetStaticPaths, Page } from "astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import PostDetails from "@layouts/PostDetails.astro";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const blogCollection = await getCollection("blog");
+  return [
+    ...paginate(
+      blogCollection
+        .concat()
+        .sort(
+          (a, b) =>
+            Math.floor(new Date(b.data.pubDatetime).getTime() / 1000) -
+            Math.floor(new Date(a.data.pubDatetime).getTime() / 1000)
+        ),
+      { pageSize: 10 }
+    ),
+    ...blogCollection.map(entry => ({
+      params: { page: entry.slug },
+      props: { entry: entry },
+    })),
+  ];
+}) satisfies GetStaticPaths;
+
+type Props =
+  | {
+      page: Page<CollectionEntry<"blog">>;
+      entry: undefined;
+    }
+  | { entry: CollectionEntry<"blog">; page: undefined };
+
+const { page, entry } = Astro.props;
+---
+
+{
+  entry ? (
+    <>
+      <PostDetails post={entry} />
+    </>
+  ) : (
+    <ArticleListLayout page={page} title="文章列表" />
+  )
+}
