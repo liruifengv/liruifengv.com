@@ -11,8 +11,6 @@ tags:
   - restful
 ---
 
-## Table of contents
-
 ## 前言
 
 今天要写的文章是关于 `Deno` 的，`Deno`是 node 之父 Ryan Dahl 新发布的开源项目。下面是它的主仓库：

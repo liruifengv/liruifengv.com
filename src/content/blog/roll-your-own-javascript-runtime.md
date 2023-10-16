@@ -13,8 +13,6 @@ tags:
   - front-end
 ---
 
-## Table of contents
-
 ## 前言
 
 > 原文：https://deno.com/blog/roll-your-own-javascript-runtime

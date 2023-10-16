@@ -10,8 +10,6 @@ tags:
   - 开源
 ---
 
-## Table of contents
-
 ## 前言
 
 大家好，我是程序猿李瑞丰。

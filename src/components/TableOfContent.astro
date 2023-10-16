@@ -1,0 +1,51 @@
+---
+import type { MarkdownHeading } from "astro";
+import LinkButton from "./LinkButton.astro";
+
+interface Props {
+  headers: MarkdownHeading[];
+  maxDepth: number;
+}
+
+const { headers, maxDepth } = Astro.props;
+const filteredHeaders = headers.filter(
+  header => header.depth > 1 && header.depth < maxDepth + 1
+);
+---
+
+<span class="mb-2 font-bold">目录</span>
+<nav class="toc">
+  <ol>
+    {
+      filteredHeaders.map(header => (
+        <li class={`toc-depth-${header.depth}`}>
+          <LinkButton
+            className="my-2 underline decoration-dashed underline-offset-8 text-lg"
+            href={`#${header.slug}`}
+          >
+            {header.text}
+          </LinkButton>
+        </li>
+      ))
+    }
+  </ol>
+</nav>
+
+<style is:global>
+  .toc {
+    position: sticky;
+    top: 2rem;
+  }
+  .toc-depth-3 {
+    padding-left: 2rem;
+  }
+  .toc-depth-4 {
+    padding-left: 4rem;
+  }
+  .toc-depth-5 {
+    padding-left: 6rem;
+  }
+  .toc-depth-6 {
+    padding-left: 8rem;
+  }
+</style>

@@ -10,8 +10,6 @@ tags:
   - Rust
 ---
 
-## Table of contents
-
 ## 前言
 
 在上一篇文章[《Rust 实战教程之用 Rust 写一个命令行 TODO List（一）》](/posts/write-todo-by-rust/) 中，我们完成了项目的初始化，以及实现了基本的功能，但是还有一些问题和可优化的点，在这篇文章中，我们将继续完善这个项目。

@@ -11,8 +11,6 @@ tags:
   - ChatGPT
 ---
 
-## Table of contents
-
 ## 前言
 
 ChatGPT 最近十分火爆，今天我也来让 ChatGPT 帮我阅读一下 Vue3 的源代码。

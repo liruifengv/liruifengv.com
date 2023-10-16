@@ -11,8 +11,6 @@ tags:
   - 开源
 ---
 
-## Table of contents
-
 ## 前言
 
 最近给 Astro 的 Starlight 项目提交了一个 PR，从这个 PR 我学到了一些东西，所以从这个 PR 出发聊聊我为什么喜欢开源。

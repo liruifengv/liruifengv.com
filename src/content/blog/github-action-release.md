@@ -10,8 +10,6 @@ tags:
   - 开源
 ---
 
-## Table of contents
-
 ## 前言
 
 GitHub Action 是一套提供给 GitHub 仓库使用的 CI/CD 工具。它可以自动化、自定义和执行软件开发工作流程。本文将介绍如何利用 GitHub Action 自动化发布 npm 包版本和 GitHub release。

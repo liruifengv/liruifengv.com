@@ -8,6 +8,8 @@ import type { CollectionEntry } from "astro:content";
 import slugify, { slugifyStr } from "@utils/slugify";
 import PostFooter from "@components/PostFooter.astro";
 import ScrollToTop from "@components/ScrollToTop.astro";
+import TableOfContent from "@components/TableOfContent.astro";
+
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 export interface Props {
@@ -19,7 +21,7 @@ const { post } = Astro.props;
 const { title, author, description, ogImage, canonicalURL, pubDatetime, tags } =
   post.data;
 
-const { Content } = await post.render();
+const { Content, headings } = await post.render();
 
 const ogImageUrl = typeof ogImage === "string" ? ogImage : ogImage?.src;
 const ogUrl = new URL(
@@ -36,7 +38,7 @@ const ogUrl = new URL(
   canonicalURL={canonicalURL}
 >
   <Header />
-  <div class="mx-auto flex w-full max-w-3xl justify-start px-2">
+  <div class="mx-auto flex w-full max-w-5xl justify-start px-4">
     <button
       class="focus-outline mb-2 mt-8 flex hover:opacity-75"
       onclick="history.back()"
@@ -48,42 +50,56 @@ const ogUrl = new URL(
       </svg><span>Go back</span>
     </button>
   </div>
-  <main id="main-content">
-    <h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
-    <Datetime datetime={pubDatetime} size="lg" className="my-2" />
-    {
-      ogImage && (
-        <div class="flex justify-center">
-          <Image
-            src={ogImage as ImageMetadata}
-            alt={title}
-            class="rounded-lg"
-            width={720}
-            height={500}
-          />
-        </div>
-      )
-    }
-    <article
-      id="article"
-      role="article"
-      class="prose mx-auto mt-8 max-w-3xl text-lg"
-    >
-      <Content />
-    </article>
+  <section class="flex w-full max-w-5xl gap-6">
+    <main id="main-content" class="w-full sm:w-3/4">
+      <h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
+      <Datetime datetime={pubDatetime} size="lg" className="my-2" />
+      {
+        ogImage && (
+          <div class="flex justify-center">
+            <Image
+              src={ogImage as ImageMetadata}
+              alt={title}
+              class="rounded-lg"
+              width={720}
+              height={500}
+            />
+          </div>
+        )
+      }
+      <article
+        id="article"
+        role="article"
+        class="prose mx-auto mt-8 max-w-3xl text-lg"
+      >
+        <Content />
+      </article>
 
-    <ul class="tags-container">
-      {tags.map(tag => <Tag name={slugifyStr(tag)} />)}
-    </ul>
-    <PostFooter />
-  </main>
+      <ul class="tags-container">
+        {tags.map(tag => <Tag name={slugifyStr(tag)} />)}
+      </ul>
+      <PostFooter />
+    </main>
+    <aside
+      class="mb-4 hidden w-1/4 flex-1 transition-opacity duration-100 ease-linear sm:block"
+    >
+      {
+        headings.length > 0 && (
+          <TableOfContent
+            headers={headings}
+            maxDepth={post.data.maxDepthTOC || 4}
+          />
+        )
+      }
+    </aside>
+  </section>
   <Footer />
   <ScrollToTop />
 </Layout>
 
 <style>
   main {
-    @apply mx-auto w-full max-w-3xl px-4 pb-12;
+    @apply mx-auto px-2 pb-12;
   }
   .post-title {
     @apply text-2xl font-semibold text-skin-accent;

@@ -66,15 +66,6 @@ export default defineConfig({
     }),
   ],
   markdown: {
-    remarkPlugins: [
-      remarkToc,
-      [
-        remarkCollapse,
-        {
-          test: "Table of contents",
-        },
-      ],
-    ],
     shikiConfig: {
       theme: "material-theme-darker",
       wrap: false,

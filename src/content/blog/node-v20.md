@@ -10,8 +10,6 @@ tags:
   - NodeJS
 ---
 
-## Table of contents
-
 ## 前言
 
 4 月 18 日，Node.js 正式发布了 v20 版本，你个人或者公司在用哪个版本呢？

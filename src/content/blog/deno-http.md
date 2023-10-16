@@ -11,8 +11,6 @@ tags:
   - restful
 ---
 
-## Table of contents
-
 ## 前言
 
 今天我们来使用 Deno 创建一个 HTTP 服务，在这之前呢，我们来做一些准备工作。
