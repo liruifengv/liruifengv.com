@@ -1,15 +1,18 @@
 ---
 import { getCollection } from "astro:content";
 import LinkButton from "@components/LinkButton.astro";
+import { slugifyStr } from "@utils/slugify";
 
 const articles = await getCollection("blog");
-// const tags: Array<[string, number]> = [
-//   ...articles
-//     .flatMap(article => [...article.data.tags])
-//     .reduce((acc, e) => acc.set(e, (acc.get(e) || 0) + 1), new Map()),
-// ].sort((a, b) => {
-//   return b[1] - a[1];
-// });
+const tags: Array<[string, number]> = [
+  ...articles
+    .flatMap(article => [...article.data.tags])
+    .reduce((acc, e) => acc.set(e, (acc.get(e) || 0) + 1), new Map()),
+]
+  .sort((a, b) => {
+    return b[1] - a[1];
+  })
+  .slice(0, 10);
 
 const years: Array<[string, number]> = [
   ...articles
@@ -20,22 +23,26 @@ const years: Array<[string, number]> = [
 });
 ---
 
-<aside class="sm:w-[20%]">
-  <!-- <section>
-    <h2 class="mb-3">Tags</h2>
+<aside class="sm:w-[30%]">
+  <section>
+    <h1 class="mb-3 text-2xl font-bold">热门标签</h1>
     <ul class="m-0 list-none p-0">
       {
         tags.map(tag => (
           <li>
-            <a href={"/articles/tags/" + tag[0] + "/"}>{tag[0]}</a>&nbsp;(
-            {tag[1]})
+            <LinkButton
+              href={"/posts/tags/" + slugifyStr(tag[0]) + "/"}
+              className="my-1 underline decoration-dashed underline-offset-8 text-lg"
+            >
+              {tag[0]}({tag[1]})
+            </LinkButton>
           </li>
         ))
       }
     </ul>
-  </section> -->
-  <section class="sticky top-8">
-    <h1 class="mb-3 text-2xl font-bold">归档</h1>
+  </section>
+  <section>
+    <h1 class="my-3 text-2xl font-bold">归档</h1>
     <ul class="m-0 list-none p-0">
       {
         years.map(year => (
@@ -44,9 +51,8 @@ const years: Array<[string, number]> = [
               href={"/posts/years/" + year[0] + "/"}
               className="my-1 underline decoration-dashed underline-offset-8 text-lg"
             >
-              {year[0]}
+              {year[0]}({year[1]})
             </LinkButton>
-            ({year[1]})
           </li>
         ))
       }
