@@ -3,6 +3,7 @@ import ArticleListLayout from "@layouts/ArticleListLayout.astro";
 import type { GetStaticPaths, Page } from "astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 import PostDetails from "@layouts/PostDetails.astro";
+import { SITE } from "@config";
 
 export const getStaticPaths = (async ({ paginate }) => {
   const blogCollection = await getCollection("blog");
@@ -15,7 +16,7 @@ export const getStaticPaths = (async ({ paginate }) => {
             Math.floor(new Date(b.data.pubDatetime).getTime() / 1000) -
             Math.floor(new Date(a.data.pubDatetime).getTime() / 1000)
         ),
-      { pageSize: 10 }
+      { pageSize: SITE.postPerPage }
     ),
     ...blogCollection.map(entry => ({
       params: { page: entry.slug },

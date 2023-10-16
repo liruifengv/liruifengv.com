@@ -2,6 +2,7 @@
 import ArticleListLayout from "@layouts/ArticleListLayout.astro";
 import type { GetStaticPaths, Page } from "astro";
 import { getCollection, type CollectionEntry } from "astro:content";
+import { SITE } from "@config";
 
 export const getStaticPaths = (async ({ paginate }) => {
   const articles = await getCollection("blog");
@@ -19,7 +20,7 @@ export const getStaticPaths = (async ({ paginate }) => {
       );
     return paginate(filteredArticles, {
       params: { year: year.toString() },
-      pageSize: 8,
+      pageSize: SITE.postPerPage,
     });
   });
 }) satisfies GetStaticPaths;
