@@ -77,7 +77,7 @@ $ cargo add tokio --features=full
 
 我们更新后的 `Cargo.toml` 文件应该如下所示：
 
-```toml
+```toml title="Cargo.toml"
 [package]
 name = "runjs"
 version = "0.1.0"
@@ -100,8 +100,7 @@ tokio = { version = "1.19.2", features = ["full"] }
 
 让我们从编写一个异步的 Rust 函数开始，该函数将创建一个 `JsRuntime` 实例，该实例负责 JavaScript 执行。
 
-```rust
-// main.rs
+```rust title="main.rs"
 use std::rc::Rc;
 use deno_core::error::AnyError;
 
@@ -127,8 +126,7 @@ fn main() {
 
 这个 `run_js` 函数封装了我们的 JavaScript 代码将要经历的整个生命周期。但是在我们能够这样做之前，我们需要创建一个单线程的 `tokio` 运行时，以便能够执行我们的 `run_js` 函数：
 
-```rust
-// main.rs
+```rust title="main.rs"
 fn main() {
   let runtime = tokio::runtime::Builder::new_current_thread()
     .enable_all()
@@ -142,8 +140,7 @@ fn main() {
 
 让我们尝试执行一些 JavaScript 代码！创建一个 `example.js` 文件，它将打印 "Hello runjs!"：
 
-```js
-// example.js
+```js title="example.js"
 Deno.core.print("Hello runjs!");
 ```
 
@@ -164,8 +161,7 @@ Hello runjs!⏎
 
 让我们开始处理 `console` API。首先，创建 `src/runtime.js` 文件，该文件将实例化并使 `console` 对象全局可用：
 
-```js
-// runtime.js
+```js title="src/runtime.js"
 (globalThis => {
   const core = Deno.core;
 
@@ -190,20 +186,20 @@ Hello runjs!⏎
 
 现在，让我们将此代码包含在我们的二进制文件中，并在每次运行时执行：
 
-```rust ins={6}
+```rust title="main.rs" ins={5}
 let mut js_runtime = deno_core::JsRuntime::new(deno_core::RuntimeOptions {
   module_loader: Some(Rc::new(deno_core::FsModuleLoader)),
   ..Default::default()
 });
-+ js_runtime.execute_script("[runjs:runtime.js]",  include_str!("./runtime.js")).unwrap();
+ js_runtime.execute_script("[runjs:runtime.js]",  include_str!("./runtime.js")).unwrap();
 ```
 
 最后，让我们使用我们的新 `console` API 更新 `example.js`：
 
-```js ins={2,3}
--Deno.core.print("Hello runjs!");
-+console.log("Hello", "runjs!");
-+console.error("Boom!");
+```js title="example.js" ins={2,3} del={1}
+Deno.core.print("Hello runjs!");
+console.log("Hello", "runjs!");
+console.error("Boom!");
 ```
 
 再次运行它：
@@ -222,21 +218,21 @@ cargo run
 
 让我们从更新我们的 `runtime.js` 文件开始：
 
-```js
+```js title="runtime.js" ins={3-14}
 };
 
-+ core.initializeAsyncOps();
-+ globalThis.runjs = {
-+   readFile: (path) => {
-+     return core.ops.op_read_file(path);
-+   },
-+   writeFile: (path, contents) => {
-+     return core.ops.op_write_file(path, contents);
-+   },
-+   removeFile: (path) => {
-+     return core.ops.op_remove_file(path);
-+   },
-+ };
+  core.initializeAsyncOps();
+  globalThis.runjs = {
+    readFile: (path) => {
+      return core.ops.op_read_file(path);
+    },
+    writeFile: (path, contents) => {
+    return core.ops.op_write_file(path, contents);
+    },
+  removeFile: (path) => {
+      return core.ops.op_remove_file(path);
+    },
+  };
 })(globalThis);
 ```
 
@@ -246,46 +242,46 @@ cargo run
 
 让我们通过更新 main.rs 来看看它的作用：
 
-```rust ins={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17}
-+ use deno_core::op;
-+ use deno_core::Extension;
+```rust title="main.rs" ins={1,2,6-22}
+  use deno_core::op;
+  use deno_core::Extension;
 use deno_core::error::AnyError;
 use std::rc::Rc;
 
-+ #[op]
-+ async fn op_read_file(path: String) -> Result<String, AnyError> {
-+     let contents = tokio::fs::read_to_string(path).await?;
-+     Ok(contents)
-+ }
-+
-+ #[op]
-+ async fn op_write_file(path: String, contents: String) -> Result<(), AnyError> {
-+     tokio::fs::write(path, contents).await?;
-+     Ok(())
-+ }
-+
-+ #[op]
-+ fn op_remove_file(path: String) -> Result<(), AnyError> {
-+     std::fs::remove_file(path)?;
-+     Ok(())
-+ }
+  #[op]
+  async fn op_read_file(path: String) -> Result<String, AnyError> {
+      let contents = tokio::fs::read_to_string(path).await?;
+      Ok(contents)
+  }
+
+  #[op]
+  async fn op_write_file(path: String, contents: String) -> Result<(), AnyError> {
+      tokio::fs::write(path, contents).await?;
+      Ok(())
+  }
+
+  #[op]
+  fn op_remove_file(path: String) -> Result<(), AnyError> {
+      std::fs::remove_file(path)?;
+      Ok(())
+  }
 ```
 
 我们刚刚添加了三个可以从 JavaScript 调用的 ops。但是，在这些 ops 可用于我们的 JavaScript 代码之前，我们需要通过注册“扩展”来告诉 `deno_core`：
 
-```rust
+```rust title="main.rs" ins={3-9,12}
 async fn run_js(file_path: &str) -> Result<(), AnyError> {
     let main_module = deno_core::resolve_path(file_path)?;
-+    let runjs_extension = Extension::builder("runjs")
-+        .ops(vec![
-+            op_read_file::decl(),
-+            op_write_file::decl(),
-+            op_remove_file::decl(),
-+        ])
-+        .build();
+    let runjs_extension = Extension::builder("runjs")
+        .ops(vec![
+            op_read_file::decl(),
+            op_write_file::decl(),
+            op_remove_file::decl(),
+        ])
+        .build();
     let mut js_runtime = deno_core::JsRuntime::new(deno_core::RuntimeOptions {
         module_loader: Some(Rc::new(deno_core::FsModuleLoader)),
-+        extensions: vec![runjs_extension],
+        extensions: vec![runjs_extension],
         ..Default::default()
     });
 ```
@@ -294,25 +290,24 @@ Extensions 允许你配置你的 `JsRuntime` 实例，并将不同的 Rust 函�
 
 让我们再次更新我们的 `example.js`：
 
-```js
+```js title="example.js" ins={3-17}
 console.log("Hello", "runjs!");
 console.error("Boom!");
-+
-+ const path = "./log.txt";
-+ try {
-+   const contents = await runjs.readFile(path);
-+   console.log("Read from a file", contents);
-+ } catch (err) {
-+   console.error("Unable to read file", path, err);
-+ }
-+
-+ await runjs.writeFile(path, "I can write to a file.");
-+ const contents = await runjs.readFile(path);
-+ console.log("Read from a file", path, "contents:", contents);
-+ console.log("Removing file", path);
-+ runjs.removeFile(path);
-+ console.log("File removed");
-+
+
+const path = "./log.txt";
+try {
+  const contents = await runjs.readFile(path);
+  console.log("Read from a file", contents);
+} catch (err) {
+  console.error("Unable to read file", path, err);
+}
+
+await runjs.writeFile(path, "I can write to a file.");
+const contents = await runjs.readFile(path);
+console.log("Read from a file", path, "contents:", contents);
+console.log("Removing file", path);
+runjs.removeFile(path);
+console.log("File removed");
 ```
 
 再次运行它：
@@ -338,7 +333,7 @@ $ cargo run
 
 在这个简短的例子中，我们开始了一个集成了强大的 JavaScript 引擎（`V8`）和高效的事件循环实现（`tokio`）的 Rust 项目。
 
-本文由 [李瑞丰](https://github.com/liruifengv) 翻译，原文地址：https://deno.com/blog/roll-your-own-javascript-runtime
+本文由 [liruifengv](https://github.com/liruifengv) 翻译，原文地址：https://deno.com/blog/roll-your-own-javascript-runtime
 
 此教程的[第二部分](https://deno.com/blog/roll-your-own-javascript-runtime-pt2)已经发布，实现了 fetch-like API 并添加了 TypeScript 转译功能。
 
