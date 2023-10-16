@@ -2,8 +2,11 @@
 import Hr from "./Hr.astro";
 import Socials from "./Socials.astro";
 import LinkButton from "./LinkButton.astro";
+import { SITE, SOCIALS } from "@config";
 
 const currentYear = new Date().getFullYear();
+
+const authorLink = SOCIALS.length > 0 ? SOCIALS[0].href : SITE.website;
 
 export interface Props {
   noMarginTop?: boolean;
@@ -22,12 +25,8 @@ const { noMarginTop = false } = Astro.props;
         {currentYear}</span
       >
       <span class="separator">&nbsp;</span>
-      <LinkButton
-        href="https://github.com/liruifengv"
-        className="my-6 text-lg"
-        target="_blank"
-      >
-        @liruifengv
+      <LinkButton href={authorLink} className="my-6 text-lg" target="_blank">
+        @{SITE.author}
       </LinkButton>
       <span class="separator">&nbsp;|&nbsp;</span>
       <span>All rights reserved.</span>
