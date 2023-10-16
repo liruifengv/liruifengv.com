@@ -20,7 +20,7 @@ interface Props {
 const { page, title, description } = Astro.props;
 ---
 
-<Layout title={`${title} - ${SITE.title}`}>
+<Layout title={`${title} - ${SITE.title}`} description={description}>
   <Header activeNav="posts" />
   <Main pageTitle={title} pageDesc={description}>
     <article class="flex flex-col gap-2 sm:flex-row">

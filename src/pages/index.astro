@@ -41,7 +41,8 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       </a>
 
       <p>
-        我是 liruifengv/李瑞丰，一名前端开发工程师，目前专注 Web 开发，热爱开源，喜欢折腾，喜欢分享。
+        我是 liruifengv/李瑞丰，一名前端开发工程师，目前专注 Web
+        开发，热爱开源，喜欢折腾，喜欢分享。
       </p>
       <p>
         本站是我的个人主站，主要是我的文章的发布，包括但不限于技术类、读后感、生活琐事等。
@@ -73,7 +74,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       featuredPosts.length > 0 && (
         <>
           <section id="featured">
-            <h2>Featured</h2>
+            <h2>精选文章</h2>
             <ul>
               {featuredPosts.map(({ data }) => (
                 <Card
@@ -90,7 +91,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
     }
 
     <section id="recent-posts">
-      <h2>Recent Posts</h2>
+      <h2>最近文章</h2>
       <ul>
         {
           sortedPosts
@@ -109,7 +110,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       </ul>
       <div class="all-posts-btn-wrapper">
         <LinkButton href="/posts">
-          All Posts
+          全部文章
           <svg xmlns="http://www.w3.org/2000/svg"
             ><path
               d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"

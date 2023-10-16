@@ -1,6 +1,6 @@
 ---
 layout: ../layouts/AboutLayout.astro
-title: "About"
+title: "关于我/关于本站"
 ---
 
 ## 我是李瑞丰/liruifengv

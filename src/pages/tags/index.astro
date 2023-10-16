@@ -19,7 +19,7 @@ const tags: Array<[string, number]> = [
 
 <Layout title={`Tags | ${SITE.title}`}>
   <Header activeNav="tags" />
-  <Main pageTitle="Tags" pageDesc="All the tags used in posts.">
+  <Main pageTitle="全部标签">
     <ul>
       {tags.map(tag => <Tag name={tag[0]} count={tag[1]} size="lg" />)}
     </ul>
