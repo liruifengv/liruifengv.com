@@ -1,6 +1,4 @@
 ---
-import Breadcrumbs from "@components/Breadcrumbs.astro";
-
 interface StringTitleProp {
   pageTitle: string;
   pageDesc?: string;
@@ -17,8 +15,7 @@ export type Props = StringTitleProp | ArrayTitleProp;
 const { props } = Astro;
 ---
 
-<Breadcrumbs />
-<main id="main-content">
+<main id="main-content" class="mt-2">
   {
     "titleTransition" in props ? (
       <h1>
