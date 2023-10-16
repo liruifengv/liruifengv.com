@@ -5,6 +5,7 @@ export type Site = {
   title: string;
   lightAndDarkMode: boolean;
   postPerPage: number;
+  avatar?: string;
 };
 
 export type SocialObjects = {
@@ -49,5 +50,5 @@ export type emojiType =
 
 export type OG_Type = {
   emojiType: emojiType;
-  ogImage: string;
+  ogImage?: string;
 };

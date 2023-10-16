@@ -7,6 +7,7 @@ export const SITE: Site = {
   title: "我的抓码人生",
   lightAndDarkMode: true,
   postPerPage: 10,
+  avatar: "https://bucket.liruifengv.com/avatar.jpg",
 };
 
 export const LOCALE = ["zh-CN"]; // set to [] to use the environment default
@@ -41,7 +42,7 @@ export const SOCIALS: SocialObjects = [
 
 export const OG: OG_Type = {
   emojiType: "twemoji",
-  ogImage: "astropaper-og.jpg",
+  // ogImage: "astropaper-og.jpg",
 };
 
 export const CND_URL: string = "https://bucket.liruifengv.com";

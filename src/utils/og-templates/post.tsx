@@ -5,7 +5,7 @@ export default (post: CollectionEntry<"blog">) => {
   return (
     <div
       style={{
-        background: "#fefbfb",
+        background: `linear-gradient(to top left, rgb(178, 153, 253), rgb(111, 203, 253))`,
         width: "100%",
         height: "100%",
         display: "flex",
@@ -15,31 +15,13 @@ export default (post: CollectionEntry<"blog">) => {
     >
       <div
         style={{
-          position: "absolute",
-          top: "-1px",
-          right: "-1px",
-          border: "4px solid #000",
-          background: "#ecebeb",
-          opacity: "0.9",
-          borderRadius: "4px",
-          display: "flex",
-          justifyContent: "center",
-          margin: "2.5rem",
-          width: "88%",
-          height: "80%",
-        }}
-      />
-
-      <div
-        style={{
-          border: "4px solid #000",
+          boxShadow: "0 0 20px rgba(0, 0, 0, 0.1)",
           background: "#fefbfb",
-          borderRadius: "4px",
+          borderRadius: "15px",
           display: "flex",
           justifyContent: "center",
-          margin: "2rem",
-          width: "88%",
-          height: "80%",
+          margin: "12px",
+          height: "88%",
         }}
       >
         <div
@@ -82,6 +64,17 @@ export default (post: CollectionEntry<"blog">) => {
                 "
               </span>
               <span style={{ overflow: "hidden", fontWeight: "bold" }}>
+                {SITE.avatar && (
+                  <img
+                    style={{
+                      width: "32px",
+                      height: "32px",
+                      borderRadius: "50%",
+                      marginRight: "8px",
+                    }}
+                    src={SITE.avatar}
+                  />
+                )}
                 {post.data.author}
               </span>
             </span>
