@@ -24,7 +24,7 @@ tags:
 
 首先在 `Cargo.toml` 中添加依赖：
 
-```toml
+```toml title="Cargo.toml"
 [dependencies]
 clap = { version = "3.0", features = ["derive"] }
 ```
@@ -33,7 +33,7 @@ clap = { version = "3.0", features = ["derive"] }
 
 新建一个 `cli.rs` 文件，用来处理命令行参数：
 
-```rust
+```rust title="cli.rs"
 use clap::{Parser, Subcommand};
 
 #[derive(Parser)]
@@ -88,7 +88,7 @@ pub enum Commands {
 
 接下来我们修改 `main.rs` 中的代码：
 
-```rust
+```rust title="main.rs"
 #[warn(unused_variables)]
 mod cli;
 mod database;
@@ -162,7 +162,7 @@ fn main() {
 
 `add_record` 方法，删除之前的打印信息，返回一个 Result
 
-```rust
+```rust title="database.rs"
     pub fn add_record(&mut self, record: &Record) -> Result<(), std::io::Error> {
         let line = format!("{},{}\n", record.id, record.content);
         // writeln! 宏返回一个 Result，我们直接返回它
@@ -172,7 +172,7 @@ fn main() {
 
 `remove_record` 返回一个 Result
 
-```rust
+```rust title="database.rs"
     pub fn remove_record(&mut self, id: i32) -> Result<(), std::io::Error> {
         let reader = BufReader::new(&self.file);
         let mut lines = reader.lines().enumerate();
@@ -206,7 +206,7 @@ fn main() {
 
 接下来创建 `commands.rs` 来处理各种命令，调用数据库方法，并处理错误。
 
-```rust
+```rust title="commands.rs"
 use crate::database::{Database, Record};
 use std::io;
 
@@ -265,7 +265,7 @@ pub fn list(db: &mut Database) -> Result<(), io::Error> {
 
 `main.rs` 就变成了这样：
 
-```rust
+```rust title="main.rs"
 mod cli;
 mod commands;
 mod database;
@@ -311,14 +311,14 @@ windows 在 `C:\Users\<your_username>`下，macOS 在 `/Users/<your_username>` �
 
 先安装：
 
-```toml
+```toml title="Cargo.toml"
 [dependencies]
 dirs = "5.0.0"
 ```
 
 我们新建一个 `utils.rs` 文件，用来处理配置文件相关：
 
-```rust
+```rust title="utils.rs"
 use dirs::home_dir;
 use std::fs;
 
@@ -362,7 +362,7 @@ pub fn check_db_file() -> std::io::Result<()> {
 
 先看 `database.rs`
 
-```rust
+```rust title="database.rs"
 use crate::utils::{check_db_file, get_db_file_path};
 
 // 修改一下 open 方法
@@ -385,7 +385,7 @@ pub fn open() -> Database {
 
 `remove_record` 方法中读取文件的代码也要改一下：
 
-```rs
+```rs title="database.rs"
 // 之前：
 let contents = fs::read_to_string(".rododb").unwrap();
 
@@ -396,7 +396,7 @@ let contents = fs::read_to_string(db_file).unwrap();
 
 然后改一下 `main.rs`:
 
-```rust
+```rust title="main.rs"
 mod utils;
 
 // 去掉 open 方法的参数即可
