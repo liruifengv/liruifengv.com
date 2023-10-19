@@ -14,7 +14,7 @@ tags:
 ## 前言
 
 > 原文：https://deno.com/blog/package-json-support
-> 译者：李瑞丰
+> 译者：liruifengv
 
 [最新的 Deno 版本](https://deno.com/blog/v1.31)引入了一个重大变化：通过 package.json 支持提供了增强的 Node 和 NPM 的兼容性。这个更新引起了一些关于我们的优先事项是否发生了变化的问题，因为 Deno 长期以来一直与打造一条不同于 Node.js 的道路联系在一起。事实上，package.json 在[第一次 Deno 演示](https://www.youtube.com/watch?v=M3BM9TB-8yA)中被明确提到是一个遗憾。 因此，许多用户对这一发展感到惊讶。
 

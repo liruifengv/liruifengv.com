@@ -16,7 +16,7 @@ tags:
 ## 前言
 
 > 原文：https://deno.com/blog/roll-your-own-javascript-runtime
-> 译者：李瑞丰
+> 译者：liruifengv
 
 在这篇文章中，我们将介绍如何创建自定义 JavaScript 运行时。我们称之为 `runjs`。想象一下，我们正在构建一个（更）简化的 `deno` 版本。这篇文章的目标是创建一个 CLI，可以执行本地 JavaScript 文件，读取文件，写入文件，删除文件，并具有简化的 `console` API。
 

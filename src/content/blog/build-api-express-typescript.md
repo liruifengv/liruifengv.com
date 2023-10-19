@@ -13,7 +13,7 @@ tags:
 ## 前言
 
 > 原文：https://deno.com/blog/build-api-express-typescript
-> 译者：李瑞丰
+> 译者：liruifengv
 
 有很多非常好的教程，可以帮助你开始使用 [TypeScript](https://www.typescriptlang.org/) 和 [Express](https://expressjs.com/) 构建 REST API。但是，这些教程有两个缺点：
 

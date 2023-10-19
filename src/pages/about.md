@@ -3,9 +3,7 @@ layout: ../layouts/AboutLayout.astro
 title: "关于我/关于本站"
 ---
 
-## 我是李瑞丰/liruifengv
-
-我叫李瑞丰，在其他平台的 ID 有 `liruifengv` 或者 `李瑞丰_liruifengv`。
+## 我是 liruifengv
 
 我是一名前端开发工程师，目前专注 Web 开发，热爱开源，喜欢折腾，喜欢分享。现在居住工作在中国天津。想做一个还不错的程序员，因为除了写代码也不会别的。
 
