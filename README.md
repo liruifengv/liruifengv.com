@@ -17,6 +17,10 @@
 - [x] 文章搜索
 - [x] 明亮/暗黑模式
 
+## 得分
+![image](https://github.com/liruifengv/liruifengv.com/assets/25167721/bdf4eb29-12ff-4cd0-a6c4-febf6a671f05)
+
+
 ## 订阅
 
 你可以使用 RSS 订阅我的博客文章：https://liruifengv.com/rss.xml
