@@ -6,6 +6,7 @@ import { slugifyStr } from "@utils/slugify";
 const articles = await getCollection("blog");
 const tags: Array<[string, number]> = [
   ...articles
+    .filter(article => !article.data.draft)
     .flatMap(article => [...article.data.tags])
     .reduce((acc, e) => acc.set(e, (acc.get(e) || 0) + 1), new Map()),
 ]

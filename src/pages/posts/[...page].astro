@@ -15,7 +15,8 @@ export const getStaticPaths = (async ({ paginate }) => {
           (a, b) =>
             Math.floor(new Date(b.data.pubDatetime).getTime() / 1000) -
             Math.floor(new Date(a.data.pubDatetime).getTime() / 1000)
-        ),
+        )
+        .filter(entry => entry.data.draft !== true),
       { pageSize: SITE.postPerPage }
     ),
     ...blogCollection.map(entry => ({
