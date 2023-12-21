@@ -50,7 +50,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       <p>
         阅读我的文章，或者在我的
         <LinkButton
-          className="hover:text-skin-accent underline underline-offset-4 decoration-dashed"
+          className="text-skin-accent underline underline-offset-4 decoration-dashed"
           href="https://github.com/liruifengv"
           target="_blank"
         >
@@ -68,8 +68,6 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       }
     </section>
 
-    <Hr />
-
     {
       featuredPosts.length > 0 && (
         <>
@@ -85,7 +83,6 @@ const socialCount = SOCIALS.filter(social => social.active).length;
               ))}
             </ul>
           </section>
-          <Hr />
         </>
       )
     }

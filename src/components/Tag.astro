@@ -12,7 +12,7 @@ const { name, count, size = "sm" } = Astro.props;
   <a
     href={`/posts/tags/${name.toLowerCase()}`}
     transition:name={name.toLowerCase()}
-    class={`${size === "sm" ? "text-base" : "text-lg"} pr-4 group`}
+    class={`${size === "sm" ? "text-sm" : "text-base"} pr-4 group`}
   >
     <span
       >{name.toLowerCase()}
@@ -23,6 +23,6 @@ const { name, count, size = "sm" } = Astro.props;
 
 <style>
   a {
-    @apply relative rounded-lg border px-2 py-1 text-skin-accent hover:text-skin-accent focus-visible:p-1;
+    @apply relative rounded-md border px-2 py-1 text-skin-accent hover:text-skin-accent focus-visible:p-1;
   }
 </style>
