@@ -6,7 +6,7 @@
   :root,
   html[data-theme="light"] {
     --color-fill: 255, 255, 255;
-    --color-text-base: 40, 39, 40;
+    --color-text-base: 35, 38, 47;
     --color-accent: 56, 135, 190;
     --color-card: 230, 230, 230;
     --color-card-muted: 205, 205, 205;
@@ -14,7 +14,7 @@
   }
   html[data-theme="dark"] {
     --color-fill: 25, 25, 25;
-    --color-text-base: 230, 230, 230;
+    --color-text-base: 193, 195, 200;
     --color-accent: 131, 203, 251;
     --color-card: 63, 75, 90;
     --color-card-muted: 89, 107, 129;
