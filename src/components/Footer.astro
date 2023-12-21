@@ -25,7 +25,11 @@ const { noMarginTop = false } = Astro.props;
         {currentYear}</span
       >
       <span class="separator">&nbsp;</span>
-      <LinkButton href={authorLink} className="my-6 text-lg" target="_blank">
+      <LinkButton
+        href={authorLink}
+        className="my-6 text-lg text-skin-accent"
+        target="_blank"
+      >
         @{SITE.author}
       </LinkButton>
       <span class="separator">&nbsp;|&nbsp;</span>

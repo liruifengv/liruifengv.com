@@ -20,7 +20,7 @@ const filteredHeaders = headers.filter(
       filteredHeaders.map(header => (
         <li class={`toc-depth-${header.depth}`}>
           <LinkButton
-            className="my-2 underline decoration-dashed underline-offset-8 text-lg"
+            className="my-2 underline underline-offset-8 text-base"
             href={`#${header.slug}`}
           >
             {header.text}

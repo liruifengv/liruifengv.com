@@ -5,17 +5,17 @@
 @layer base {
   :root,
   html[data-theme="light"] {
-    --color-fill: 250, 252, 252;
+    --color-fill: 255, 255, 255;
     --color-text-base: 40, 39, 40;
-    --color-accent: 0, 108, 172;
+    --color-accent: 56, 135, 190;
     --color-card: 230, 230, 230;
     --color-card-muted: 205, 205, 205;
     --color-border: 236, 233, 233;
   }
   html[data-theme="dark"] {
-    --color-fill: 47, 55, 65;
+    --color-fill: 25, 25, 25;
     --color-text-base: 230, 230, 230;
-    --color-accent: 26, 217, 217;
+    --color-accent: 131, 203, 251;
     --color-card: 63, 75, 90;
     --color-card-muted: 89, 107, 129;
     --color-border: 59, 70, 85;
@@ -29,7 +29,7 @@
     display: block;
   }
   body {
-    @apply flex min-h-[100svh] flex-col bg-skin-fill font-mono text-xl 
+    @apply flex min-h-[100svh] flex-col bg-skin-fill font-mono text-lg
     text-skin-base selection:bg-skin-accent selection:bg-opacity-70 selection:text-skin-inverted;
   }
   section,
@@ -37,8 +37,7 @@
     @apply mx-auto max-w-5xl px-4;
   }
   a {
-    @apply outline-2 outline-offset-1 outline-skin-fill 
-    focus-visible:no-underline focus-visible:outline-dashed;
+    @apply no-underline
   }
   svg {
     @apply inline-block h-6 w-6 fill-skin-base group-hover:fill-skin-accent;
@@ -50,8 +49,7 @@
   }
   .prose {
     @apply prose-headings:!mb-3 prose-headings:!text-skin-base 
-    prose-h3:italic prose-p:!text-skin-base 
-    prose-a:!text-skin-base prose-a:!decoration-dashed prose-a:underline-offset-8
+    prose-h3:italic prose-p:!text-skin-base prose-a:!text-skin-accent prose-a:underline-offset-8
     hover:prose-a:text-skin-accent prose-blockquote:!border-l-skin-accent
     prose-blockquote:border-opacity-50 prose-blockquote:opacity-80
     prose-figcaption:!text-skin-base prose-figcaption:opacity-70
