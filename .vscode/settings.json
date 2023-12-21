@@ -2,8 +2,8 @@
   "editor.formatOnSave": false,
   "editor.rulers": [100],
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
   },
   "html.format.enable": false,
   "json.format.enable": false,
