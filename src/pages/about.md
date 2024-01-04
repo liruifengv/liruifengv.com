@@ -15,9 +15,9 @@ title: "关于我/关于本站"
 
 ### 我的技术栈有
 
-- 语言：HTML、CSS、JavaScript(Node、Deno)、Rust
+- 语言：HTML、CSS、JavaScript(Node、Deno)、Rust、Go
 - 前端：Vue、React、Astro、Next.js
-- 后端：Actix、Express
+- 后端：Actix(Rust)、Express(Node)、Fiber(go)
 - 客户端跨平台：Electron
 
 ### 关于本站
