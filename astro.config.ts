@@ -19,7 +19,7 @@ export default defineConfig({
     react(),
     sitemap(),
     expressiveCode({
-      theme: "material-theme-darker",
+      themes: ["material-theme-darker"],
       plugins: [
         {
           name: "custom-style",
@@ -43,12 +43,6 @@ export default defineConfig({
           hooks: {},
         },
       ],
-      frames: {
-        styleOverrides: {
-          frameBoxShadowCssValue: "none",
-          tooltipSuccessBackground: "#006CAC",
-        },
-      },
       useThemedScrollbars: false,
       useThemedSelectionColors: false,
       styleOverrides: {
