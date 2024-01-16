@@ -7,10 +7,7 @@ featured: false
 draft: false
 postSlug: ghost-mysql
 tags:
-  - ghost
   - 建站
-  - blog
-  - mysql
 ---
 
 上一篇文章[使用 Ghost 从零搭建博客系统](/posts/ghost/) 写了如何搭建 Ghost，但是 Ghost 默认使用 SQLite 数据库，我们想使用 mysql 数据库，这篇文章就实践一下。

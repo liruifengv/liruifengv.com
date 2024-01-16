@@ -7,7 +7,7 @@ featured: false
 draft: false
 postSlug: tag-semantics
 tags:
-  - HTML
+  - front-end
 ---
 
 ### 前言

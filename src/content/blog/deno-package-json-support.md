@@ -8,7 +8,6 @@ draft: false
 postSlug: deno-package-json-support
 tags:
   - Deno
-  - restful
 ---
 
 ## 前言

@@ -7,9 +7,7 @@ featured: false
 draft: false
 postSlug: ghost
 tags:
-  - ghost
   - 建站
-  - blog
 ---
 
 ### Ghost 介绍

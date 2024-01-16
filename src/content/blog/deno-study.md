@@ -8,7 +8,6 @@ draft: false
 postSlug: deno-study
 tags:
   - Deno
-  - restful
 ---
 
 ## 前言

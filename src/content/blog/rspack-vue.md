@@ -8,7 +8,7 @@ draft: false
 postSlug: rspack-vue
 tags:
   - Vue
-  - WebPack
+  - front-end
 ---
 
 ## 前言

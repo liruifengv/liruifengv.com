@@ -9,8 +9,6 @@ postSlug: copy-text
 tags:
   - front-end
   - JavaScript
-  - HTML
-  - WebView
 ---
 
 ## 前言

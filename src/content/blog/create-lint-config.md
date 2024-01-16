@@ -8,8 +8,6 @@ draft: false
 postSlug: create-lint-config
 tags:
   - 开源
-  - CLI
-  - 工具
 ---
 
 ## 前言

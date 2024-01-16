@@ -8,7 +8,6 @@ draft: false
 postSlug: deno-http
 tags:
   - Deno
-  - restful
 ---
 
 ## 前言

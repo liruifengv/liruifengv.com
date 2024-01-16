@@ -8,8 +8,7 @@ draft: false
 postSlug: promise-modal
 tags:
   - React
-  - Promise
-  - JavaScript
+  - front-end
 ---
 
 ### 前言

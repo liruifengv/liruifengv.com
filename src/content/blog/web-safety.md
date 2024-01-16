@@ -8,7 +8,6 @@ draft: false
 postSlug: web-safety
 tags:
   - front-end
-  - web
 ---
 
 ### 前言
