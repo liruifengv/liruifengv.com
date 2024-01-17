@@ -18,8 +18,8 @@
 - [x] 明亮/暗黑模式
 
 ## 得分
-![image](https://github.com/liruifengv/liruifengv.com/assets/25167721/bdf4eb29-12ff-4cd0-a6c4-febf6a671f05)
 
+![image](https://github.com/liruifengv/liruifengv.com/assets/25167721/bdf4eb29-12ff-4cd0-a6c4-febf6a671f05)
 
 ## 订阅
 

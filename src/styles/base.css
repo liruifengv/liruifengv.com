@@ -37,7 +37,7 @@
     @apply mx-auto max-w-5xl px-4;
   }
   a {
-    @apply no-underline
+    @apply no-underline;
   }
   svg {
     @apply inline-block h-6 w-6 fill-skin-base group-hover:fill-skin-accent;
