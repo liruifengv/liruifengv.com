@@ -21,10 +21,7 @@ const {
   canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
 } = Astro.props;
 
-const socialImageURL = new URL(
-  ogImage ?? OG.ogImage ?? "og.png",
-  Astro.url.origin
-).href;
+const socialImageURL = new URL(ogImage ?? "og.png", Astro.url.origin).href;
 ---
 
 <!doctype html>
