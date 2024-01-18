@@ -475,7 +475,6 @@ ogImage: "https://example.png"
 上面 ogImage 如果不写，则会使用自动生成的图片。
 ```
 
-
 ## 最终效果
 
 在 Twitter 上编辑推文，内容是我们的文章链接，然后发布，效果如下：
@@ -484,4 +483,4 @@ ogImage: "https://example.png"
 
 ## 总结
 
-至此我们完成了我们想要的全部功能，Next.js 其实有自己的生成图片功能，也是使用的 `Satori`，感兴趣的朋友可以把这套移植到其他系统。
+至此我们完成了我们想要的全部功能，全部代码在[我的博客仓库](https://github.com/liruifengv/liruifengv.com)。Next.js 其实有自己的生成图片功能，也是使用的 `Satori`，感兴趣的朋友可以把这套移植到其他系统。
