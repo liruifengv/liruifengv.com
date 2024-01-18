@@ -3,7 +3,7 @@ title: "我赢得了 Astro 社区奖励！！！Astro v3.0 已发布 🚀🚀�
 description: "昨天，Astro 给我发了 250 美金的社区奖励！没想到参与开源还有钱拿，简直太爽了。"
 author: liruifengv
 pubDatetime: 2023-08-31
-featured: true
+featured: false
 draft: false
 postSlug: astro-awards
 tags:

@@ -3,7 +3,7 @@ title: "Rust 实战教程之用 Rust 写一个命令行 TODO List（一）"
 description: "本教程将带你手把手用 Rust 实现一个命令行的 TODO List。"
 pubDatetime: 2023-09-06
 author: liruifengv
-featured: true
+featured: false
 draft: false
 postSlug: write-todo-by-rust
 tags:

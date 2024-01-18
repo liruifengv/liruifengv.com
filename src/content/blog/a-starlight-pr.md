@@ -3,7 +3,7 @@ title: "从一个 PR 聊聊我为什么喜欢开源👋 😄 🎉 🎄 🦋"
 author: liruifengv
 description: "最近给 Astro 的 Starlight 项目提交了一个 PR，从这个 PR 我学到了一些东西，所以从这个 PR 出发聊聊我为什么喜欢开源。"
 pubDatetime: 2023-06-12
-featured: true
+featured: false
 draft: false
 postSlug: a-starlight-pr
 tags:
