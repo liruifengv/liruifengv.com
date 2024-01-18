@@ -39,7 +39,7 @@ Twitter card 的例子：
 
 各平台会根据这些标签的内容，自动把你发布的链接转换成预览图，如下图所示：
 
-![Twitter card image](../../assets/images/astro-auto-gen-og-image/example-twitter-card.png)
+![Twitter card image](https://bucket.liruifengv.com/astro-auto-gen-og-image/example-twitter-card.png)
 
 ### 为什么要自动生成
 
@@ -319,13 +319,13 @@ await loadEmoji("twemoji", getIconCode(segment))
 
 执行 `npm run build`。
 
-![打包log](../../assets/images/astro-auto-gen-og-image/build-log.png)
+![打包log](https://bucket.liruifengv.com/astro-auto-gen-og-image/build-log.png)
 
 可以看到打包时执行了我们写的 Endpoint，为每篇文章生成了图片。
 
 查看 `dist/posts` 文件夹
 
-![dist 中的图片](../../assets/images/astro-auto-gen-og-image/dist.png)
+![dist 中的图片](https://bucket.liruifengv.com/astro-auto-gen-og-image/dist.png)
 
 访问：`http://localhost:4321/posts/astro-auto-gen-og-image.png`
 
@@ -479,7 +479,7 @@ ogImage: "https://example.png"
 
 在 Twitter 上编辑推文，内容是我们的文章链接，然后发布，效果如下：
 
-![在 Twitter 上展示的效果](../../assets/images/astro-auto-gen-og-image/example-twitter-card.png)
+![在 Twitter 上展示的效果](https://bucket.liruifengv.com/astro-auto-gen-og-image/example-twitter-card.png)
 
 ## 总结
 
