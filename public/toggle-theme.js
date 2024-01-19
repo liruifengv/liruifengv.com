@@ -23,14 +23,12 @@ function getPreferTheme() {
 let themeValue = getPreferTheme();
 
 function setPreference(themeValue) {
-  sendThemeChange(themeValue);
   localStorage.setItem("theme", themeValue);
   reflectPreference();
 }
 
 function reflectPreference() {
   document.firstElementChild.setAttribute("data-theme", themeValue);
-  sendThemeChange(themeValue);
 
   document.querySelector("#theme-btn")?.setAttribute("aria-label", themeValue);
 
@@ -39,6 +37,8 @@ function reflectPreference() {
 
   // Check if the body element exists before using getComputedStyle
   if (body) {
+    sendThemeChange(themeValue);
+
     // Get the computed styles for the body element
     const computedStyles = window.getComputedStyle(body);
 
