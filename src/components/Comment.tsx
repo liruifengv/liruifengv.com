@@ -4,17 +4,28 @@ import Giscus from '@giscus/react';
 
 const id = 'inject-comments';
 
+function getCurrentTheme() {
+  if (window.localStorage.getItem('theme')) {
+    return window.localStorage.getItem('theme');
+  }
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+}
+
+
 const Comments = () => {
   const [mounted, setMounted] = React.useState(false);
   const [theme, setTheme] = React.useState("light");
 
   const handleThemeChange = ({detail: { themeValue }}) => {
+    console.log(themeValue);
     const theme = themeValue ?? "light";
     setTheme(theme);
   };
 
   React.useEffect(() => {
-    setTheme(window.localStorage.getItem('theme') || 'light');
+    const theme = getCurrentTheme();
+    console.log(theme);
+    setTheme(theme);
     window.addEventListener('theme-change', handleThemeChange);
 
     return () => {
