@@ -3,6 +3,10 @@ const primaryColorScheme = ""; // "light" | "dark"
 // Get theme data from local storage
 const currentTheme = localStorage.getItem("theme");
 
+function sendThemeChange(themeValue) {
+  window.dispatchEvent(new CustomEvent("theme-change", { detail: {themeValue} }));
+}
+
 function getPreferTheme() {
   // return theme value in local storage if it is set
   if (currentTheme) return currentTheme;
@@ -19,13 +23,14 @@ function getPreferTheme() {
 let themeValue = getPreferTheme();
 
 function setPreference(themeValue) {
-  window.dispatchEvent(new CustomEvent("theme-change", { detail: {themeValue} }));
+  sendThemeChange(themeValue);
   localStorage.setItem("theme", themeValue);
   reflectPreference();
 }
 
 function reflectPreference() {
   document.firstElementChild.setAttribute("data-theme", themeValue);
+  sendThemeChange(themeValue);
 
   document.querySelector("#theme-btn")?.setAttribute("aria-label", themeValue);
 
