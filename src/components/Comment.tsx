@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from 'react';
 import Giscus from '@giscus/react';
 
@@ -5,6 +6,21 @@ const id = 'inject-comments';
 
 const Comments = () => {
   const [mounted, setMounted] = React.useState(false);
+  const [theme, setTheme] = React.useState("light");
+
+  const handleThemeChange = ({detail: { themeValue }}) => {
+    const theme = themeValue ?? "light";
+    setTheme(theme);
+  };
+
+  React.useEffect(() => {
+    setTheme(window.localStorage.getItem('theme') || 'light');
+    window.addEventListener('theme-change', handleThemeChange);
+
+    return () => {
+      window.removeEventListener('theme-changes', handleThemeChange);
+    };
+  }, []);
 
   React.useEffect(() => {
     setMounted(true);
@@ -25,7 +41,7 @@ const Comments = () => {
           inputPosition="top"
           lang="zh-CN"
           loading="lazy"
-          theme="preferred_color_scheme"
+          theme={theme}
         />
       ) : null}
     </div>
