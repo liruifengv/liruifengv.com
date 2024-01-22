@@ -21,9 +21,9 @@ tags:
 
 ### 截图
 
-![](../../assets/images/daily-poetry-image/p1.png)
+![](https://bucket.liruifengv.com/daily-poetry-image/p1.png)
 
-![](../../assets/images/daily-poetry-image/p2.png)
+![](https://bucket.liruifengv.com/daily-poetry-image/p2.png)
 
 
 本篇文章主要介绍项目的实现过程。
@@ -369,11 +369,11 @@ jobs:
 
 首先，我们打开 [Bing 画图](https://www.bing.com/images/create)，登录自己的账号，然后打开开发者工具，找到 cookie，复制下来。
 
-![bing-cookie](../../assets/images/daily-poetry-image/bing-cookie.png)
+![bing-cookie](https://bucket.liruifengv.com/daily-poetry-image/bing-cookie.png)
 
 把这一大坨 cookie 复制到 GitHub 仓库的 secrets 中，名字叫 `BING_COOKIE`。
 
-![github-secret](../../assets/images/daily-poetry-image/github-secret.png)
+![github-secret](https://bucket.liruifengv.com/daily-poetry-image/github-secret.png)
 
 到此就大功告成啦，每天早上7点，就会自动运行，生成图片，然后提交到 GitHub 仓库中。GitHub 的提交又会触发 Vercel 的自动部署，网站也就自动更新啦。
 
