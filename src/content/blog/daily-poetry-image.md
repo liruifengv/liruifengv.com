@@ -23,6 +23,9 @@ tags:
 
 ![](../../assets/images/daily-poetry-image/p1.png)
 
+![](../../assets/images/daily-poetry-image/p2.png)
+
+
 本篇文章主要介绍项目的实现过程。
 
 ## 所用技术
