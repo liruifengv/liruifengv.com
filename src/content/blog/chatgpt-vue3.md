@@ -9,6 +9,7 @@ postSlug: chatgpt-vue3
 tags:
   - Vue
   - ChatGPT
+  - AI
 ---
 
 ## 前言
