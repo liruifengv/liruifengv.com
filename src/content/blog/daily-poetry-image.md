@@ -95,7 +95,7 @@ export class BingImageCreator {
                 ...HEADERS,
             },
             body: formData,
-            redirect: "manual", // 把 fetch 的 redirect 设置为 manual 来组织重定向
+            redirect: "manual", // 把 fetch 的 redirect 设置为 manual 来阻止重定向
         });
         if (response.ok) {
             // 返回200，说明请求失败了。
