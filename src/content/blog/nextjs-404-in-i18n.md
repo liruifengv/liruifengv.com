@@ -1,5 +1,5 @@
 ---
-title: "Next.js 如何在 i18n 场景下处理 404 页面"
+title: "Next.js"
 description: "Next.js 使用 app route，国际化时无法自定义 404 页面。"
 pubDatetime: 2024-01-04
 author: liruifengv
