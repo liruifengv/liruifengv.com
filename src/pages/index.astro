@@ -4,7 +4,7 @@ import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import LinkButton from "@components/LinkButton.astro";
-import Card from "@components/Card.astro";
+import PostItem from "@components/PostItem.astro";
 import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import { SOCIALS } from "@config";
@@ -73,7 +73,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
             <h2>精选文章</h2>
             <ul>
               {featuredPosts.map(({ data, slug }) => (
-                <Card
+                <PostItem
                   href={`/posts/${slug}`}
                   slug={slug}
                   frontmatter={data}
@@ -95,7 +95,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
             .map(
               ({ data, slug }, index) =>
                 index < 4 && (
-                  <Card
+                  <PostItem
                     href={`/posts/${slug}`}
                     slug={slug}
                     frontmatter={data}

@@ -1,6 +1,6 @@
 import Fuse from "fuse.js";
 import { useEffect, useRef, useState, useMemo } from "react";
-import Card from "@components/SearchCard";
+import SearchPostItem from "@components/SearchItem";
 import type { CollectionEntry } from "astro:content";
 
 export type SearchItem = {
@@ -106,7 +106,8 @@ export default function SearchBar({ searchList }: Props) {
       <ul>
         {searchResults &&
           searchResults.map(({ item, refIndex }) => (
-            <Card
+            <SearchPostItem
+              slug={item.slug}
               href={`/posts/${item.slug}`}
               frontmatter={item.data}
               key={`${refIndex}-${item.slug}`}
