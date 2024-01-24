@@ -17,7 +17,6 @@ const Comments = () => {
   const [theme, setTheme] = React.useState("light");
 
   const handleThemeChange = ({detail: { themeValue }}) => {
-    console.log(themeValue);
     const theme = themeValue ?? "light";
     setTheme(theme);
   };
