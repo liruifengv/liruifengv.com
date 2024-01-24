@@ -5,7 +5,6 @@ pubDatetime: 2017-05-08
 author: liruifengv
 featured: false
 draft: false
-postSlug: performance-optimization
 tags:
   - front-end
 ---

@@ -5,7 +5,6 @@ pubDatetime: 2023-12-29
 author: liruifengv
 featured: false
 draft: false
-postSlug: git-blame-ignore
 tags:
   - git
 ---

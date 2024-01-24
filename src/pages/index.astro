@@ -7,7 +7,6 @@ import LinkButton from "@components/LinkButton.astro";
 import Card from "@components/Card.astro";
 import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
-import slugify from "@utils/slugify";
 import { SOCIALS } from "@config";
 
 const posts = await getCollection("blog");
@@ -73,9 +72,10 @@ const socialCount = SOCIALS.filter(social => social.active).length;
           <section id="featured">
             <h2>精选文章</h2>
             <ul>
-              {featuredPosts.map(({ data }) => (
+              {featuredPosts.map(({ data, slug }) => (
                 <Card
-                  href={`/posts/${slugify(data)}`}
+                  href={`/posts/${slug}`}
+                  slug={slug}
                   frontmatter={data}
                   secHeading={false}
                 />
@@ -93,10 +93,11 @@ const socialCount = SOCIALS.filter(social => social.active).length;
           sortedPosts
             .filter(({ data }) => !data.featured)
             .map(
-              ({ data }, index) =>
+              ({ data, slug }, index) =>
                 index < 4 && (
                   <Card
-                    href={`/posts/${slugify(data)}`}
+                    href={`/posts/${slug}`}
+                    slug={slug}
                     frontmatter={data}
                     secHeading={false}
                   />

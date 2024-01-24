@@ -5,7 +5,6 @@ pubDatetime: 2017-02-27
 author: liruifengv
 featured: false
 draft: false
-postSlug: tag-semantics
 tags:
   - front-end
 ---

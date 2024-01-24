@@ -5,7 +5,6 @@ pubDatetime: 2023-04-12
 author: liruifengv
 featured: false
 draft: false
-postSlug: deno-package-json-support
 tags:
   - Deno
 ---

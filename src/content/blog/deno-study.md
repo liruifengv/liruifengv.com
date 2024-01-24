@@ -5,7 +5,6 @@ pubDatetime: 2019-12-11
 author: liruifengv
 featured: false
 draft: false
-postSlug: deno-study
 tags:
   - Deno
 ---

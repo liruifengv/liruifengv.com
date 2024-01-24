@@ -5,7 +5,6 @@ description: "2023 年就要结束了，这一年经历了一些挫折，也有�
 pubDatetime: 2023-12-21
 featured: true
 draft: false
-postSlug: 2023-year-end-summary
 tags:
   - 年终总结
 ---

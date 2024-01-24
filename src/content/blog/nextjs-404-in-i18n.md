@@ -5,7 +5,6 @@ pubDatetime: 2024-01-04
 author: liruifengv
 featured: false
 draft: false
-postSlug: nextjs-404-in-i18n
 tags:
   - Next.js
   - React

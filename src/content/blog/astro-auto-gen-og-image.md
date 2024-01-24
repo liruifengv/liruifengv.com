@@ -5,7 +5,6 @@ pubDatetime: 2024-01-17
 author: liruifengv
 featured: true
 draft: false
-postSlug: astro-auto-gen-og-image
 tags:
   - Astro
   - front-end
@@ -73,7 +72,6 @@ Twitter card 的例子：
 import type { APIRoute } from "astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 import { generateOgImageForPost } from "@utils/generateOgImages";
-import slugify from "@utils/slugify";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog").then(p =>
@@ -81,7 +79,7 @@ export async function getStaticPaths() {
   );
 
   return posts.map(post => ({
-    params: { slug: slugify(post.data) },
+    params: { slug: post.slug },
     props: post,
   }));
 }
@@ -408,7 +406,7 @@ const { Content, headings } = await post.render();
 
 const ogImageUrl = typeof ogImage === "string" ? ogImage : ogImage?.src;
 const ogUrl = new URL(
-  ogImageUrl ?? `/posts/${slugify(post.data)}.png`,
+  ogImageUrl ?? `/posts/${post.slug}.png`,
   Astro.url.origin
 ).href;
 ---
@@ -427,7 +425,7 @@ your post content
 PostDetail 是文章详情页，从文章的 frontmatter 中拿到相应数据，如果文章有自己配置的 ogImage 就用自己的，如果没有，就用文章slug 拼接将要自动生成的 url：
 ```ts
 const ogUrl = new URL(
-  ogImageUrl ?? `/posts/${slugify(post.data)}.png`,
+  ogImageUrl ?? `/posts/${post.slug}.png`,
   Astro.url.origin
 ).href;
 ```

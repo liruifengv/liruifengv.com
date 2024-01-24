@@ -5,7 +5,6 @@ pubDatetime: 2020-06-21
 author: liruifengv
 featured: false
 draft: false
-postSlug: deno-http
 tags:
   - Deno
 ---

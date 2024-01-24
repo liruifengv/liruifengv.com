@@ -5,7 +5,6 @@ pubDatetime: 2024-01-22
 author: liruifengv
 featured: true
 draft: false
-postSlug: daily-poetry-image
 tags:
   - AI
   - front-end

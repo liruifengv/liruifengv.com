@@ -5,7 +5,6 @@ pubDatetime: 2022-12-29
 author: liruifengv
 featured: false
 draft: false
-postSlug: promise-modal
 tags:
   - React
   - front-end

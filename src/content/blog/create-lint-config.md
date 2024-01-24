@@ -5,7 +5,6 @@ pubDatetime: 2023-02-21
 author: liruifengv
 featured: false
 draft: false
-postSlug: create-lint-config
 tags:
   - 开源
 ---

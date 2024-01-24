@@ -5,7 +5,6 @@ pubDatetime: 2023-04-05
 author: liruifengv
 featured: false
 draft: false
-postSlug: roll-your-own-javascript-runtime
 tags:
   - Deno
   - Rust

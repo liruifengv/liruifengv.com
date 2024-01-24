@@ -5,7 +5,6 @@ description: "最近给 Astro 的 Starlight 项目提交了一个 PR，从这个
 pubDatetime: 2023-06-12
 featured: false
 draft: false
-postSlug: a-starlight-pr
 tags:
   - front-end
   - 开源

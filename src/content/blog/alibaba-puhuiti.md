@@ -3,7 +3,6 @@ title: "阿里巴巴普惠体前端应用"
 author: liruifengv
 description: "在UCAN 2019 设计大会上，阿里巴巴设计率先向全社会发布了一款字体“阿里巴巴普惠体”，希望能够让阿里巴巴的普惠精神，让整个生态的设计师、合作伙伴因为我们平台的赋能，真正得到实惠。本项目是阿里巴巴普惠体在前端开发中的实际应用。"
 pubDatetime: 2019-04-29
-postSlug: alibaba-puhuiti
 tags:
   - front-end
 ---

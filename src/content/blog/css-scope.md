@@ -5,7 +5,6 @@ pubDatetime: 2023-08-23
 author: liruifengv
 featured: false
 draft: false
-postSlug: css-scope
 tags:
   - CSS
   - front-end

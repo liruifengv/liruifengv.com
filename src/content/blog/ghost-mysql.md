@@ -5,7 +5,6 @@ pubDatetime: 2021-12-17
 author: liruifengv
 featured: false
 draft: false
-postSlug: ghost-mysql
 tags:
   - 建站
 ---

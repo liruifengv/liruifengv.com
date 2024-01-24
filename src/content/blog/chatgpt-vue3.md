@@ -5,7 +5,6 @@ pubDatetime: 2023-02-23
 author: liruifengv
 featured: false
 draft: false
-postSlug: chatgpt-vue3
 tags:
   - Vue
   - ChatGPT

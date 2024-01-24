@@ -1,14 +1,14 @@
 ---
-import { slugifyStr } from "@utils/slugify";
 import Datetime from "./Datetime";
 import type { CollectionEntry } from "astro:content";
 
 export interface Props {
+  slug: string;
   href?: string;
   frontmatter: CollectionEntry<"blog">["data"];
   secHeading?: boolean;
 }
-const { href, frontmatter } = Astro.props;
+const { href, frontmatter, slug } = Astro.props;
 const { title, description, pubDatetime } = frontmatter;
 
 const headerProps = {
@@ -21,7 +21,7 @@ const headerProps = {
     href={href}
     class="inline-block font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
   >
-    <h2 {...headerProps} transition:name={slugifyStr(title)}>
+    <h2 {...headerProps} transition:name={slug}>
       {title}
     </h2>
   </a>

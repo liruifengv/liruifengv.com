@@ -5,7 +5,6 @@ pubDatetime: 2017-02-21
 author: liruifengv
 featured: false
 draft: false
-postSlug: layout-v1
 tags:
   - CSS
 ---

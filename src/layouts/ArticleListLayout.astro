@@ -9,7 +9,6 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import type { Page } from "astro";
 import type { CollectionEntry } from "astro:content";
-import slugify from "@utils/slugify";
 
 interface Props {
   page: Page<CollectionEntry<"blog">>;
@@ -26,11 +25,8 @@ const { page, title, description } = Astro.props;
     <article class="flex flex-col gap-2 sm:flex-row">
       <div class="sm:w-[80%]">
         {
-          page.data.map(item => (
-            <Card
-              href={`/posts/${slugify(item.data)}`}
-              frontmatter={item.data}
-            />
+          page.data.map(({ data, slug }) => (
+            <Card href={`/posts/${slug}`} slug={slug} frontmatter={data} />
           ))
         }
         <div>

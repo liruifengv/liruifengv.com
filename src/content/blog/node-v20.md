@@ -5,7 +5,6 @@ pubDatetime: 2023-04-20
 author: liruifengv
 featured: false
 draft: false
-postSlug: node-v20
 tags:
   - NodeJS
 ---
