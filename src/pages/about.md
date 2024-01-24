@@ -5,13 +5,16 @@ title: "关于我/关于本站"
 
 ## 我是 liruifengv
 
-我是一名前端开发工程师，目前专注 Web 开发，热爱开源，喜欢折腾，喜欢分享。现在居住工作在中国天津。想做一个还不错的程序员，因为除了写代码也不会别的。
+我是一名前端开发工程师，目前专注 Web 开发，热爱开源，喜欢折腾，喜欢分享。现在居住工作在中国天津。
 
 这两年，开始着重参与一些开源项目，同时也在写技术文章。
 
 - [Deno](https://github.com/denoland/deno/issues?q=author%3Aliruifengv) 参与了一些代码贡献。希望前端生态越来越好。
-- [Astro](https://github.com/withastro) 参与代码贡献，中文文档的维护翻译。我组织了一波小伙伴，参与 Astro 中文文档的翻译工作。如果你在使用 Astro 的过程中，有任何问题，或者中文文档有任何疑问，欢迎联系我。
-- 学习 Rust 从入门到放弃三次，开始有点感觉了，计划写一系列 Rust 实战的文章。
+- [Astro](https://github.com/withastro) 参与代码贡献，中文文档的维护翻译。
+- 我组织了一波小伙伴，参与 Astro 中文文档的翻译工作。
+- 如果你在使用 Astro 的过程中，有任何问题，或者中文文档有任何疑问，欢迎联系我。
+- 正在写 Astro 专栏文章。
+- 学习 Rust 从入门到放弃三次，计划写一系列 Rust 实战的文章。
 
 ### 我的技术栈有
 
@@ -32,10 +35,10 @@ title: "关于我/关于本站"
 
 ### 我的其他主页
 
-- 知乎：https://www.zhihu.com/people/liruifengv
-- 掘金：https://juejin.cn/user/237150239994471
-- GitHub：https://github.com/liruifengv
-- Twitter / X：https://twitter.com/liruifengv
+- [GitHub](https://github.com/liruifengv)
+- [Twitter / X](https://twitter.com/liruifengv)
+- [知乎](https://www.zhihu.com/people/liruifengv)
+- [掘金](https://juejin.cn/user/237150239994471)
 - 微信公众号: SayHub
 
 ![My WeChat QRCode](https://bucket.liruifengv.com/qrcode.png)
