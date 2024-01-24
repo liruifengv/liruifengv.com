@@ -1,5 +1,5 @@
 ---
-title: "Rust 实战教程之用 Rust 写一个命令行 TODO List（二）2"
+title: "Rust 实战教程之用 Rust 写一个命令行 TODO List（二）"
 description: "本教程将带你手把手用 Rust 实现一个命令行的 TODO List 第二弹。"
 pubDatetime: 2023-09-07
 author: liruifengv
