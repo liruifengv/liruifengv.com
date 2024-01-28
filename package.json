@@ -17,12 +17,12 @@
     "deploy": "wrangler pages deploy dist --project-name=liruifengv-com"
   },
   "dependencies": {
-    "@astrojs/check": "^0.3.4",
+    "@astrojs/check": "^0.4.1",
     "@astrojs/mdx": "^2.1.0",
-    "@astrojs/rss": "^4.0.1",
+    "@astrojs/rss": "^4.0.4",
     "@giscus/react": "^2.4.0",
     "@resvg/resvg-js": "^2.4.1",
-    "astro": "^4.1.0",
+    "astro": "^4.2.6",
     "astro-expressive-code": "^0.30.2",
     "fuse.js": "^6.6.2",
     "github-slugger": "^2.0.0",
@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@astrojs/react": "^3.0.9",
-    "@astrojs/sitemap": "^3.0.4",
+    "@astrojs/sitemap": "^3.0.5",
     "@astrojs/tailwind": "^5.1.0",
     "@divriots/jampack": "^0.20.2",
     "@tailwindcss/typography": "^0.5.10",
