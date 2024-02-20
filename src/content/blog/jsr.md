@@ -1,6 +1,6 @@
 ---
-title: "Deno 新开发的 JSR，一个新的 JS 注册表，支持 TS 并兼容 npm"
-description: "Deno 又搞事情了，开发了一个新的 JS 注册表，原生支持 TS，并且兼容 npm"
+title: "Deno 新开发的 JSR，一个新的 JS Registry，支持 TS 并兼容 npm"
+description: "Deno 又搞事情了，开发了一个新的 JS Registry，原生支持 TS，并且兼容 npm"
 pubDatetime: 2024-02-20
 author: liruifengv
 featured: false
@@ -13,7 +13,7 @@ tags:
 
 ## 前言
 
-年前发现 Deno 搞了一个叫 [JSR](https://jsr.io/) 的东西，全称是 JavaScript Registry，一个新的 JS 注册表，像 npm 一样。出于好奇加入了 waitlist，最近收到了邮件可以用了，今天试了一下，写篇文章记录。
+年前发现 Deno 搞了一个叫 [JSR](https://jsr.io/) 的东西，全称是 JavaScript Registry，一个新的 JS 源，像 npm 一样。出于好奇加入了 waitlist，最近收到了邮件可以用了，今天试了一下，写篇文章记录。
 
 ## Why JSR?
 
@@ -22,8 +22,8 @@ tags:
 为什么有了 npm 还要做 JSR？
 
 - ESM 模块现在已经成为标准，CommonJS 正在逐渐被取代。
-- 越来越多的 Node 和浏览器之外的 JS 运行时出现，以 Node 为中心的包注册表将会不再适用。
-- TS 目前已经成为事实标准，需要一个对 TS 支持更好的现代化注册表。
+- 越来越多的 Node 和浏览器之外的 JS 运行时出现，以 Node 为中心的 Registry 将会不再适用。
+- TS 目前已经成为事实标准，需要一个对 TS 支持更好的现代化 Registry。
 
 JSR 现在的特点：
 
@@ -69,13 +69,13 @@ export function isOdd(num: number): boolean {
 接下来执行 `deno publish`。
 会跳转到 JSR 的网站上，再次确认 scope 和包名，然后点击 Create。
 
-![发布中](../../assets/images/jsr/publishing.png)
+![发布中](https://bucket.liruifengv.com/jsr/publishing.png)
 
-![发布授权](../../assets/images/jsr/publish-auth.png)
+![发布授权](https://bucket.liruifengv.com/jsr/publish-auth.png)
 
 再次点击 Approve 授权，就发布成功啦。
 
-![发布成功](../../assets/images/jsr/publish-success.png)
+![发布成功](https://bucket.liruifengv.com/jsr/publish-success.png)
 
 
 ## 在 jsr.io 查看刚发布的包
@@ -84,7 +84,7 @@ export function isOdd(num: number): boolean {
 
 这是根据 `mod.ts` 自动生成的文档。
 
-![is-odd 文档](../../assets/images/jsr/is-odd-docs.png)
+![is-odd 文档](https://bucket.liruifengv.com/jsr/is-odd-docs.png)
 
 ## 在 Deno 中使用
 
@@ -112,7 +112,7 @@ console.log(isOdd(1))
 @jsr:registry=https://npm.jsr.io
 ```
 
-解释一下，目前只有 Deno 原生支持 JSR。所以 JSR 做了一个 [npm 兼容层](https://jsr.io/docs/npm-compatibility)，指定 @jsr 下的包从 JSR 注册表中获取。
+解释一下，目前只有 Deno 原生支持 JSR。所以 JSR 做了一个 [npm 兼容层](https://jsr.io/docs/npm-compatibility)，指定 @jsr 下的包从 JSR Registry中获取。
 
 
 运行以下命令安装：
