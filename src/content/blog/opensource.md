@@ -13,7 +13,7 @@ tags:
 
 大家好，我是程序猿 liruifengv。
 
-这几年我也零零散散的在 GitHub 参与了一些开源项目，贡献了几个 PR（蹭了不少）。今天就讲一讲我的开源之旅，以及刚入门的程序员新手，如何快速参与进来。文末有彩蛋。
+这几年我也零零散散的在 GitHub 参与了一些开源项目，贡献了几个 PR（蹭了不少）。今天就讲一讲我的开源之旅，以及刚入门的程序员新手，如何快速参与进来。
 
 ## 我的开源之旅
 
@@ -73,13 +73,27 @@ ObjectDefineProperty(prototype.prototype, SymbolToStringTag, {
 
 [Astro](https://astro.build/) 是基于 Vite 的上层框架，首创群岛架构。可以快速构建内容网站如官网博客等，SEO 友好，SSG、SSR 可选。
 
-Astro 在 2022 年非常火爆，我也尝了把鲜，使用 Astro 把我的[个人博客](https://github.com/liruifengv/sayhub)进行了重构。
+Astro 在 2022 年非常火爆，我也尝了把鲜，使用 Astro 把我的[个人博客](https://github.com/liruifengv/liruifengv.com)进行了重构。
 
-一个新兴起的热门开源项目，那么当然也不能错过，蹭 PR 小能手的我，同样给 Astro 提了几个 PR。
+一个新兴起的热门开源项目，那么当然也不能错过。我给 Astro 提了一些 PR。
 
 - [withastro/astro](https://github.com/withastro/astro/pulls?q=is%3Apr+author%3Aliruifengv+is%3Aclosed)
 
 - [withastro/docs](https://github.com/withastro/docs/pulls?q=is%3Apr+author%3Aliruifengv+is%3Aclosed)
+
+- [withastro/starlight](https://github.com/withastro/starlight/pulls?q=is%3Apr+author%3Aliruifengv+is%3Aclosed)
+
+在 2023年，我组织了中文社区想参与开源的朋友，一起参与 Astro 的贡献，翻译了 Astro 的中文文档。并且我获得了 Astro 的开源社区奖励，详见文章 [我赢得了 Astro 社区奖励！！！Astro v3.0 已发布](http://liruifengv.com/posts/astro-awards)。
+
+在2024年刚过年农历新年，我就收到了 Astro 的邀请，成为了 Astro 的维护者之一。
+
+![astro](../../assets/images/astro-member.jpg)
+
+## 我的开源收获
+- 学到了很多代码技能
+- 认识了一群社区小伙伴
+- 得到了一些开源社区的奖励
+- 得到 web3 社区空投的一些代币
 
 ## 新手如何参与
 
@@ -123,26 +137,28 @@ Astro 在 2022 年非常火爆，我也尝了把鲜，使用 Astro 把我的[个
 
 - GitHub CI。开源项目都有 GitHub CI，是利用 GitHub Action，对提交的代码进行检查，一般都会运行 format、lint、单元测试、打包等操作。注意 CI 是否通过，挂了之后要及时修复。
 
-- 最后，不要怕，我遇到的好多维护者都很友好，他们会指导你如何修改你的 PR，跟你讨论。
-
 ### 工具推荐
 
 - [DeepL 翻译](https://www.deepl.com/translator)。
-- [octotree 扩展](https://chrome.google.com/webstore/detail/octotree-github-code-tree/bkhaagjahfmjljalopjnoealnfndnagc?hl=zh-CN) 可以在 github 左侧生成目录树，方便阅读源码。
+- [ChatGPT](https://chat.openai.com/)。可以用来翻译英文文档, 也可以用来翻译英文 issue, PR。
 - [grammarly](https://app.grammarly.com/) 辅助英文写作。
+- [Copilot](https://copilot.github.com/)。GitHub 的 AI 代码助手，可以帮你写代码。
 
-## 彩蛋，一个 PR 机会
+## 对开源的一些理解
 
-最后，有一个 PR 的机会，手慢无。
+我觉得开源的一个特点是，你可以在一个网站(GitHub)上和全世界范围内最顶尖的一批开发者直接沟通交流，这是其他行业不可能的。
 
-我在翻译 Astro 的文档：「[将现有项目迁移到 Astro](https://docs.astro.build/zh-cn/guides/migrate-to-astro/)」的时候，不小心留下一个错别字。
+真的推荐开发者都能参与到开源，哪怕从一个小的贡献开始，不要害怕，我遇到的很多 maintainer 都特别友善耐心，他们会循序渐进的帮你完善你的 PR，以达到合并标准，这过程中会学到非常非常多的东西。
 
-![](https://bucket.liruifengv.com/opensource/astro-doc.png)
+也不要害怕自己的 PR 会被拒绝，这是很正常的，我也有很多 PR 是被拒绝的。
 
-感兴趣的同学可以修改一下。
+一开始可能很难参与到很核心的代码贡献中去，因为一个项目虽然开源，但大型项目的核心代码还是很难搞懂的，代码是怎么架构的，为什么这么写的，目前的开发规划是什么，你都不清楚，也很难搞清楚。
 
-![](https://bucket.liruifengv.com/opensource/avatar.png)
+所以不必强求一开始就参与到很核心的开发，从文档开始是非常棒的选择。
 
-修复之后，你的头像就会出现在[这里](https://docs.astro.build/zh-cn/getting-started/)。找到我的头像了吗？
+开源不只有代码，还有文档、开发者体验、开发者社区等等，代码只是其中一环。而文档是开发者体验中非常非常重要的。国外有专门的社区工程师、文档工程师、开发者关系工程师等等，都是非常重要的岗位。
 
-今天就到这里了，我们下回再见。
+## 相关文章
+
+- [我赢得了 Astro 社区奖励！！！Astro v3.0 已发布](http://liruifengv.com/posts/astro-awards)
+- [从一个 PR 聊聊我为什么喜欢开源](https://liruifengv.com/posts/a-starlight-pr/)
