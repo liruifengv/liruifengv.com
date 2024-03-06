@@ -87,7 +87,7 @@ Astro 在 2022 年非常火爆，我也尝了把鲜，使用 Astro 把我的[个
 
 在2024年刚过年农历新年，我就收到了 Astro 的邀请，成为了 Astro 的维护者之一。
 
-![astro](../../assets/images/astro-member.jpg)
+![astro](https://bucket.liruifengv.com/join-astro/invite.jpg)
 
 ## 我的开源收获
 - 学到了很多代码技能
