@@ -1,0 +1,43 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	posts: CollectionEntry<'posts'>[];
+}
+
+const { posts } = Astro.props;
+---
+
+<div class="list">
+  {
+    posts.map((post) => (
+      <li>
+        <a href={`/posts/${post.slug}`}>
+          <h5 class="title">{post.data.title}</h5>
+        </a>
+      </li>
+    ))
+  }
+</div>
+
+<style>
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  a {
+    text-decoration: none;
+  }
+  li {
+    list-style: none;
+  }
+  .title:hover {
+    color: var(--link-color);
+  }
+	.title {
+		z-index: 1;
+		margin: 0.5rem;
+		color: var(--gray-200);
+	}
+</style>

@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import PostList from '../components/PostList.astro';
+import Hero from '../components/Hero.astro';
+
+const projects = (await getCollection('posts')).sort(
+	(a, b) => b.data.pubDatetime.valueOf() - a.data.pubDatetime.valueOf()
+);
+---
+
+<BaseLayout
+	title="My Posts | liruifengv"
+	description="Learn about liruifengv's posts"
+>
+	<div class="stack gap-20">
+		<main class="wrapper stack gap-8">
+			<Hero
+				title="My Posts"
+				align="center"
+			/>
+      <PostList posts={projects} />
+		</main>
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+  .list{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+</style>
