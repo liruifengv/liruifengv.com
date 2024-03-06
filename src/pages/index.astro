@@ -16,9 +16,7 @@ import ContactCTA from '../components/ContactCTA.astro';
 import Skills from '../components/Skills.astro';
 
 // Content Fetching: List four most recent work projects
-const posts = (await getCollection('posts'))
-	.sort((a, b) => b.data.pubDatetime.valueOf() - a.data.pubDatetime.valueOf())
-	.slice(0, 4);
+const posts = (await getCollection('posts')).filter((post) => post.data.featured);
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
