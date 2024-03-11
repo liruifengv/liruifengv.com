@@ -1,24 +1,39 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import Tag from './Tag.astro';
 
 interface Props {
 	posts: CollectionEntry<'posts'>[];
 }
 
 const { posts } = Astro.props;
+
+function formatDate(date: Date) {
+  return new Date(date).toLocaleDateString('zh-CN', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
 ---
 
-<div class="list">
-  {
-    posts.map((post) => (
-      <li>
-        <a href={`/posts/${post.slug}`}>
-          <h5 class="title">{post.data.title}</h5>
-        </a>
-      </li>
-    ))
-  }
+<div class="list-wrapper w-full flex justify-center items-center">
+  <div class="list">
+    {
+      posts.map((post) => (
+        <li>
+          <a href={`/posts/${post.slug}`}>
+            <h5 class="title">{post.data.title}</h5>
+            <div class="time">
+              {formatDate(post.data.pubDatetime)}
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </div>
 </div>
+
 
 <style>
   .list {
@@ -40,4 +55,9 @@ const { posts } = Astro.props;
 		margin: 0.5rem;
 		color: var(--gray-200);
 	}
+  .time {
+    color: var(--gray-400);
+    font-size: 0.8rem;
+    margin: 0.5rem;
+  }
 </style>

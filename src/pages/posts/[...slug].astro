@@ -5,7 +5,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 import ContactCTA from '../../components/ContactCTA.astro';
 import Hero from '../../components/Hero.astro';
-import Pill from '../../components/Pill.astro';
+import Tag from '../../components/Tag.astro';
 
 interface Props {
 	entry: CollectionEntry<'posts'>;
@@ -34,7 +34,7 @@ const { Content } = await entry.render();
 					<Hero title={entry.data.title} align="start">
 						<div class="details">
 							<div class="tags">
-								{entry.data.tags.map((t) => <Pill>{t}</Pill>)}
+								{entry.data.tags.map((t) => <Tag name={t}/>)}
 							</div>
 							<p class="description">{entry.data.description}</p>
 						</div>
