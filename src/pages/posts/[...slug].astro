@@ -45,7 +45,7 @@ const { Content } = await entry.render();
         <article
           id="article"
           role="article"
-          class="mx-auto mt-8 max-w-3xl prose-lg dark:prose-invert prose-img:rounded-xl prose-headings:underline prose-a:text-blue-600"
+          class="mx-auto max-w-3xl prose-lg dark:prose-invert prose-img:rounded-xl prose-li:list-disc"
         >
           <Content />
         </article>
@@ -87,12 +87,4 @@ const { Content } = await entry.render();
 			gap: 2.5rem;
 		}
 	}
-</style>
-
-<style is:global>
-  
-  #article li {
-    list-style: disc;
-  }
-
 </style>
