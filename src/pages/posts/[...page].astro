@@ -1,0 +1,53 @@
+---
+import type { GetStaticPaths, Page } from "astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import PostListLayout from '../../layouts/PostListLayout.astro';
+import PostDetailLayout from '../../layouts/PostDetailLayout.astro';
+
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const blogCollection = await getCollection("posts");
+  return [
+    ...paginate(
+      blogCollection
+        .concat()
+        .sort(
+          (a, b) =>
+            Math.floor(new Date(b.data.pubDatetime).getTime() / 1000) -
+            Math.floor(new Date(a.data.pubDatetime).getTime() / 1000)
+        )
+        .filter(entry => entry.data.draft !== true),
+      { pageSize: 10 }
+    ),
+    ...blogCollection.map(entry => ({
+      params: { page: entry.slug },
+      props: { entry: entry },
+    })),
+  ];
+}) satisfies GetStaticPaths;
+
+type Props =
+  | {
+      page: Page<CollectionEntry<"posts">>;
+      entry: undefined;
+    }
+  | { entry: CollectionEntry<"posts">; page: undefined };
+
+const { page, entry } = Astro.props;
+
+---
+
+{
+  entry ? (
+    <>
+      <PostDetailLayout post={entry} />
+    </>
+  ) : (
+      <PostListLayout page={page} title="My Posts" description="Learn about liruifengv's posts"/>
+    )
+}
+
+
+<style>
+
+</style>

@@ -1,14 +1,13 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
 
-import BaseLayout from '../../layouts/BaseLayout.astro';
-
-import ContactCTA from '../../components/ContactCTA.astro';
-import Hero from '../../components/Hero.astro';
-import Tag from '../../components/Tag.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+import Tag from '../components/Tag.astro';
 
 interface Props {
-	entry: CollectionEntry<'posts'>;
+	post: CollectionEntry<'posts'>;
 }
 
 // This is a dynamic route that generates a page for every Markdown file in src/content/
@@ -22,21 +21,29 @@ export async function getStaticPaths() {
 	}));
 }
 
-const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { post } = Astro.props;
+
+const { title, author, description, ogImage, canonicalURL, pubDatetime, tags } =
+  post.data;
+
+const { Content, headings } = await post.render();
+
+const ogImageUrl = typeof ogImage === "string" ? ogImage : ogImage?.src;
+const ogUrl = new URL(ogImageUrl ?? `/posts/${post.slug}.png`, Astro.url.origin)
+  .href;
 ---
 
-<BaseLayout title={entry.data.title} description={entry.data.description}>
+<BaseLayout title={title} description={description}>
 	<div class="stack gap-20">
 		<div class="stack gap-15">
 			<header>
 				<div class="wrapper stack gap-2">
-					<Hero title={entry.data.title} align="start">
+					<Hero title={title} align="start">
 						<div class="details">
 							<div class="tags">
-								{entry.data.tags.map((t) => <Tag name={t}/>)}
+								{tags.map((t) => <Tag name={t}/>)}
 							</div>
-							<p class="description">{entry.data.description}</p>
+							<p class="description">{description}</p>
 						</div>
 					</Hero>
 				</div>
