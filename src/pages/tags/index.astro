@@ -1,0 +1,31 @@
+---
+import Hero from '../../components/Hero.astro';
+import Tag from '../../components/Tag.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+import { getCollection } from "astro:content";
+
+
+const posts = await getCollection("posts");
+const tags: Array<[string, number]> = [
+  ...posts
+    .filter(article => !article.data.draft)
+    .flatMap(article => [...article.data.tags])
+    .reduce((acc, e) => acc.set(e, (acc.get(e) || 0) + 1), new Map()),
+].sort((a, b) => {
+  return b[1] - a[1];
+});
+
+---
+
+<BaseLayout title="All Tags" description="All Tags for liruifengv's blog post">
+  <Hero
+    title="All Tags"
+    align="center"
+  />
+  <div class="mt-5 flex w-full items-center justify-center px-5">
+    <div class="md:w-3/4">
+      {tags.map(tag => <Tag name={tag[0]} count={tag[1]} />)}
+    </div>
+  </div>
+</BaseLayout>

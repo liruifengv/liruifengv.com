@@ -13,9 +13,8 @@ const { name, count } = Astro.props;
   class={`text-base pr-4 group`}
 >
   <span>
-    <span class="tag">{name.toLowerCase()}</span>
-    {count && count > 0 && `(${count})`}</span
-  >
+    <span class="tag">{name.toLowerCase()}{count && count > 0 && `(${count})`}</span>
+  </span>
 </a>
 
 <style>
