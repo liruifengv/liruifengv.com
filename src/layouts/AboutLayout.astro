@@ -1,0 +1,26 @@
+---
+import Layout from "./BaseLayout.astro";
+
+export interface Props {
+  frontmatter: {
+    title: string;
+    description?: string;
+  };
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={`About | liruifengv`}>
+	<div class="stack gap-20">
+		<main class="wrapper stack gap-8 w-full">
+    <section
+      id="about"
+      class="mx-auto max-w-3xl prose-lg dark:prose-invert prose-img:rounded-xl prose-li:list-disc mb-28"
+    >
+      <h1 class="text-2xl tracking-wider sm:text-3xl">{frontmatter.title}</h1>
+      <slot />
+    </section>
+  </main>
+  </div>
+</Layout>

@@ -33,7 +33,13 @@ const ogUrl = new URL(ogImageUrl ?? `/posts/${post.slug}.png`, Astro.url.origin)
   .href;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout
+  title={title}
+  author={author}
+  description={description}
+  ogImage={ogUrl}
+  canonicalURL={canonicalURL}
+  >
 	<div class="stack gap-20">
 		<div class="stack gap-15">
 			<header>

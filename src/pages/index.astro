@@ -9,7 +9,7 @@ import CallToAction from '../components/CallToAction.astro';
 import Hero from '../components/Hero.astro';
 import Icon from '../components/Icon.astro';
 import Pill from '../components/Pill.astro';
-import PostList from '../components/PostList.astro';
+import { Image } from 'astro:assets';
 
 // Page section components
 import ContactCTA from '../components/ContactCTA.astro';
@@ -44,10 +44,7 @@ function formatDate(date: Date) {
 					</div>
 				</Hero>
 
-				<img
-					alt="liruifengv's avatar"
-					src="https://bucket.liruifengv.com/avatar.jpg"
-				/>
+        <Image src="https://bucket.liruifengv.com/avatar.jpg" alt="liruifengv's avatar" width={400} height={400} />
 			</header>
 
 			<Skills />
@@ -120,12 +117,6 @@ function formatDate(date: Date) {
 			margin-top: 0.5rem;
 			display: flex;
 			gap: 0.5rem;
-		}
-
-		.hero img {
-			aspect-ratio: 3 / 4;
-			border-radius: 4.5rem;
-			object-fit: cover;
 		}
 	}
 
