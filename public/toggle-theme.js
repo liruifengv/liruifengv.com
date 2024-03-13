@@ -11,6 +11,7 @@ const getThemePreference = () => {
 
 window.onload = ()=> {
   const isDark = getThemePreference() === 'dark';
+  alert(isDark)
   document.documentElement.classList[isDark ? 'add' : 'remove']('theme-dark');
   sendThemeChange(getThemePreference());
 
