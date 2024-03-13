@@ -1,4 +1,4 @@
-# [liruifengv.com](https://liruifengv.com) 我的抓码人生
+# [liruifengv.com](https://liruifengv.com)
 
 我的个人博客网站。[![Built with Astro](https://astro.badg.es/v1/built-with-astro/tiny.svg)](https://astro.build)
 
@@ -12,10 +12,12 @@
 - [x] 移动端响应式布局
 - [x] 支持代码高亮
 - [x] 支持文章标签分类
+- [x] 支持按年归档
+- [x] 评论功能
 - [x] Markdown MDX 支持
 - [x] 草稿页面及分页
-- [x] 文章搜索
 - [x] 明亮/暗黑模式
+- [ ] 文章搜索
 
 ## 得分
 

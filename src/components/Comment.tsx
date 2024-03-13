@@ -23,7 +23,6 @@ const Comments = () => {
 
   React.useEffect(() => {
     const theme = getCurrentTheme();
-    console.log(theme);
     setTheme(theme);
     window.addEventListener('theme-change', handleThemeChange);
 
@@ -37,7 +36,7 @@ const Comments = () => {
   }, []);
 
   return (
-    <div id={id}>
+    <div id={id} className="w-full">
       {mounted ? (
         <Giscus
           id={id}

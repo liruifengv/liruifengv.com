@@ -1,0 +1,107 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+import Tag from '../components/Tag.astro';
+import Comments from "@components/Comment";
+
+interface Props {
+	post: CollectionEntry<'posts'>;
+}
+
+// This is a dynamic route that generates a page for every Markdown file in src/content/
+// Read more about dynamic routes and this `getStaticPaths` function in the Astro docs:
+// https://docs.astro.build/en/core-concepts/routing/#dynamic-routes
+export async function getStaticPaths() {
+	const posts = await getCollection('posts');
+	return posts.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+const { post } = Astro.props;
+
+const { title, author, description, ogImage, canonicalURL, pubDatetime, tags } =
+  post.data;
+
+const { Content, headings } = await post.render();
+
+const ogImageUrl = typeof ogImage === "string" ? ogImage : ogImage?.src;
+const ogUrl = new URL(ogImageUrl ?? `/posts/${post.slug}.png`, Astro.url.origin)
+  .href;
+---
+
+<BaseLayout
+  title={title}
+  author={author}
+  description={description}
+  ogImage={ogUrl}
+  canonicalURL={canonicalURL}
+  >
+	<div class="stack gap-20">
+		<div class="stack gap-15">
+			<header>
+				<div class="wrapper stack gap-2">
+					<Hero title={title} align="start">
+						<div class="details">
+							<div class="tags">
+								{tags.map((t) => <Tag name={t}/>)}
+							</div>
+							<p class="description">{description}</p>
+						</div>
+					</Hero>
+				</div>
+			</header>
+			<main class="wrapper">
+        <article
+          id="article"
+          role="article"
+          class="mx-auto max-w-3xl prose-lg dark:prose-invert prose-img:rounded-xl prose-li:list-disc prose-code:bg-gray-800 prose-code:text-[#108ee9] prose-code:px-1 prose-blockquote:border-l-2 prose-blockquote:border-l-gray-500"
+        >
+          <Content />
+          <Comments client:only="react" />
+        </article>
+
+			</main>
+
+		</div>
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style is="inline">
+	header {
+		padding-bottom: 2.5rem;
+		border-bottom: 1px solid var(--gray-800);
+	}
+
+	.details {
+		display: flex;
+		flex-direction: column;
+		padding: 0.5rem;
+		gap: 1.5rem;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.tags {
+		display: flex;
+    flex-wrap: wrap;
+	}
+
+	.description {
+		font-size: var(--text-lg);
+		max-width: 54ch;
+	}
+
+	@media (min-width: 50em) {
+
+		.details {
+			flex-direction: row;
+			gap: 2.5rem;
+		}
+	}
+</style>

@@ -1,12 +1,12 @@
 ---
-import ArticleListLayout from "@layouts/ArticleListLayout.astro";
 import type { GetStaticPaths, Page } from "astro";
 import { getCollection, type CollectionEntry } from "astro:content";
-import PostDetails from "@layouts/PostDetails.astro";
-import { SITE } from "@config";
+import PostListLayout from '../../layouts/PostListLayout.astro';
+import PostDetailLayout from '../../layouts/PostDetailLayout.astro';
+
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const blogCollection = await getCollection("blog");
+  const blogCollection = await getCollection("posts");
   return [
     ...paginate(
       blogCollection
@@ -17,7 +17,7 @@ export const getStaticPaths = (async ({ paginate }) => {
             Math.floor(new Date(a.data.pubDatetime).getTime() / 1000)
         )
         .filter(entry => entry.data.draft !== true),
-      { pageSize: SITE.postPerPage }
+      { pageSize: 10 }
     ),
     ...blogCollection.map(entry => ({
       params: { page: entry.slug },
@@ -28,20 +28,26 @@ export const getStaticPaths = (async ({ paginate }) => {
 
 type Props =
   | {
-      page: Page<CollectionEntry<"blog">>;
+      page: Page<CollectionEntry<"posts">>;
       entry: undefined;
     }
-  | { entry: CollectionEntry<"blog">; page: undefined };
+  | { entry: CollectionEntry<"posts">; page: undefined };
 
 const { page, entry } = Astro.props;
+
 ---
 
 {
   entry ? (
     <>
-      <PostDetails post={entry} />
+      <PostDetailLayout post={entry} />
     </>
   ) : (
-    <ArticleListLayout page={page} title="文章列表" />
-  )
+      <PostListLayout page={page} title="My Posts" description="Learn about liruifengv's posts"/>
+    )
 }
+
+
+<style>
+
+</style>

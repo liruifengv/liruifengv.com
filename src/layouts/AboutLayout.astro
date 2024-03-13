@@ -1,8 +1,5 @@
 ---
-import { SITE } from "@config";
-import Footer from "@components/Footer.astro";
-import Header from "@components/Header.astro";
-import Layout from "./Layout.astro";
+import Layout from "./BaseLayout.astro";
 
 export interface Props {
   frontmatter: {
@@ -14,16 +11,16 @@ export interface Props {
 const { frontmatter } = Astro.props;
 ---
 
-<Layout title={`${frontmatter.title} | ${SITE.title}`}>
-  <Header activeNav="about" />
-  <main id="main-content" class="mt-4">
+<Layout title={`About | liruifengv`}>
+	<div class="stack gap-20">
+		<main class="wrapper stack gap-8 w-full">
     <section
       id="about"
-      class="prose mb-28 max-w-5xl text-base prose-img:border-0"
+      class="mx-auto max-w-3xl prose-lg dark:prose-invert prose-img:rounded-xl prose-li:list-disc mb-28"
     >
       <h1 class="text-2xl tracking-wider sm:text-3xl">{frontmatter.title}</h1>
       <slot />
     </section>
   </main>
-  <Footer />
+  </div>
 </Layout>

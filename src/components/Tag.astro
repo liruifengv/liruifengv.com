@@ -2,27 +2,33 @@
 export interface Props {
   name: string;
   count?: number;
-  size?: "sm" | "lg";
 }
 
-const { name, count, size = "sm" } = Astro.props;
+const { name, count } = Astro.props;
 ---
 
-<li class={`inline-block  mx-1 ${size === "sm" ? " my-1" : "my-3"}`}>
-  <a
-    href={`/posts/tags/${name.toLowerCase()}`}
-    transition:name={name.toLowerCase()}
-    class={`${size === "sm" ? "text-sm" : "text-base"} pr-4 group`}
-  >
-    <span
-      >{name.toLowerCase()}
-      {count && count > 0 && `(${count})`}</span
-    >
-  </a>
-</li>
+<a
+  href={`/tags/${name.toLowerCase()}`}
+  transition:name={name.toLowerCase()}
+  class={`text-base pr-4 group`}
+>
+  <span>
+    <span class="tag">{name.toLowerCase()}{count && count > 0 && `(${count})`}</span>
+  </span>
+</a>
 
 <style>
-  a {
-    @apply relative rounded-md border px-2 py-1 text-skin-accent hover:text-skin-accent focus-visible:p-1;
-  }
+	.tag {
+		padding: 0.5rem 1rem;
+		color: var(--accent-text-over);
+		border: 1px solid var(--accent-regular);
+		background-color: var(--accent-regular);
+		border-radius: 999rem;
+		font-size: var(--text-md);
+		white-space: nowrap;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    min-width: 5rem;
+    text-align: center;
+	}
 </style>

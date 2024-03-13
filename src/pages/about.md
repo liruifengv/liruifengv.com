@@ -10,8 +10,7 @@ title: "关于我/关于本站"
 这两年，开始着重参与一些开源项目，同时也在写技术文章。
 
 - [Deno](https://github.com/denoland/deno/issues?q=author%3Aliruifengv) 参与了一些代码贡献。希望前端生态越来越好。
-- [Astro](https://github.com/withastro) 参与代码贡献，中文文档的维护翻译。
-- 我组织了一波小伙伴，参与 Astro 中文文档的翻译工作。
+- [Astro](https://github.com/withastro) Maintainer，中文文档的维护翻译。
 - 如果你在使用 Astro 的过程中，有任何问题，或者中文文档有任何疑问，欢迎联系我。
 - 正在写 Astro 专栏文章。
 - 学习 Rust 从入门到放弃三次，计划写一系列 Rust 实战的文章。
@@ -25,13 +24,13 @@ title: "关于我/关于本站"
 
 ### 关于本站
 
-本站是我的个人主站，记录我的抓码人生，主要是我的文章的发布，包括但不限于技术类、读后感、生活琐事等。
+本站是我的个人主站，主要是我的文章的发布，包括但不限于技术类、读后感、生活琐事等。
 
 本网站使用如下技术构建：
 
 - [Astro](https://astro.build/)
 - [TailwindCSS](https://tailwindcss.com/)
-- [AstroPaper Theme](https://github.com/satnaing/astro-paper)
+- [Starlight](https://github.com/withastro/starlight)
 
 ### 我的其他主页
 

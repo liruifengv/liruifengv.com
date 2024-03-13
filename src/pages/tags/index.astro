@@ -1,29 +1,31 @@
 ---
-import { getCollection } from "astro:content";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
-import Layout from "@layouts/Layout.astro";
-import Main from "@layouts/Main.astro";
-import Tag from "@components/Tag.astro";
-import { SITE } from "@config";
+import Hero from '../../components/Hero.astro';
+import Tag from '../../components/Tag.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const articles = await getCollection("blog");
+import { getCollection } from "astro:content";
+
+
+const posts = await getCollection("posts");
 const tags: Array<[string, number]> = [
-  ...articles
+  ...posts
     .filter(article => !article.data.draft)
     .flatMap(article => [...article.data.tags])
     .reduce((acc, e) => acc.set(e, (acc.get(e) || 0) + 1), new Map()),
 ].sort((a, b) => {
   return b[1] - a[1];
 });
+
 ---
 
-<Layout title={`Tags | ${SITE.title}`}>
-  <Header activeNav="tags" />
-  <Main pageTitle="全部标签">
-    <ul>
-      {tags.map(tag => <Tag name={tag[0]} count={tag[1]} size="lg" />)}
-    </ul>
-  </Main>
-  <Footer />
-</Layout>
+<BaseLayout title="All Tags" description="All Tags for liruifengv's blog post">
+  <Hero
+    title="All Tags"
+    align="center"
+  />
+  <div class="mt-5 flex w-full items-center justify-center px-5">
+    <div class="md:w-3/4">
+      {tags.map(tag => <Tag name={tag[0]} count={tag[1]} />)}
+    </div>
+  </div>
+</BaseLayout>
