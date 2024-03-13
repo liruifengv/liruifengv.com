@@ -85,11 +85,6 @@ const socialImageURL = new URL(ogImage ?? "og.png", Astro.url.origin).href;
 			<Footer />
 		</div>
 
-		<script>
-			// Add “loaded” class once the document has completely loaded.
-			addEventListener('load', () => document.documentElement.classList.add('loaded'));
-		</script>
-
 		<style>
 			:root {
 				--_placeholder-bg: linear-gradient(transparent, transparent);
