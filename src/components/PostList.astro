@@ -1,6 +1,5 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import Tag from './Tag.astro';
 
 interface Props {
 	posts: CollectionEntry<'posts'>[];
@@ -17,8 +16,8 @@ function formatDate(date: Date) {
 }
 ---
 
-<div class="list-wrapper w-full flex justify-center items-center">
-  <div class="list">
+<div class="list-wrapper flex justify-center">
+  <div class="list w-full md:w-2/3 lg:w-1/2">
     {
       posts.map((post) => (
         <li>

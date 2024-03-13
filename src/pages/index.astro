@@ -18,8 +18,14 @@ import Skills from '../components/Skills.astro';
 // Content Fetching: List four most recent work projects
 const posts = (await getCollection('posts')).filter((post) => post.data.featured);
 
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
+function formatDate(date: Date) {
+  return new Date(date).toLocaleDateString('zh-CN', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+
 ---
 
 <BaseLayout>
@@ -55,7 +61,18 @@ const posts = (await getCollection('posts')).filter((post) => post.data.featured
 				</header>
 
 				<div class="gallery">
-          <PostList posts={posts} />
+          {
+            posts.map((post) => (
+              <li>
+                <a href={`/posts/${post.slug}`}>
+                  <h5 class="title">{post.data.title}</h5>
+                  <div class="time">
+                    {formatDate(post.data.pubDatetime)}
+                  </div>
+                </a>
+              </li>
+            ))
+          }
 				</div>
 
 				<div class="cta">
@@ -214,4 +231,29 @@ const posts = (await getCollection('posts')).filter((post) => post.data.featured
 			height: 9.5rem;
 		}
 	}
+
+  /* selected post list */
+  .list {
+    display: flex;
+    flex-direction: column;
+  }
+  a {
+    text-decoration: none;
+  }
+  li {
+    list-style: none;
+  }
+  .title:hover {
+    color: var(--link-color);
+  }
+	.title {
+		z-index: 1;
+		margin: 0.5rem;
+		color: var(--gray-200);
+	}
+  .time {
+    color: var(--gray-400);
+    font-size: 0.8rem;
+    margin: 0.5rem;
+  }
 </style>
