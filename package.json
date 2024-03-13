@@ -10,6 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@giscus/react": "^3.0.0",
     "astro": "^4.4.3"
   },
   "devDependencies": {

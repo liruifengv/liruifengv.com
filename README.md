@@ -1,30 +1,34 @@
-# Astro Starter Kit: Portfolio
+# [liruifengv.com](https://liruifengv.com)
 
-```sh
-npm create astro@latest -- --template portfolio
-```
+我的个人博客网站。[![Built with Astro](https://astro.badg.es/v1/built-with-astro/tiny.svg)](https://astro.build)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/portfolio)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/portfolio)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/portfolio/devcontainer.json)
+## Features
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- [x] SSG 静态渲染， SEO 友好，极速渲染
+- [x] 生成站点地图( @astrojs/sitemap )
+- [x] 优秀的 [Lighthouse](https://web.dev/measure/) 和 [PageSpeed Insights](https://pagespeed.web.dev/) 报告分数
+- [x] 支持 RSS 订阅
+- [x] 使用 tailwindcss 构建样式
+- [x] 移动端响应式布局
+- [x] 支持代码高亮
+- [x] 支持文章标签分类
+- [x] 支持按年归档
+- [x] 评论功能
+- [x] Markdown MDX 支持
+- [x] 草稿页面及分页
+- [x] 明亮/暗黑模式
+- [ ] 文章搜索
 
-![portfolio](https://user-images.githubusercontent.com/357379/210779178-a98f0fb7-6b1a-4068-894c-8e1403e26654.jpg)
+## 得分
 
-## 🧞 Commands
+![image](https://github.com/liruifengv/liruifengv.com/assets/25167721/bdf4eb29-12ff-4cd0-a6c4-febf6a671f05)
 
-All commands are run from the root of the project, from a terminal:
+## 订阅
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+你可以使用 RSS 订阅我的博客文章：https://liruifengv.com/rss.xml
 
-## 👀 Want to learn more?
+[如何用 RSS 订阅？](https://zhuanlan.zhihu.com/p/55026716)
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 📜 License
+
+Licensed under the MIT License, Copyright © 2023-present.

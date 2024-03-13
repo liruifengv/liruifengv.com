@@ -78,6 +78,8 @@ import Icon from './Icon.astro';
 			const setTheme = (dark: boolean) => {
 				document.documentElement.classList[dark ? 'add' : 'remove']('theme-dark');
 				button.setAttribute('aria-pressed', String(dark));
+
+        sendThemeChange(dark ? 'dark' : 'light')
 			};
 
 			// Toggle the theme when a user clicks the button.

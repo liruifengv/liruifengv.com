@@ -1,3 +1,7 @@
+function sendThemeChange(themeValue) {
+  window.dispatchEvent(new CustomEvent("theme-change", { detail: {themeValue} }));
+}
+
 const getThemePreference = () => {
   if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
     return localStorage.getItem('theme');
@@ -11,6 +15,7 @@ if (typeof localStorage !== 'undefined') {
   // Watch the document element and persist user preference when it changes.
   const observer = new MutationObserver(() => {
     const isDark = document.documentElement.classList.contains('theme-dark');
+    sendThemeChange(isDark ? 'dark' : 'light');
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
