@@ -80,6 +80,7 @@ import Icon from './Icon.astro';
 				button.setAttribute('aria-pressed', String(dark));
 
         sendThemeChange(dark ? 'dark' : 'light')
+        localStorage.setItem('theme', dark ? 'dark' : 'light')
 			};
 
 			// Toggle the theme when a user clicks the button.

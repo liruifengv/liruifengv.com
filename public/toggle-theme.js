@@ -1,26 +1,65 @@
+// Get theme data from local storage
+const currentTheme = localStorage.getItem("theme");
+
 function sendThemeChange(themeValue) {
   window.dispatchEvent(new CustomEvent("theme-change", { detail: {themeValue} }));
 }
 
-const getThemePreference = () => {
-  if (window.localStorage.getItem('theme')) {
-    return window.localStorage.getItem('theme');
+function getPreferTheme() {
+  // return theme value in local storage if it is set
+  if (currentTheme) return currentTheme;
+
+  // return user device's prefer color scheme
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+}
+
+let themeValue = getPreferTheme();
+
+function setPreference(themeValue) {
+  localStorage.setItem("theme", themeValue);
+  reflectPreference();
+}
+
+function reflectPreference() {
+  var isDark = themeValue === "dark";
+  document.documentElement.classList[isDark ? 'add' : 'remove']('theme-dark');
+
+  document.querySelector("#theme-btn")?.setAttribute("aria-label", themeValue);
+
+  // Get a reference to the body element
+  const body = document.body;
+
+  // Check if the body element exists before using getComputedStyle
+  if (body) {
+    sendThemeChange(themeValue);
+
+    // Get the computed styles for the body element
+    const computedStyles = window.getComputedStyle(body);
+
+    // Get the background color property
+    const bgColor = computedStyles.backgroundColor;
+
+    // Set the background color in <meta theme-color ... />
+    document
+      .querySelector("meta[name='theme-color']")
+      ?.setAttribute("content", bgColor);
   }
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+// set early so no page flashes / CSS is made aware
+reflectPreference();
+
+window.onload = () => {
+  reflectPreference();
+  document.documentElement.classList.add('loaded');
 };
 
-window.onload = ()=> {
-  const isDark = getThemePreference() === 'dark';
-  document.documentElement.classList[isDark ? 'add' : 'remove']('theme-dark');
-  sendThemeChange(getThemePreference());
-
-  // Watch the document element and persist user preference when it changes.
-  const observer = new MutationObserver(() => {
-    const isDark = document.documentElement.classList.contains('theme-dark');
-    sendThemeChange(isDark ? 'dark' : 'light');
-    window.localStorage.setItem('theme', isDark ? 'dark' : 'light');
+// sync with system changes
+window
+  .matchMedia("(prefers-color-scheme: dark)")
+  .addEventListener("change", ({ matches: isDark }) => {
+    themeValue = isDark ? "dark" : "light";
+    setPreference(themeValue);
   });
-  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-
-  document.documentElement.classList.add('loaded');
-}
