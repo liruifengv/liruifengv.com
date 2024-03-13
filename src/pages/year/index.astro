@@ -1,0 +1,39 @@
+---
+import Hero from '../../components/Hero.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("posts");
+const years: Array<[string, number]> = [
+  ...posts
+    .map(article => new Date(article.data.pubDatetime).getFullYear())
+    .reduce((acc, e) => acc.set(e, (acc.get(e) || 0) + 1), new Map()),
+].sort((a, b) => {
+  return b[0] - a[0];
+});
+---
+
+<BaseLayout title="Archive by year" description="Archive by year">
+  <Hero
+    title="Archive by year"
+    align="center"
+  />
+  <div class="mt-5 flex w-full items-center justify-center px-5">
+    <div>
+      {
+        years.map(year => (
+          <div>
+            <a
+              href={"/year/" + year[0] + "/"}
+            >
+              <h5 class="mt-5">
+                {year[0]}({year[1]})
+              </h5>
+            </a>
+            </div>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>

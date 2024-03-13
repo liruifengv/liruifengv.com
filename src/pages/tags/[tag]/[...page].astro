@@ -1,0 +1,41 @@
+---
+import PostListLayout from "../../../layouts/PostListLayout.astro";
+import type { GetStaticPaths, Page } from "astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import getUniqueTags from "../../../utils/getUniqueTags";
+import { slugifyAll } from "../../../utils/slugify";
+
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+  const articles = await getCollection("posts");
+
+  const uniqueTags = getUniqueTags(articles);
+
+  return uniqueTags.flatMap(tag => {
+    const filteredArticles = articles
+      .map(item => {
+        item.data.tags = slugifyAll(item.data.tags);
+        return item;
+      })
+      .filter(article => article.data.tags.includes(tag))
+      .sort(
+        (a, b) =>
+          Math.floor(new Date(b.data.pubDatetime).getTime() / 1000) -
+          Math.floor(new Date(a.data.pubDatetime).getTime() / 1000)
+      );
+    const _tag = tag as string;
+    return paginate(filteredArticles, {
+      params: { tag: _tag },
+      pageSize: 10,
+    });
+  });
+};
+
+interface Props {
+  page: Page<CollectionEntry<"posts">>;
+}
+
+const { page } = Astro.props;
+const { tag } = Astro.params;
+---
+
+<PostListLayout page={page} title={`Posts about ${tag}`} description={`Posts about ${tag}`} />

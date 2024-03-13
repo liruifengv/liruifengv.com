@@ -1,0 +1,36 @@
+---
+import PostListLayout from "../../../layouts/PostListLayout.astro";
+import type { GetStaticPaths, Page } from "astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const articles = await getCollection("posts");
+
+  const years = articles.map(article => article.data.pubDatetime.getFullYear());
+  const uniqueYears = [...new Set(years)];
+
+  return uniqueYears.flatMap(year => {
+    const filteredArticles = articles
+      .filter(article => article.data.pubDatetime.getFullYear() === year)
+      .sort(
+        (a, b) =>
+          Math.floor(new Date(b.data.pubDatetime).getTime() / 1000) -
+          Math.floor(new Date(a.data.pubDatetime).getTime() / 1000)
+      )
+      .filter(entry => entry.data.draft !== true);
+    return paginate(filteredArticles, {
+      params: { year: year?.toString() },
+      pageSize: 10,
+    });
+  });
+}) satisfies GetStaticPaths;
+
+interface Props {
+  page: Page<CollectionEntry<"posts">>;
+}
+
+const { page } = Astro.props;
+const { year } = Astro.params;
+---
+
+<PostListLayout page={page} title={`Posts in year ${year}`} description={`Posts in year ${year}`} />
