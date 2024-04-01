@@ -33,7 +33,7 @@ tags:
 
 ## astro-cn.com
 
-做了一个 [Astro 中文网站 Showcase](astro-cn.com) 的站点，展示了一些使用 Astro 构建的中文网站。
+做了一个 [Astro 中文网站 Showcase](https://astro-cn.com) 的站点，展示了一些使用 Astro 构建的中文网站。
 如果你使用 Astro 或 Starlight 构建过网站，欢迎创建一个 PR 来添加链接到此网站！
 
 ![Astro 中文网站 Showcase](https://bucket.liruifengv.com/2024q1/astro-cn.png)
