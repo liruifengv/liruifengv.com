@@ -34,7 +34,7 @@ giscus 是一个基于 GitHub Discussions 的评论插件。它的特点是简�
 
 分类选择 announcements。
 
-![giscus 配置](../../assets/images/comment-giscus/config-1.png)
+![giscus 配置](https://bucket.liruifengv.com/comment-giscus/config-1.png)
 
 启用以下特性：
 - reaction
@@ -42,7 +42,7 @@ giscus 是一个基于 GitHub Discussions 的评论插件。它的特点是简�
 - 懒加载
 
 主题暂时选择 dark，下面再讲主题的配置。
-![giscus 配置](../../assets/images/comment-giscus/config-2.png)
+![giscus 配置](https://bucket.liruifengv.com/comment-giscus/config-2.png)
 
 
 以上配置都搞好以后，会得到一段 script 代码。
@@ -206,10 +206,10 @@ import Comments from "@components/Comment";
 
 ## 看看效果
 
-![最终效果](../../assets/images/comment-giscus/preview.png)
+![最终效果](https://bucket.liruifengv.com/comment-giscus/preview.png)
 
 打开 GitHub 仓库，发现 Discussions 新建了一条这篇文章的评论 discussion。
-![GitHub](../../assets/images/comment-giscus/git.png)
+![GitHub](https://bucket.liruifengv.com/comment-giscus/git.png)
 
 ## 总结
 
