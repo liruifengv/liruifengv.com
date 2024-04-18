@@ -1,10 +1,6 @@
 // Get theme data from local storage
 const currentTheme = localStorage.getItem("theme");
 
-function sendThemeChange(themeValue) {
-  window.dispatchEvent(new CustomEvent("theme-change", { detail: {themeValue} }));
-}
-
 function getPreferTheme() {
   // return theme value in local storage if it is set
   if (currentTheme) return currentTheme;
@@ -33,8 +29,6 @@ function reflectPreference() {
 
   // Check if the body element exists before using getComputedStyle
   if (body) {
-    sendThemeChange(themeValue);
-
     // Get the computed styles for the body element
     const computedStyles = window.getComputedStyle(body);
 

@@ -79,7 +79,11 @@ import Icon from './Icon.astro';
 				document.documentElement.classList[dark ? 'add' : 'remove']('theme-dark');
 				button.setAttribute('aria-pressed', String(dark));
 
-        sendThemeChange(dark ? 'dark' : 'light')
+        // set html attribute data-theme
+        document.documentElement.setAttribute(
+          'data-theme',
+          dark ? 'dark' : 'light'
+        )
         localStorage.setItem('theme', dark ? 'dark' : 'light')
 			};
 
