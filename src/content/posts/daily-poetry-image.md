@@ -16,7 +16,7 @@ tags:
 
 本项目灵感来源于 [yihong0618](https://twitter.com/yihong0618) 大佬的 python 版本，项目地址：[yihong0618/2023](https://github.com/yihong0618/2023)，用一句中国古诗词作为 prompt，通过 Bing DALL-E-3 生成 AI 图片，通过 Bot 每天发布在 Telegram 频道。
 
-我用 Node.js 实现了一遍，用 GitHub Action 每天自动运行，通过 Astro 构建网站，GitHub 地址是：[liruifengv/daily-poetry-image](https://github.com/liruifengv/daily-poetry-image)，这里是 [线上围观地址](https://daily-poetry-image.vercel.app/)。
+我用 Node.js 实现了一遍，用 GitHub Action 每天自动运行，通过 Astro 构建网站，GitHub 地址是：[liruifengv/daily-poetry-image](https://github.com/liruifengv/daily-poetry-image)，这里是 [线上围观地址](https://we-drawing.com)。
 
 ### 截图
 
