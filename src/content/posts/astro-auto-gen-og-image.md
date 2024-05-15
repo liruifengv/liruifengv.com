@@ -187,6 +187,9 @@ const options: SatoriOptions = {
 
 以上就增加了自定义字体的支持，友情提示，选字体的时候一定要看好对中文的支持程度，有的支持不好的会变成 □ 。
 
+PS: 在本地打包时，会去请求 `${SITE.website}/fonts/ZCOOL_KuaiLe/ZCOOLKuaiLe-Regular.ttf` 文件，
+第一次开发时还没有，就会报错。所以需要先把字体文件上传上去。
+
 #### 支持 emoji
 
 接下来我们想实现可以支持 emoji 的功能，让我们生成的图片更酷炫一点。
