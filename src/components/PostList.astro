@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { formatDate } from "@utils/date.ts";
 
 interface Props {
 	posts: CollectionEntry<'posts'>[];
@@ -7,13 +8,6 @@ interface Props {
 
 const { posts } = Astro.props;
 
-function formatDate(date: Date) {
-  return new Date(date).toLocaleDateString('zh-CN', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-}
 ---
 
 <div class="list-wrapper flex justify-center">

@@ -5,14 +5,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Tag from '../components/Tag.astro';
 import Comments from "@components/Comment";
+import { formatDate } from "@utils/date.ts";
 
 interface Props {
 	post: CollectionEntry<'posts'>;
 }
 
-// This is a dynamic route that generates a page for every Markdown file in src/content/
-// Read more about dynamic routes and this `getStaticPaths` function in the Astro docs:
-// https://docs.astro.build/en/core-concepts/routing/#dynamic-routes
 export async function getStaticPaths() {
 	const posts = await getCollection('posts');
 	return posts.map((entry) => ({
@@ -26,15 +24,12 @@ const { post } = Astro.props;
 const { title, author, description, ogImage, canonicalURL, pubDatetime, tags } =
   post.data;
 
-const { Content, headings } = await post.render();
+const { Content } = await post.render();
 
 const ogImageUrl = typeof ogImage === "string" ? ogImage : ogImage?.src;
 const ogUrl = new URL(ogImageUrl ?? `/posts/${post.slug}.png`, Astro.url.origin)
   .href;
 
-function formatDate(date: Date) {
-  return new Date(date).toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
-}
 ---
 
 <BaseLayout
