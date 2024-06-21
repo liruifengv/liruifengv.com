@@ -11,15 +11,16 @@
   },
   "dependencies": {
     "@giscus/react": "^3.0.0",
-    "astro": "^4.4.3"
+    "astro": "^4.11.0"
   },
   "devDependencies": {
-    "@astrojs/mdx": "^2.1.1",
-    "@astrojs/react": "^3.0.10",
-    "@astrojs/rss": "^4.0.5",
-    "@astrojs/sitemap": "^3.1.1",
+    "@astrojs/mdx": "^3.1.1",
+    "@astrojs/react": "^3.6.0",
+    "@astrojs/rss": "^4.0.6",
+    "@astrojs/sitemap": "^3.1.6",
     "@astrojs/tailwind": "^5.1.0",
     "@resvg/resvg-js": "^2.6.0",
+    "@shikijs/transformers": "^1.7.0",
     "@tailwindcss/typography": "^0.5.10",
     "@types/react": "^18.2.64",
     "astro-expressive-code": "^0.33.4",
