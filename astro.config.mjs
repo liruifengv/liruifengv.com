@@ -5,6 +5,7 @@ import sitemap from "@astrojs/sitemap";
 import { SITE } from "./src/config";
 import expressiveCode from "astro-expressive-code";
 import mdx from "@astrojs/mdx";
+import { remarkReadingTime } from './src/plugins/remark-reading-time.mjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -57,7 +58,8 @@ export default defineConfig({
     shikiConfig: {
       theme: "material-theme-darker",
       wrap: false
-    }
+    },
+    remarkPlugins: [remarkReadingTime],
   },
   vite: {
     optimizeDeps: {

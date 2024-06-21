@@ -24,7 +24,9 @@ const { post } = Astro.props;
 const { title, author, description, ogImage, canonicalURL, pubDatetime, tags } =
   post.data;
 
-const { Content } = await post.render();
+const { Content, remarkPluginFrontmatter } = await post.render();
+
+const { readingTime, words } = remarkPluginFrontmatter;
 
 const ogImageUrl = typeof ogImage === "string" ? ogImage : ogImage?.src;
 const ogUrl = new URL(ogImageUrl ?? `/posts/${post.slug}.png`, Astro.url.origin)
@@ -50,7 +52,11 @@ const ogUrl = new URL(ogImageUrl ?? `/posts/${post.slug}.png`, Astro.url.origin)
 							</div>
 							<p class="description">{description}</p>
 						</div>
-            <div class="text-xl">发布于：{formatDate(pubDatetime)}</div>
+            <div class="flex gap-5">
+              <p class="text-base">发布于：{formatDate(pubDatetime)}</p>
+              <p class="text-base">{words}</p>
+              <p class="text-base">阅读时间：{readingTime}</p>
+            </div>
 					</Hero>
 				</div>
 			</header>

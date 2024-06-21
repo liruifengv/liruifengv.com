@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "@giscus/react": "^3.0.0",
-    "astro": "^4.11.0"
+    "astro": "^4.11.0",
+    "mdast-util-to-string": "^4.0.0",
+    "reading-time": "^1.5.0"
   },
   "devDependencies": {
     "@astrojs/mdx": "^3.1.1",
