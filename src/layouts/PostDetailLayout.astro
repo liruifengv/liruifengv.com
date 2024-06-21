@@ -31,6 +31,10 @@ const { Content, headings } = await post.render();
 const ogImageUrl = typeof ogImage === "string" ? ogImage : ogImage?.src;
 const ogUrl = new URL(ogImageUrl ?? `/posts/${post.slug}.png`, Astro.url.origin)
   .href;
+
+function formatDate(date: Date) {
+  return new Date(date).toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
+}
 ---
 
 <BaseLayout
@@ -51,6 +55,7 @@ const ogUrl = new URL(ogImageUrl ?? `/posts/${post.slug}.png`, Astro.url.origin)
 							</div>
 							<p class="description">{description}</p>
 						</div>
+            <div class="text-xl">发布于：{formatDate(pubDatetime)}</div>
 					</Hero>
 				</div>
 			</header>
