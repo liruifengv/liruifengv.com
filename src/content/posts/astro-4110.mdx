@@ -1,0 +1,78 @@
+---
+title: "Astro 4.11 发布！自定义500错误页面，Code 组件支持 Shiki 转换器"
+author: liruifengv
+description: "Astro 4.11 发布！自定义500错误页面，Code 组件支持 Shiki 转换器。"
+pubDatetime: 2024-06-21
+featured: true
+draft: false
+tags:
+  - front-end
+  - astro
+---
+
+昨天 Astro 发布了 4.11 版本，支持自定义 500 错误页面，Code 组件支持 Shiki 转换器，以及其他一些改进和修复。
+
+你可以使用 `@astrojs/upgrade` CLI 来升级依赖：
+
+```bash
+npx @astrojs/upgrade
+```
+
+## 自定义 500 错误页面
+
+[`src/pages/500.astro`](https://docs.astro.build/zh-cn/basics/astro-pages/#自定义-500-错误页面) 是一个特殊的用于捕获 500 错误的页面。在 4.11 版本中，你可以自定义这个页面，展示详细的错误信息，例如：
+
+```astro title="src/pages/500.astro"
+---
+interface Props {
+    error: unknown
+}
+const { error } = Astro.props
+---
+<div>{error instanceof Error ? error.message : '服务器发生错误'}</div>
+```
+
+## Code 组件支持 Shiki 转换器
+
+Astro 有一个 [内置的 `<Code />` 组件](https://docs.astro.build/zh-cn/reference/api-reference/#code-)，用于渲染代码块。在 4.11 版本中，`<Code />` 组件支持 [Shiki 转换器](https://shiki.tmrs.site/packages/transformers#shikijs-transformers)。
+
+先安装 `@shikijs/transformers`：
+
+```bash
+npm i -D @shikijs/transformers
+```
+
+`<Code />` 组件提供了一个 transformers 属性，可以传入一个或多个转换器，例如：
+
+```astro
+---
+import { transformerNotationFocus } from '@shikijs/transformers'
+import { Code } from 'astro:components'
+const code = `const foo = 'hello'
+const bar = ' world'
+console.log(foo + bar) // [!code focus]
+`
+---
+<div>
+<Code
+  code={code}
+  lang="js"
+  transformers={[transformerNotationFocus()]} />
+</div>
+
+<style is:global>
+  pre.has-focused .line:not(.focused) {
+    filter: blur(1px);
+  }
+</style>
+
+```
+转换器会生产 CSS 类名，你需要自己使用 CSS 来自定义样式。
+
+渲染效果如下：
+
+![Shiki 转换效果](/src/assets/images/astro-4110/demo.png)
+
+## 最后
+
+快来更新试试吧~
