@@ -223,6 +223,7 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 		line-height: 1.2;
 		list-style: none;
 		padding: 2rem;
+    padding-top: 0;
 		background-color: var(--gray-999);
 		border-bottom: 1px solid var(--gray-800);
 	}
@@ -267,7 +268,7 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 
 	.social:hover,
 	.social:focus {
-		color: var(--accent-text-over);
+		color: var(--accent-regular);
 	}
 
 	.theme-toggle {
@@ -281,7 +282,7 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 			display: grid;
 			grid-template-columns: 1fr auto 1fr;
 			align-items: center;
-			padding: 2.5rem 5rem;
+			padding: 1.5rem 3rem;
 			gap: 1rem;
 		}
 
