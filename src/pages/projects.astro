@@ -1,0 +1,107 @@
+---
+import Hero from '../components/Hero.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const projects = [
+  {
+    title: 'Astro',
+    description: '为内容驱动网站而设计的 Web 开发框架。',
+    link: 'https://github.com/withastro/astro'
+  },
+  {
+    title: 'Starlight',
+    description: '基于 Astro 的文档网站开发框架。',
+    link: 'https://github.com/withastro/starlight'
+  },
+  {
+    title: 'We Drawing',
+    description: 'AI 画图。每天一句中国古诗词，生成 AI 图片。',
+    link: 'https://github.com/liruifengv/we-drawing'
+  },
+  {
+    title: 'astro-cn.com',
+    description: 'Astro 中文网站 Showcase。展示一些使用 Astro 构建的中文网站！',
+    link: 'https://github.com/liruifengv/astro-cn.com'
+  },
+  {
+    title: 'liruifengv.com',
+    description: '我的个人网站。本网站源码。',
+    link: 'https://github.com/liruifengv/liruifengv.com'
+  },
+  {
+    title: 'Astro First PR',
+    description: '查找你在 Astro 项目贡献的第一个 PR。',
+    link: 'https://github.com/liruifengv/astro-first-pr'
+  },
+  {
+    title: 'todo-rs',
+    description: 'Rust 开发的简易命令行 TODO LIST。',
+    link: 'https://github.com/liruifengv/todo-rs'
+  }
+]
+---
+
+<BaseLayout title="My Projects | liruifengv" description="All projects for liruifengv">
+  <Hero title="My Projects" />
+  <section class="projects">
+    {projects.map(project => (
+      <a
+        class="box"
+        href={project.link}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <h2>{project.title}</h2>
+        <p>{project.description}</p>
+      </a>
+    ))}
+  </section>
+</BaseLayout>
+
+<style>
+	.box {
+		border: 1px solid var(--gray-800);
+		border-radius: 0.75rem;
+		padding: 1.5rem;
+		background-color: var(--gray-999_40);
+		box-shadow: var(--shadow-sm);
+	}
+
+  .projects {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    cursor: pointer;
+  }
+
+	.projects h2 {
+		font-size: var(--text-lg);
+	}
+
+  .projects h2:hover {
+    color: var(--link-color);
+  }
+
+	.projects p {
+		color: var(--gray-400);
+	}
+
+	@media (min-width: 50em) {
+		.box {
+			border-radius: 1.5rem;
+			padding: 2.5rem;
+		}
+
+		.projects {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 3rem;
+      padding: 5rem;
+		}
+
+		.projects h2 {
+			font-size: var(--text-2xl);
+		}
+	}
+</style>
