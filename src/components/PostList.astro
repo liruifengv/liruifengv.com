@@ -16,7 +16,7 @@ const { posts } = Astro.props;
       posts.map((post) => (
         <li>
           <a href={`/posts/${post.slug}`}>
-            <h5 class="title">{post.data.title}</h5>
+            <h5 class="title">{post.data.title}</di>
             <div class="time">
               {formatDate(post.data.pubDatetime)}
             </div>
@@ -47,6 +47,7 @@ const { posts } = Astro.props;
 		z-index: 1;
 		margin: 0.5rem;
 		color: var(--gray-200);
+    @apply text-xl md:text-2xl;
 	}
   .time {
     color: var(--gray-400);

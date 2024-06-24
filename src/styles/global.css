@@ -143,6 +143,7 @@ img {
 
 a {
 	color: var(--link-color);
+  text-decoration: underline;
 }
 
 h1,

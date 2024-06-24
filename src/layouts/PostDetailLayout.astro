@@ -42,16 +42,14 @@ const ogUrl = new URL(ogImageUrl ?? `/posts/${post.slug}.png`, Astro.url.origin)
   canonicalURL={canonicalURL}
   >
 	<div class="stack gap-20">
-		<div class="stack gap-10">
+		<div class="stack gap-8">
 			<header>
 				<div class="wrapper stack gap-2">
-					<Hero title={title} align="start">
-						<div class="details">
-							<div class="tags">
-								{tags.map((t) => <Tag name={t}/>)}
-							</div>
-							<p class="description">{description}</p>
-						</div>
+					<div class="flex items-center flex-col gap-2">
+            <div class="text-3xl font-bold mb-5">{title}</div>
+            <div class="tags">
+              {tags.map((t) => <Tag name={t}/>)}
+            </div>
             <div class="flex flex-col md:flex-row md:gap-2">
               <div class="text-base">发布于：{formatDate(pubDatetime)}</div>
               <div class="flex gap-2">
@@ -59,7 +57,7 @@ const ogUrl = new URL(ogImageUrl ?? `/posts/${post.slug}.png`, Astro.url.origin)
                 <p class="text-base inline-block">阅读时间：{readingTime}</p>
               </div>
             </div>
-					</Hero>
+					</di>
 				</div>
 			</header>
 			<main class="wrapper">
@@ -80,7 +78,7 @@ const ogUrl = new URL(ogImageUrl ?? `/posts/${post.slug}.png`, Astro.url.origin)
 
 <style is="inline">
 	header {
-		padding-bottom: 2.5rem;
+		padding-bottom: 1.5rem;
 		border-bottom: 1px solid var(--gray-800);
 	}
 
