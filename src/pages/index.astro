@@ -13,18 +13,22 @@ import { Image } from 'astro:assets';
 
 // Page section components
 import Skills from '../components/Skills.astro';
-
+import { formatDate } from '../utils/date';
 // Content Fetching: List four most recent work projects
 const posts = (await getCollection('posts')).filter((post) => post.data.featured);
 
-function formatDate(date: Date) {
-  return new Date(date).toLocaleDateString('zh-CN', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-}
-
+const projects = [
+  {
+    title: 'We Drawing',
+    description: 'AI 画图。每天一句中国古诗词，生成 AI 图片。',
+    link: 'https://github.com/liruifengv/we-drawing'
+  },
+  {
+    title: 'astro-cn.com',
+    description: 'Astro 中文网站 Showcase。展示一些使用 Astro 构建的中文网站！',
+    link: 'https://github.com/liruifengv/astro-cn.com'
+  },
+]
 ---
 
 <BaseLayout>
@@ -49,7 +53,7 @@ function formatDate(date: Date) {
 			<Skills />
 		</div>
 
-		<main class="wrapper stack gap-20 lg:gap-48">
+		<main class="wrapper stack gap-20">
 			<section class="section with-background with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
 					<h3>Selected Posts</h3>
@@ -73,6 +77,33 @@ function formatDate(date: Date) {
 
 				<div class="cta">
 					<CallToAction href="/posts/">
+						View All
+						<Icon icon="arrow-right" size="1.2em" />
+					</CallToAction>
+				</div>
+			</section>
+
+      <section class="section with-cta">
+				<header class="section-header stack gap-2 lg:gap-4">
+					<h3>Selected Projects</h3>
+				</header>
+
+        <section class="projects gallery">
+          {projects.map(project => (
+            <a
+              class="box"
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h2>{project.title}</h2>
+              <p>{project.description}</p>
+            </a>
+          ))}
+        </section>
+
+				<div class="cta">
+					<CallToAction href="/projects/">
 						View All
 						<Icon icon="arrow-right" size="1.2em" />
 					</CallToAction>
@@ -123,34 +154,6 @@ function formatDate(date: Date) {
 	.section {
 		display: grid;
 		gap: 2rem;
-	}
-
-	.with-background {
-		position: relative;
-	}
-
-	.with-background::before {
-		--hero-bg: var(--bg-image-subtle-2);
-
-		content: '';
-		position: absolute;
-		pointer-events: none;
-		left: 50%;
-		width: 100vw;
-		aspect-ratio: calc(2.25 / var(--bg-scale));
-		top: 0;
-		transform: translateY(-75%) translateX(-50%);
-		background:
-			url('/assets/backgrounds/noise.png') top center/220px repeat,
-			var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
-			var(--gray-999);
-		background-blend-mode: overlay, normal, normal, normal;
-		mix-blend-mode: var(--bg-blend-mode);
-		z-index: -1;
-	}
-
-	.with-background.bg-variant::before {
-		--hero-bg: var(--bg-image-subtle-1);
 	}
 
 	.section-header {
@@ -246,4 +249,46 @@ function formatDate(date: Date) {
     font-size: 0.8rem;
     margin: 0.5rem;
   }
+
+  .box {
+		border: 1px solid var(--gray-800);
+		border-radius: 0.75rem;
+		padding: 1.5rem;
+		background-color: var(--gray-999_40);
+		box-shadow: var(--shadow-sm);
+	}
+
+  .projects {
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+	.projects h2 {
+		font-size: var(--text-lg);
+	}
+
+  .projects h2:hover {
+    color: var(--link-color);
+  }
+
+	.projects p {
+		color: var(--gray-400);
+	}
+
+	@media (min-width: 50em) {
+		.box {
+			border-radius: 1.5rem;
+			padding: 2.5rem;
+		}
+    .projects {
+      display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 3rem;
+    }
+		.projects h2 {
+			font-size: var(--text-2xl);
+		}
+	}
 </style>
