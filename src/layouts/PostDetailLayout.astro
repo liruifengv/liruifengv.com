@@ -42,7 +42,7 @@ const ogUrl = new URL(ogImageUrl ?? `/posts/${post.slug}.png`, Astro.url.origin)
   canonicalURL={canonicalURL}
   >
 	<div class="stack gap-20">
-		<div class="stack gap-15">
+		<div class="stack gap-10">
 			<header>
 				<div class="wrapper stack gap-2">
 					<Hero title={title} align="start">
@@ -52,10 +52,12 @@ const ogUrl = new URL(ogImageUrl ?? `/posts/${post.slug}.png`, Astro.url.origin)
 							</div>
 							<p class="description">{description}</p>
 						</div>
-            <div class="flex gap-5">
-              <p class="text-base">发布于：{formatDate(pubDatetime)}</p>
-              <p class="text-base">{words}</p>
-              <p class="text-base">阅读时间：{readingTime}</p>
+            <div class="flex flex-col md:flex-row md:gap-2">
+              <div class="text-base">发布于：{formatDate(pubDatetime)}</div>
+              <div class="flex gap-2">
+                <p class="text-base inline-block">字数：{words}</p>
+                <p class="text-base inline-block">阅读时间：{readingTime}</p>
+              </div>
             </div>
 					</Hero>
 				</div>
@@ -85,7 +87,6 @@ const ogUrl = new URL(ogImageUrl ?? `/posts/${post.slug}.png`, Astro.url.origin)
 	.details {
 		display: flex;
 		flex-direction: column;
-		padding: 0.5rem;
 		gap: 1.5rem;
 		justify-content: space-between;
 		align-items: center;
