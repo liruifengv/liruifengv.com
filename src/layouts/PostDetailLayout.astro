@@ -2,7 +2,7 @@
 import { type CollectionEntry, getCollection } from 'astro:content';
 
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
+import ContactCTA from '../components/ContactCTA.astro'
 import Tag from '../components/Tag.astro';
 import Comments from "@components/Comment";
 import { formatDate } from "@utils/date.ts";
@@ -72,6 +72,7 @@ const ogUrl = new URL(ogImageUrl ?? `/posts/${post.slug}.png`, Astro.url.origin)
         </article>
 
 			</main>
+      <ContactCTA />
 
 		</div>
 	</div>

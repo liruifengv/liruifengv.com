@@ -3,7 +3,7 @@ title: "2023 年终总结 & 迎接 2024 🎉"
 author: liruifengv
 description: "2023 年就要结束了，这一年经历了一些挫折，也有一些收获，也明确了一些方向。"
 pubDatetime: 2023-12-21
-featured: true
+featured: false
 draft: false
 tags:
   - 年终总结

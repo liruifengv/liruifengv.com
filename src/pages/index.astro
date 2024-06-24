@@ -6,6 +6,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 // Component Imports
 import CallToAction from '../components/CallToAction.astro';
+import ContactCTA from '../components/ContactCTA.astro'
 import Hero from '../components/Hero.astro';
 import Icon from '../components/Icon.astro';
 import Pill from '../components/Pill.astro';
@@ -15,7 +16,11 @@ import { Image } from 'astro:assets';
 import Skills from '../components/Skills.astro';
 import { formatDate } from '../utils/date';
 // Content Fetching: List four most recent work projects
-const posts = (await getCollection('posts')).filter((post) => post.data.featured);
+const posts = (await getCollection('posts')).filter((post) => post.data.featured).sort(
+          (a, b) =>
+            Math.floor(new Date(b.data.pubDatetime).getTime() / 1000) -
+            Math.floor(new Date(a.data.pubDatetime).getTime() / 1000)
+        );
 
 const projects = [
   {
@@ -109,7 +114,9 @@ const projects = [
 					</CallToAction>
 				</div>
 			</section>
+
 		</main>
+    <ContactCTA />
 
 	</div>
 </BaseLayout>
