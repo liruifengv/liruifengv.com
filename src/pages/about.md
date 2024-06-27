@@ -13,12 +13,13 @@ title: "关于我/关于本站"
 - [Astro](https://github.com/withastro) Maintainer，中文文档的维护翻译。
 - 如果你在使用 Astro 的过程中，有任何问题，或者中文文档有任何疑问，欢迎联系我。
 - 正在写 Astro 专栏文章。
-- 学习 Rust 从入门到放弃三次，计划写一系列 Rust 实战的文章。
+- 学习 Rust 从入门到放弃三次，计划写一系列 Rust 实战的文章，目前烂尾。
+- AI 新人，在学习 AI 中。
 
 ### 我的技术栈有
 
 - 语言：HTML、CSS、JavaScript(Node、Deno)、Rust、Go
-- 前端：Vue、React、Astro、Next.js
+- 前端：Astro、Vue、React、Next.js
 - 后端：Actix(Rust)、Express(Node)、Fiber(go)
 - 客户端跨平台：Electron
 
@@ -30,7 +31,7 @@ title: "关于我/关于本站"
 
 - [Astro](https://astro.build/)
 - [TailwindCSS](https://tailwindcss.com/)
-- [Starlight](https://github.com/withastro/starlight)
+- [React](https://react.dev)
 
 ### 我的其他主页
 
@@ -46,7 +47,7 @@ title: "关于我/关于本站"
 
 如果你有任何问题，开源、前端、Rust、编程学习、职场等等，或者单纯想交个朋友，可以通过以下方式联系我：
 
-- 微信：在公众号 SayHub 找到我的微信号
+- 微信：liruifengv2333
 - 邮箱：liruifeng1024@gmail.com
 
 ### 很高兴见到你，欢迎来玩~
