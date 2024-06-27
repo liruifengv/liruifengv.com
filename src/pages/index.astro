@@ -62,7 +62,7 @@ const projects = [
 			<section class="section with-background with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
 					<p class="text-2xl font-bold text-[#000]">精选文章</>
-					<p>
+					<p class="text-lg">
             这里是我最近写的一些文章，感兴趣的话可以看看！             
           </p>
 				</header>
@@ -72,7 +72,7 @@ const projects = [
             posts.map((post) => (
               <li>
                 <a href={`/posts/${post.slug}`}>
-                  <h5 class="title">{post.data.title}</h5>
+                  <p class="title">{post.data.title}</p>
                   <div class="time">
                     {formatDate(post.data.pubDatetime)}
                   </div>
@@ -181,7 +181,7 @@ const projects = [
 		.section {
 			grid-template-columns: repeat(4, 1fr);
 			grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
-			gap: 5rem;
+			gap: 3rem;
 		}
 
 		.section.with-cta {
@@ -251,7 +251,7 @@ const projects = [
 		z-index: 1;
 		margin: 0.5rem;
 		color: var(--gray-200);
-    @apply text-xl md:text-2xl;
+    @apply text-base md:text-lg;
 	}
   .time {
     color: var(--gray-400);
@@ -284,6 +284,7 @@ const projects = [
 
 	.projects p {
 		color: var(--gray-400);
+    @apply mt-2;
 	}
 
 	@media (min-width: 50em) {
@@ -296,8 +297,5 @@ const projects = [
 			grid-template-columns: repeat(2, 1fr);
 			gap: 3rem;
     }
-		.projects h2 {
-			font-size: var(--text-2xl);
-		}
 	}
 </style>
