@@ -5,18 +5,18 @@ import Icon from './Icon.astro';
 <section class="box skills">
 	<div class="stack gap-2 lg:gap-4">
 		<Icon icon="terminal-window" color="var(--accent-regular)" size="2.5rem" gradient />
-		<h2>Full Stack</h2>
-		<p>Full Stack Web Developer. Use JS, Rust, Go.</p>
+		<h2>Web 开发</h2>
+		<p>专注 Web 开发。使用 JS、Rust、Go。</p>
 	</div>
 	<div class="stack gap-2 lg:gap-4">
 		<Icon icon="trophy" color="var(--accent-regular)" size="2.5rem" gradient />
 		<h2>Astro</h2>
-		<p>Astro maintainer. Building everything with Astro.</p>
+		<p>Astro 项目成员，中文文档维护翻译。</p>
 	</div>
 	<div class="stack gap-2 lg:gap-4">
 		<Icon icon="strategy" color="var(--accent-regular)" size="2.5rem" gradient />
-		<h2>Documentation</h2>
-		<p>Maintaining Astro Docs. Translating to Chinese.</p>
+		<h2>AI 初学者</h2>
+		<p>AI 是未来吗，我不知道。</p>
 	</div>
 </section>
 
@@ -36,7 +36,7 @@ import Icon from './Icon.astro';
 	}
 
 	.skills h2 {
-		font-size: var(--text-lg);
+		@apply text-xl md:text-2xl;
 	}
 
 	.skills p {
@@ -53,10 +53,6 @@ import Icon from './Icon.astro';
 			display: grid;
 			grid-template-columns: repeat(3, 1fr);
 			gap: 5rem;
-		}
-
-		.skills h2 {
-			font-size: var(--text-2xl);
 		}
 	}
 </style>

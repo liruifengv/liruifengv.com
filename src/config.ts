@@ -3,7 +3,7 @@ import type { Site, SocialObjects, OG_Type } from "./types";
 export const SITE: Site = {
   website: "https://liruifengv.com/",
   author: "liruifengv",
-  desc: "liruifengv's blog",
+  desc: "liruifengv 的个人网站。分享技术、生活、读书、随笔等。李瑞丰的个人博客。",
   title: "liruifengv",
   lightAndDarkMode: true,
   postPerPage: 10,
