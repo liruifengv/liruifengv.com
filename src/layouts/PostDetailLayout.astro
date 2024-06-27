@@ -65,7 +65,7 @@ const ogUrl = new URL(ogImageUrl ?? `/posts/${post.slug}.png`, Astro.url.origin)
         <article
           id="article"
           role="article"
-          class="mx-auto max-w-3xl prose-lg dark:prose-invert prose-img:rounded-xl prose-li:list-disc prose-code:bg-gray-800 prose-code:text-[#108ee9] prose-code:px-1 prose-blockquote:border-l-2 prose-blockquote:border-l-gray-500"
+          class="mx-auto max-w-3xl prose-base dark:prose-invert prose-img:rounded-xl prose-li:list-disc prose-code:bg-gray-800 prose-code:text-[#108ee9] prose-code:px-1 prose-blockquote:border-l-2 prose-a:underline prose-a:underline-offset-2 prose-blockquote:border-l-gray-500"
         >
           <Content />
           <Comments client:only="react" />

@@ -14,7 +14,7 @@ const { href } = Astro.props;
 		display: flex;
 		place-content: center;
 		text-align: center;
-		padding: 0.56em 2em;
+		padding: 0.56em 1.5em;
 		gap: 0.8em;
 		color: var(--accent-text-over);
 		text-decoration: none;
@@ -24,12 +24,8 @@ const { href } = Astro.props;
 		background: var(--gradient-accent-orange);
 		box-shadow: var(--shadow-md);
 		white-space: nowrap;
-	}
 
-	@media (min-width: 20em) {
-		.action {
-			font-size: var(--text-lg);
-		}
+    @apply text-lg md:text-xl items-center;
 	}
 
 	/* Overlay for hover effects. */
@@ -45,12 +41,5 @@ const { href } = Astro.props;
 	.action:focus::after,
 	.action:hover::after {
 		background-color: hsla(var(--gray-999-basis), 0.3);
-	}
-
-	@media (min-width: 50em) {
-		.action {
-			padding: 1.125rem 2.5rem;
-			font-size: var(--text-xl);
-		}
 	}
 </style>
