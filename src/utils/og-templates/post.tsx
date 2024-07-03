@@ -49,9 +49,10 @@ export default (post: CollectionEntry<"posts">) => {
             style={{
               display: "flex",
               justifyContent: "space-between",
+              alignItems: "center",
               width: "100%",
               marginBottom: "8px",
-              fontSize: 28,
+              fontSize: 48,
             }}
           >
             <span>
@@ -67,8 +68,8 @@ export default (post: CollectionEntry<"posts">) => {
                 {SITE.avatar && (
                   <img
                     style={{
-                      width: "32px",
-                      height: "32px",
+                      width: "48px",
+                      height: "48px",
                       borderRadius: "50%",
                       marginRight: "8px",
                     }}
@@ -80,7 +81,7 @@ export default (post: CollectionEntry<"posts">) => {
             </span>
 
             <span style={{ overflow: "hidden", fontWeight: "bold" }}>
-              {SITE.title}
+              Hello World!
             </span>
           </div>
         </div>
