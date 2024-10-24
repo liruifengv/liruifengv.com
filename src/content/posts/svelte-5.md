@@ -3,7 +3,7 @@ title: "svelte 5.0 全新响应式API"
 description: "svelte发布了5.0版本，重构了响应式系统。"
 pubDatetime: 2024-10-24
 author: liruifengv
-featured: false
+featured: true
 draft: false
 tags:
   - front-end
