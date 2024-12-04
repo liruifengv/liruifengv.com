@@ -1,0 +1,248 @@
+---
+title: "Astro 5.0 发布！"
+author: erika | matt | matthew
+description: "Astro 5.0 带来了令人兴奋的新功能，例如 Astro Content Layer，可以从任何来源无缝加载内容，以及 Server Islands，可以轻松结合静态和动态个性化内容。"
+pubDatetime: 2024-12-04
+featured: false
+draft: false
+tags:
+  - front-end
+  - astro
+---
+
+**Astro 5.0 正式发布！** 使用 Astro Content Layer 可以从任何来源无缝加载内容，以及 Server Islands 可以结合缓存的静态内容和动态个性化内容。继续阅读，了解这些强大的新功能以及更多内容！
+
+**什么是 Astro？** [Astro](https://astro.build/) 是用于构建内容驱动网站的 Web 框架，包括博客、营销和电子商务网站。如果你需要一个加载速度快且具有出色 SEO 的网站，那么 Astro 就是你的选择。
+
+**本次发布的亮点包括：**
+
+- __[Content Layer](#content-layer)__
+- __[Server Islands 服务器岛](#server-islands-服务器岛)__
+- __[简化的预渲染](#简化的预渲染)__
+- __[类型安全的环境变量](#astroenv)__
+- __[Vite 6](#vite-6)__
+- __[实验性功能](#实验性功能)__
+
+访问 [astro.new](https://astro.new/latest/) 直接在浏览器中尝试 Astro 5.0，或者使用以下命令在你的包管理器中创建一个新项目：
+
+```sh
+npm create astro@latest
+```
+
+要升级现有项目，请使用自动化的 `@astrojs/upgrade` CLI 工具。或者通过运行适用于你的包管理器的安装命令手动升级。
+
+```sh
+# Recommended:
+npx @astrojs/upgrade
+
+# Manual:
+npm install astro
+pnpm install astro
+yarn add astro
+```
+
+查看我们的[升级指南](https://docs.astro.build/en/guides/upgrade-to/v5/)，了解本次发布的所有详细信息和每个更改的单独升级指导。
+
+## Content Layer
+
+Astro 是用于内容驱动网站的最佳框架，通过 Astro 5.0 我们使其更加强大。**Astro Content Layer** 是一种新的灵活且可插拔的方式来管理内容，提供了一个统一的、类型安全的 API 来定义、加载和访问你的内容，无论它来自何处。
+
+```ts ins={7-8,13-14,18-19}
+// src/content.config.ts
+import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { notionLoader } from "notion-astro-loader";
+
+const blog = defineCollection({
+  // 加载来自磁盘上的 Markdown 文件的数据
+  loader: glob({ pattern: "**/*.md", base: "./src/data/blog" }),
+  schema: z.object({ /* 可以选择定义类型安全数据的模式 */  }),
+});
+
+const database = defineCollection({
+  // 使用 loader 自动请求内容
+  loader: notionLoader({ /* ... */ })
+});
+
+const countries = defineCollection({
+  // 加载来自任何地方的数据！
+  loader: () => fetch('https://api.example.com/countries').then(res => res.json()),
+});
+
+export const collections = { blog, database, countries }
+
+```
+
+从 Astro 2.0 开始，内容集合允许你在类型安全的集合中组织静态内容，然后在站点的任何页面中使用它们。然而，随着站点的增长，将内容放在 Git 存储库中的 Markdown 文件中可能变得不太实用。你可能想使用 CMS，让站点的某些部分由 REST API 提供支持，或者使用来自像 Cloudinary 这样的资源管理系统的优化图像。这可能很快变得难以管理，需要各种 API 和数据获取策略。
+
+Content layer 就是解决这个问题的方法，将所有内容放入一个友好的、类型安全的数据存储中，可以在整个站点中使用。它们是你熟悉和喜爱的内容集合，但具有 **loader** 的额外功能 - 可以从任何来源获取和转换数据的可插拔函数。使用 content layer，你可以：
+
+- 使用 [内置的 loader](https://docs.astro.build/en/guides/content-collections/#built-in-loaders) 从磁盘上的任何地方加载内容。
+- 定义你自己的 loader，[只需几行代码](https://docs.astro.build/en/guides/content-collections/#building-a-custom-loader) 就可以从任何 API 获取内容。
+- 使用数量不断增加的 [社区构建和第三方 loader](https://astro.build/integrations/?search=&categories%5B%5D=loaders) 从流行的来源获取内容，如 [Storyblok](/blog/storyblok-loader/)、[Cloudinary](/blog/cloudinary-loader/) 或 [Hygraph](/blog/hygraph-loader/)。
+
+当你构建站点时，Astro 从所有这些来源加载数据，并将集合缓存在一个单一的、类型安全的数据存储中，你可以在页面中使用。
+
+![](../../assets/images/astro-5/content-layer-architecture.webp)
+
+Content layer 不仅让你可以从更多地方加载内容。它还大大提高了你当前站点的性能。在 Astro 5 中，对于内容丰富的站点，你的内容集合现在构建速度提高了 5 倍，对于 MDX 页面提高了 2 倍，同时内存使用减少了 25-50%。
+
+Content layer 是对内容集合处理方式的一个重大改变，但我们内置的向后兼容性意味着大多数人不需要对现有代码进行任何更改。查看[迁移指南](https://docs.astro.build/en/guides/upgrade-to/v5/#legacy-v20-content-collections-api)获取完整信息。
+
+要开始使用新的 content layer 创建集合，请查看[内容集合指南](https://docs.astro.build/en/guides/content-collections/)。
+
+## Server Islands 服务器岛
+
+Server islands 是 Astro 帮助推向主流的 [islands architecture](https://astro.build/blog/introducing-astro/) 概念的演变。**Server islands** 将这个概念扩展到了服务器。使用 server islands，你可以在同一页面上结合高性能的静态 HTML 和动态服务器生成的组件。
+
+在任何给定的网页上，你可能有以下内容：
+
+- 完全静态，永不改变。
+- 由不经常更改但比部署更频繁的数据库提供动态支持。
+- *个性化* 内容，为单个用户量身定制。
+
+以前，你必须为所有这些类型的内容选择一种缓存策略，如果页面是一个登录体验，通常意味着根本不缓存。现在，有了 server islands，你可以两者兼得。
+
+![A diagram showing the server island population parts of the page from the server.](../../assets/images/astro-5/server-islands-diag.webp)
+
+Server islands 用于最动态的内容：个性化内容，如用户的头像、购物车和产品评论。当这些组件被延迟时，你可以更方便地缓存页面本身。
+
+这意味着无论登录与否，用户都将立即看到页面最关键的部分，因为他们正在 Edge CDN 上进行缓存。你还可以设置自定义回退内容，以在加载动态岛之前短暂显示。
+
+每个岛屿都独立加载，以优化访问者的体验。这意味着速度较慢的孤岛（例如连接到旧后端的孤岛）不会延迟其余个性化内容的显示和交互。
+
+Server islands 已经在过去几个月中反复测试。在此期间，我们倾听了用户反馈，并通过以下方式增强了 server islands：
+
+- 设置岛的 headers，允许你自定义单个岛的缓存生命周期。
+- 在执行自动页面压缩的平台上使用 server islands。
+- 通过使用服务器上生成的密钥自动加密 server island props 来提高隐私性。
+
+在 Astro5 中，我们正在[重新思考网站“静态”意味着什么](#简化的预渲染)。Server islands 为你在未来如何在 Astro 中构建静态项目提供了基础原语，只在需要时才有动态部分。
+
+要了解更多关于 server islands 的信息，请查看 [server islands 指南](https://docs.astro.build/en/guides/server-islands/)。
+
+### 简化的预渲染
+
+自从两年前的 Astro 1.0 发布以来，Astro 就支持了多种网站的输出模式：Static 模式，它在构建时一次性构建网站到传统的静态 `.html` 文件中，以及 Server 模式，其中页面在运行时呈现，允许你构建高度动态的网站。
+
+经过多次请求之后，[在 Astro 2.0 中，我们通过创建第三种输出模式：混合模式，使其更加细粒化](https://astro.build/blog/hybrid-rendering/)，允许在同一个网站中混合静态和服务器渲染的页面。
+
+随着 Astro 的发展，以及像 actions 或 server islands 这样的强大功能的增加，这些功能无法在纯静态输出模式中使用，我们意识到“我需要使用哪些设置才能使用这个功能？”的矩阵变得庞大且繁琐，难以解释和记录。我们还发现，人们最终会比他们需要的更多地使用服务器渲染，因为这比使用细粒度控件更容易，使他们的网站比必要的更慢。
+
+在 Astro5.0 中，我们很高兴地说，我们已经简化了所有这些：**hybrid 和 static 选项已经合并到默认的 `static` 选项中。** 这样，你现在可以通过添加适配器在服务器上运行时渲染单个路由，而无需其他配置。
+
+不用担心，如果你仍然想要传统的静态生成 `.html` 文件，你仍然可以得到它们：Astro 仍然默认为静态！但是，如果你设置了某个页面的 `prerender = false`，Astro 现在会动态切换其输出模式，允许你使用需要服务器端渲染的功能，而无需弄清楚你需要哪种配置模式。
+
+想要了解更多关于新的输出模式？查看我们关于[按需渲染的更新文档](https://docs.astro.build/en/guides/on-demand-rendering/#enabling-on-demand-rendering)。
+
+## astro:env
+
+配置应用程序是开发过程中重要但复杂的一部分。Astro 5 中的新功能是 `astro:env` 模块，它为你提供了一种类型安全的方式来定义应用程序期望和需要的环境变量。
+
+使用 `astro:env` 你可以：
+
+- 配置你的变量是在客户端还是服务器中使用，以帮助细分不同的用途。
+-将变量指定为 **secrets**，例如你不想在客户端中公开或内联到服务器构建中的 API 密钥（任何有权访问构建输出的人都可以查看）。
+- 指定变量是**必需的**还是只是可选的增强功能，以便你在服务器完全启动之前捕获错误。
+- 定义变量的 **类型**，例如字符串、数字、布尔值或枚举，从而无需在应用程序中进行强制转换。
+
+我们构建 `astro:env` 以提供对环境变量的更多控制和结构，并为你提供类型安全。一旦你定义了变量，你就可以简单地导入并在任何模块中使用它们。
+
+```jsx
+import { STRIPE_API_KEY } from 'astro:env/server';
+```
+
+对于如何使用 `astro:env` 的更多信息，请查看我们的[类型安全环境变量指南](https://docs.astro.build/en/guides/environment-variables/#type-safe-environment-variables)。
+
+## Vite 6
+
+Astro 5 是第一批使用 Vite 6 的框架之一，Vite 6 刚刚发布了一周。 （不用担心：我们一直在使用 beta 版本，因此升级到 Astro 5 时可能不需要更改任何代码。）
+
+Vite6 的亮点是新的 Environment API，这是一个内部重构，允许创建新的环境，以更紧密地将开发体验与代码在生产中的运行方式对齐。集成作者可以从今天开始使用这个新的 API；在未来，我们希望找到使用它的方法，例如为 Cloudflare 用户提供更好的开发兼容性，或者提供 Edge 运行时以在本地进行测试。
+
+要了解更多关于 Vite 6 的内容，请查看他们的[官方发布公告](https://vite.dev/blog/announcing-vite6)。
+
+## 实验性功能
+
+以下是我们在过去几个月中一直在研究的新实验性功能。现在可以通过启用 `experimental` 标志来预览，将在未来的 Astro 5.x 的次要版本中变为稳定。
+
+```js
+// astro.config.mjs
+import { defineConfig } from "astro/config";
+
+export default defineConfig({
+	experimental: {
+		responsiveImages: true,
+		svg: true,
+	}
+});
+```
+
+### 实验：图像裁剪支持
+
+Astro 现在支持使用默认的 Sharp 图像服务进行图像处理时裁剪图像。
+
+使用新的 `fit` 和 `position` 属性，你现在可以创建与容器完美匹配的图像，节省宝贵的字节。
+
+```astro
+---
+import logo from "../logo.png";
+---
+<Image src={logo} fit="cover" width={200} height={200} />
+```
+
+有关此功能的更多信息，请阅读[我们关于实验性响应式图像支持的参考](https://docs.astro.build/en/reference/experimental-flags/responsive-images/#responsive-image-properties)。
+
+### 实验：响应式图像布局
+
+图像很难：有许多屏幕密度，许多屏幕尺寸...很多*很多*东西。让图像在所有设备上看起来好看是具有挑战性的，更不用说为小屏幕提供 4K 图像的明显性能影响了。
+
+Astro 最新的实验性图像功能支持设置预定义的响应式图像布局。这将自动生成正确的 `srcset` 和 `sizes` 值，使你的图像在所有设备上看起来好看且性能良好。
+
+```astro
+---
+import { Image } from "astro:assets"
+import rocket from "./rocket.jpg"
+---
+<Image src={rocket} width={800} height={600} layout="responsive" />
+```
+
+对于此功能的更多信息，请查看[我们关于实验性响应式图像支持的参考](https://docs.astro.build/en/reference/experimental-flags/responsive-images/#responsive-image-properties)。
+
+### 实验：SVG 组件
+
+你曾经希望在 Astro 中更容易地使用 SVG 吗？我们也是！而且在 Astro 中还有比组件重要的吗？
+
+借助 Astro 5 的实验性 SVG 标志，你可以导入 `.svg` 文件并像使用任何其他 Astro 组件一样使用它们。你可以传递诸如 `width`、`height`、`fill`、`stroke` 和任何其他原生 `<svg>` 元素接受的属性，以便自动应用：
+
+```astro
+---
+import Logo from '../assets/logo.svg'
+---
+<!-- 传递宽度和高度以覆盖默认大小 -->
+<Logo width={100} height={100} fill="blue" />
+```
+
+关于 SVG 组件以及如何使用它们的更多信息，请访问[我们关于 SVG 组件的参考](https://docs.astro.build/en/reference/experimental-flags/svg/)。
+
+### 错误修复和更多改进
+
+除了这些精彩的功能之外，此版本还包括许多较小的功能和错误修复。查看[发布说明](https://github.com/withastro/astro/blob/main/packages/astro/CHANGELOG.md#500)以了解更多信息。
+
+感谢所有帮助此版本发布的贡献者：
+
+- [Bjorn Lu](https://github.com/bluwy)
+- [Sarah Rainsberger](https://github.com/sarah11918)
+- [Ben Holmes](https://github.com/bholmes)
+- [Michael Stramel](https://github.com/stramel)
+- [Nate Moore](https://github.com/natemoo-re)
+- [Matthew Phillips](https://github.com/matthewcp)
+- [Florian Lefebvre](https://github.com/florian-lefebvre)
+- [Matt Kane](https://github.com/ascorbic)
+- [Emanuele Stoppa](https://github.com/ematipico)
+- [Rohan Godha](https://github.com/rgodha24)
+- [Armand Philippot](https://github.com/ArmandPhilippot)
+- [Kevin](https://github.com/kevinzunigacuellar)
+- [Erika "Princesseuh"](https://github.com/Princesseuh)
+
+我们希望你喜欢 Astro 5.0！如果你有任何问题或反馈，请随时在 [Bluesky](https://bsky.app/profile/astro.build)、[Twitter](https://twitter.com/astrodotbuild)、[Mastodon](https://m.webtoo.ls/@astro) 或 [Discord](https://astro.build/chat) 上联系我们。
