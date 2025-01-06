@@ -216,7 +216,7 @@ data: test write
 
 此功能同样是实验性的，可以将 Node.js 代码打包成单个可执行文件，使得在未安装 Node.js 的机器上也可以运行。
 
-实战一下：（以下操作均在 Mac 运行，windows 请自行阅读 https://nodejs.org/api/single-executable-applications.html）
+实战一下：（以下操作均在 Mac 运行，windows 请自行阅读 https://nodejs.org/api/single-executable-applications.html ）
 
 我们先创建一个 `hello.js` 文件：
 
