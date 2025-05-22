@@ -38,5 +38,11 @@ export const links: Link[] = [
     logo: 'yufan.me.svg',
     darkLogo: 'yufan.me-dark.svg',
     description: '诗与梦想的远方'
+  },
+  {
+    name: 'Rico',
+    href: 'https://www.ricoui.com',
+    logo: 'ricoui.com.png',
+    description: '一名有趣的写代码的设计师'
   }
 ]
