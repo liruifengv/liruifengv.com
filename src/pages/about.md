@@ -5,15 +5,13 @@ title: "关于我/关于本站"
 
 ## 我是 liruifengv
 
-我是一名前端开发工程师，目前专注 Web 开发，热爱开源，喜欢折腾，喜欢分享。现在居住工作在中国天津。
+我是一名前端开发工程师，目前专注 Web 开发，热爱开源，喜欢折腾，喜欢分享。现在远程功能，居住在北京。
 
 这两年，开始着重参与一些开源项目，同时也在写技术文章。
 
-- [Deno](https://github.com/denoland/deno/issues?q=author%3Aliruifengv) 参与了一些代码贡献。希望前端生态越来越好。
 - [Astro](https://github.com/withastro) Maintainer，中文文档的维护翻译。
+- [Deno](https://github.com/denoland/deno/issues?q=author%3Aliruifengv) 参与了一些代码贡献。希望前端生态越来越好。
 - 如果你在使用 Astro 的过程中，有任何问题，或者中文文档有任何疑问，欢迎联系我。
-- 正在写 Astro 专栏文章。
-- 学习 Rust 从入门到放弃三次，计划写一系列 Rust 实战的文章，目前烂尾。
 - AI 新人，在学习 AI 中。
 
 ### 我的技术栈有
@@ -37,6 +35,8 @@ title: "关于我/关于本站"
 
 - [GitHub](https://github.com/liruifengv)
 - [Twitter / X](https://twitter.com/liruifengv)
+- [小红书](https://www.xiaohongshu.com/user/profile/5ea4e43400000000010095c0)
+- [抖音](https://v.douyin.com/iPgW123C)
 - [知乎](https://www.zhihu.com/people/liruifengv)
 - [掘金](https://juejin.cn/user/237150239994471)
 - 微信公众号: SayHub
@@ -45,7 +45,7 @@ title: "关于我/关于本站"
 
 ### 联系方式
 
-如果你有任何问题，开源、前端、Rust、编程学习、职场等等，或者单纯想交个朋友，可以通过以下方式联系我：
+如果你有任何问题，开源、前端、AI、编程学习、职场等等，或者单纯想交个朋友，可以通过以下方式联系我：
 
 - 微信：liruifengv2333
 - 邮箱：liruifeng1024@gmail.com
