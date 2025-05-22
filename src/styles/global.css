@@ -253,3 +253,7 @@ h5 {
 		gap: 12rem;
 	}
 }
+
+.bg-card {
+  background: var(--gray-999-basis);
+}

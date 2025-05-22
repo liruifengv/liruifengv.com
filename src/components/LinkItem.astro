@@ -1,0 +1,66 @@
+---
+import { Image } from "astro:assets"
+import type { ImageMetadata } from "astro"
+
+interface Props {
+  href: string
+  name: string
+  logo: string
+  description?: string
+}
+const { href, name, logo, description } = Astro.props
+
+const linkLogos = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/links/*{.png,.jpg,.jpeg,.webp,.avif,.gif,.svg}"
+)
+
+const getLogoPath = (isDark: boolean) => {
+  const baseName = logo.replace(/\.[^.]+$/, '')
+  const ext = logo.match(/\.[^.]+$/)?.[0] || ''
+  return `../assets/links/${baseName}${isDark ? '-dark' : ''}${ext}`
+}
+
+const lightLogo = linkLogos[getLogoPath(false)]
+const darkLogo = linkLogos[getLogoPath(true)] || linkLogos[getLogoPath(false)]
+
+if (!lightLogo) {
+  throw new Error(`Could not resolve light logo: ${getLogoPath(false)}`)
+}
+if (!darkLogo) {
+  throw new Error(`Could not resolve dark logo: ${getLogoPath(true)}`)
+}
+
+const lightSrc = (await lightLogo()).default
+const darkSrc = (await darkLogo()).default
+console.log("lightSrc", lightSrc)
+console.log("darkSrc", darkSrc)
+---
+
+<a href={href} target="_blank" class="text-gray-100" rel="noreferrer"
+  ><div
+    data-slot="card"
+    class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border shadow-sm p-6 group cursor-pointer transition-all duration-300 ease-in-out hover:scale-105 border-gray-800 min-w-[320px]"
+  >
+    <div class="relative overflow-hidden">
+      <div class="flex items-center justify-start gap-4">
+        <div class="*:size-10 border-2 border-gray-200 rounded-full">
+          <Image
+            alt={name}
+            class="rounded-full dark:hidden"
+            src={lightSrc}
+          />
+          <Image
+            alt={name}
+            class="rounded-full hidden dark:block"
+            src={darkSrc}
+          />
+        </div>
+        <h3 class="text-base font-medium">{name}</h3>
+      </div><div class="space-y-2 pt-3">
+        <p class="text-gray-300">
+          {description}
+        </p>
+      </div>
+    </div>
+  </div></a
+>
