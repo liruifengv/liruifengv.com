@@ -1,0 +1,33 @@
+---
+layout: ../layouts/BaseLayout.astro
+title: "友链"
+---
+
+import LinkItem from '@components/LinkItem.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { links } from '../links';
+
+<main class="max-w-7xl mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold text-center mb-8">友链</h1>
+  <h4 class="text-lg text-center font-semibold mb-4 text-accent-regular">海内存知己，天涯若比邻</h4>
+  <section class="mb-12">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {links.map((link) => (
+        <LinkItem name={link.name} href={link.href} logo={link.logo} description={link.description} />
+      ))}
+    </div>
+  </section>
+
+  <h2 class="text-2xl font-bold mb-4">添加我的友链</h2>
+  <p class="text-lg mb-4">你可以将我的友链添加到你的网站中。</p>
+
+  ```json
+  {
+    "name": "liruifengv",
+    "href": "https://liruifengv.com",
+    "logo": "https://bucket.liruifengv.com/avatar.jpg",
+    "description": "Web 开发者，Astro 项目成员，开源爱好者。"
+  }
+```
+</main>
+

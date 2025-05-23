@@ -12,7 +12,7 @@ const website = isDev ? "http://localhost:4321/" : SITE.website;
 const fetchFonts = async () => {
   // Regular Font
   const fontFileRegular = await fetch(
-    `${website}fonts/ZCOOL_KuaiLe/ZCOOLKuaiLe-Regular.ttf`
+    `${website}fonts/NotoSansSC/static/NotoSansSC-Regular.ttf`
   );
   const fontRegular: ArrayBuffer = await fontFileRegular.arrayBuffer();
 

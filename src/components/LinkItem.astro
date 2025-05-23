@@ -10,51 +10,75 @@ interface Props {
 }
 const { href, name, logo, description } = Astro.props
 
-const linkLogos = import.meta.glob<{ default: ImageMetadata }>(
-  "../assets/links/*{.png,.jpg,.jpeg,.webp,.avif,.gif,.svg}"
-)
+const isExternalUrl = logo.startsWith('http://') || logo.startsWith('https://')
 
-const getLogoPath = (isDark: boolean) => {
-  const baseName = logo.replace(/\.[^.]+$/, '')
-  const ext = logo.match(/\.[^.]+$/)?.[0] || ''
-  return `../assets/links/${baseName}${isDark ? '-dark' : ''}${ext}`
+// Initialize images as null
+let lightLogoImage = null;
+let darkLogoImage = null;
+
+if (!isExternalUrl) {
+  // Only process local images
+  const linkLogos = import.meta.glob<{ default: ImageMetadata }>(
+    "../assets/links/*{.png,.jpg,.jpeg,.webp,.avif,.gif,.svg}"
+  )
+
+  const getLogoPath = (isDark: boolean) => {
+    const baseName = logo.replace(/\.[^.]+$/, '')
+    const ext = logo.match(/\.[^.]+$/)?.[0] || ''
+    return `../assets/links/${baseName}${isDark ? '-dark' : ''}${ext}`
+  }
+
+  const lightLogoPath = getLogoPath(false)
+  const darkLogoPath = getLogoPath(true)
+
+  const lightLogo = linkLogos[lightLogoPath]
+  if (!lightLogo) {
+    throw new Error(`Could not resolve light logo: ${lightLogoPath}`)
+  }
+  
+  // Try dark logo, fallback to light if not found
+  const darkLogo = linkLogos[darkLogoPath] || linkLogos[lightLogoPath]
+  if (!darkLogo) {
+    throw new Error(`Could not resolve logo: ${darkLogoPath}`)
+  }
+
+  lightLogoImage = (await lightLogo()).default
+  darkLogoImage = (await darkLogo()).default
 }
-
-const lightLogo = linkLogos[getLogoPath(false)]
-const darkLogo = linkLogos[getLogoPath(true)] || linkLogos[getLogoPath(false)]
-
-if (!lightLogo) {
-  throw new Error(`Could not resolve light logo: ${getLogoPath(false)}`)
-}
-if (!darkLogo) {
-  throw new Error(`Could not resolve dark logo: ${getLogoPath(true)}`)
-}
-
-const lightSrc = (await lightLogo()).default
-const darkSrc = (await darkLogo()).default
 ---
 
 <a href={href} target="_blank" class="text-gray-100" rel="noreferrer"
   ><div
     data-slot="card"
-    class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border shadow-sm p-6 group cursor-pointer transition-all duration-300 ease-in-out hover:scale-105 border-gray-800 min-w-[320px]"
+    class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border shadow-sm p-6 group cursor-pointer transition-all duration-300 ease-in-out hover:scale-105 border-gray-800 min-w-[320px] h-full"
   >
-    <div class="relative overflow-hidden">
-      <div class="flex items-center justify-start gap-4">
+    <div class="relative overflow-hidden flex-1 flex flex-col">
+      <div class="flex items-center justify-start gap-4 mb-3">
         <div class="*:size-10 rounded-full">
-          <Image
-            alt={name}
-            class="rounded-full dark:hidden"
-            src={lightSrc}
-          />
-          <Image
-            alt={name}
-            class="rounded-full hidden dark:block"
-            src={darkSrc}
-          />
+          {isExternalUrl ? (
+            <img
+              alt={name}
+              class="rounded-full size-10 object-cover"
+              src={logo}
+            />
+          ) : lightLogoImage && darkLogoImage && (
+            <>
+              <Image
+                alt={name}
+                class="rounded-full dark:hidden"
+                src={lightLogoImage}
+              />
+              <Image
+                alt={name}
+                class="rounded-full hidden dark:block"
+                src={darkLogoImage}
+              />
+            </>
+          )}
         </div>
         <h3 class="text-base font-medium">{name}</h3>
-      </div><div class="space-y-2 pt-3">
+      </div>
+      <div class="flex-1">
         <p class="text-gray-300">
           {description}
         </p>
