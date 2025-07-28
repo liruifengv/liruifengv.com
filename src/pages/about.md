@@ -5,7 +5,7 @@ title: "关于我/关于本站"
 
 ## 我是 liruifengv
 
-我是一名前端开发工程师，目前专注 Web 开发，热爱开源，喜欢折腾，喜欢分享。现在远程功能，居住在北京。
+我是一名前端开发工程师，目前专注 Web 开发，热爱开源，喜欢折腾，喜欢分享。现在远程工作，居住在北京。
 
 这两年，开始着重参与一些开源项目，同时也在写技术文章。
 
@@ -34,11 +34,10 @@ title: "关于我/关于本站"
 ### 我的其他主页
 
 - [GitHub](https://github.com/liruifengv)
+- [Youtube](https://www.youtube.com/@liruifengv)
 - [Twitter / X](https://twitter.com/liruifengv)
 - [小红书](https://www.xiaohongshu.com/user/profile/5ea4e43400000000010095c0)
 - [抖音](https://v.douyin.com/iPgW123C)
-- [知乎](https://www.zhihu.com/people/liruifengv)
-- [掘金](https://juejin.cn/user/237150239994471)
 - 微信公众号: SayHub
 
 ![My WeChat QRCode](https://bucket.liruifengv.com/qrcode.png)
