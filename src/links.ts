@@ -60,7 +60,7 @@ export const links: Link[] = [
   {
     name: "皮普的数字花园",
     href: "https://pipuwong.com",
-    logo: "https://img.pipu.studio/kCchCV.jpg",
+    logo: "pipuwong.com.png",
     description: "设计/摄影/代码/NAS",
   },
   {
