@@ -129,6 +129,15 @@ body {
 	line-height: 1.5;
 }
 
+/* Auto spacing between Chinese and English/numbers */
+body,
+body * {
+	/* Modern CSS approach - Safari 16.4+, Chrome 123+ */
+	text-autospace: ideograph-alpha ideograph-numeric;
+	-webkit-text-autospace: ideograph-alpha ideograph-numeric;
+	-ms-text-autospace: ideograph-alpha ideograph-numeric;
+}
+
 *,
 *::after,
 *::before {
