@@ -127,6 +127,8 @@ body {
 	font-family: var(--font-body);
 	-webkit-font-smoothing: antialiased;
 	line-height: 1.5;
+	/* Auto spacing between Chinese and English/numbers */
+	text-autospace: normal;
 }
 
 *,
