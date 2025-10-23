@@ -128,8 +128,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	line-height: 1.5;
 	/* Auto spacing between Chinese and English/numbers */
-	text-autospace: ideograph-alpha ideograph-numeric;
-	-webkit-text-autospace: ideograph-alpha ideograph-numeric;
+	text-autospace: normal;
 }
 
 *,
