@@ -165,4 +165,10 @@ export const links: Link[] = [
     logo: "old-panda.com.jpeg",
     description: "南村群童欺我老无力",
   },
+  {
+    name: "Guoqi Sun",
+    href: "https://blog.guoqi.dev",
+    logo: "https://files.guoqi.dev/favicon.ico",
+    description: "尝试，失败，重试。这就是成长的节奏。",
+  },
 ];
