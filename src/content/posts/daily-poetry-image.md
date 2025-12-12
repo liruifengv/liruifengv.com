@@ -3,7 +3,7 @@ title: "每天一句中国古诗词，通过 Bing DALL-E-3 生成 AI 图片"
 description: "结合 Bing DALL-E-3 + GitHub Action + Node.js，每天生成中国古诗词配图，并通过 Astro 构建网站。"
 pubDatetime: 2024-01-22
 author: liruifengv
-featured: true
+featured: false
 draft: false
 tags:
   - AI

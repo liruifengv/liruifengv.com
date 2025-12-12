@@ -3,7 +3,7 @@ title: "svelte 5.0 全新响应式API"
 description: "svelte发布了5.0版本，重构了响应式系统。"
 pubDatetime: 2024-10-24
 author: liruifengv
-featured: true
+featured: false
 draft: false
 tags:
   - front-end
@@ -327,4 +327,3 @@ let snapshot = $state.snapshot(reactiveState);
 ## 最后
 
 Svelte5 的 runes `$state`，Vue3 的组合式 API `ref`，Solid 的 signal `createSignal`，Angular Signals `signal`，似乎除了 React 都拥抱了 `signal`，你觉得这套东西怎么样呢。
-

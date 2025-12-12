@@ -3,7 +3,7 @@ title: AI 新技能不是提示词工程，而是上下文工程
 author: liruifengv
 description: AI 新技能不是提示词工程，而是上下文工程
 pubDatetime: 2025-07-11
-featured: true
+featured: false
 draft: false
 tags:
   - AI

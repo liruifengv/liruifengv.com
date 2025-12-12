@@ -3,7 +3,7 @@ title: "Astro 自动生成 Open Graph & Twitter card 图片😄"
 description: "本篇文章教你在 Astro 为你的文章自动生成 Open Graph & Twitter card 图片。"
 pubDatetime: 2024-01-17
 author: liruifengv
-featured: true
+featured: false
 draft: false
 tags:
   - Astro

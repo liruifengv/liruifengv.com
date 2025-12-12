@@ -3,7 +3,7 @@ title: "详解 Astro Actions API，在客户端类型安全地调用后端函数
 description: "本篇文章详解 Astro v4.8 新发布的 Actions API，让你可以在客户端类型安全地调用后端函数，全栈开发更爽了"
 pubDatetime: 2024-05-15
 author: liruifengv
-featured: true
+featured: false
 draft: false
 tags:
   - Astro

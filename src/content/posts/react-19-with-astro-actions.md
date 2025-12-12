@@ -3,7 +3,7 @@ title: "学习 React 19 新 Hook useActionState，并在 Astro 中使用"
 author: liruifengv
 description: "React 19 引入了一个新 Hook useActionState。本文将介绍如何使用 useActionState，并在 Astro 中使用。"
 pubDatetime: 2024-06-26
-featured: true
+featured: false
 draft: false
 tags:
   - front-end
