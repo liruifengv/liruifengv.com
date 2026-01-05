@@ -321,3 +321,12 @@ npx tsx src/research-agent/agent.ts
 ```
 
 这就是使用 Claude Agent SDK 构建 DeepResearch Agent 的核心实现——通过定义专业化的 subagent，让 AI 像一个研究团队一样协作完成复杂的研究任务。
+
+### API Key 获取
+
+你可以在以下平台获取 API Key，使用任何 Claude 兼容的 API 皆可。
+建议使用国产开源模型的 Coding Plan 进行测试。
+
+- [MiniMax](https://platform.minimaxi.com/subscribe/coding-plan?code=BYwayL4mXW&source=link) Coding Plan。
+- [GLM](https://www.bigmodel.cn/glm-coding?ic=GLNXZIM7ZF) Coding Plan。
+- [aihubmix](https://aihubmix.com/?aff=uTxe) 中转平台。
