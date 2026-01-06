@@ -1,58 +1,79 @@
-/* Global variables */
+/* ===================================
+   Organic/Natural Design System
+   Inspired by wabi-sabi aesthetics
+   =================================== */
+/* Global variables - Light Mode (Default) */
 :root {
-	/* Colors */
-	--gray-0: #090b11;
-	--gray-50: #141925;
-	--gray-100: #283044;
-	--gray-200: #3d4663;
-	--gray-300: #505d84;
-	--gray-400: #6474a2;
-	--gray-500: #8490b5;
-	--gray-600: #a3acc8;
-	--gray-700: #c3cadb;
-	--gray-800: #e3e6ee;
-	--gray-900: #f3f4f7;
-	--gray-999-basis: 0, 0%, 100%;
+	/* Core Colors - Earth-drawn palette */
+	--background: #FDFCF8;        /* Rice Paper / Off-white */
+	--foreground: #2C2C24;        /* Deep Loam / Charcoal */
+	--primary: #5D7052;           /* Moss Green */
+	--primary-foreground: #F3F4F1; /* Pale Mist */
+	--secondary: #C18C5D;         /* Terracotta / Clay */
+	--secondary-foreground: #FFFFFF;
+	--accent: #E6DCCD;            /* Sand / Beige */
+	--accent-foreground: #4A4A40; /* Bark */
+	--muted: #F0EBE5;             /* Stone */
+	--muted-foreground: #78786C;  /* Dried Grass */
+	--border: #DED8CF;            /* Raw Timber */
+	--destructive: #A85448;       /* Burnt Sienna */
+
+	/* Legacy gray mappings for compatibility */
+	--gray-0: var(--foreground);
+	--gray-50: #3D3D35;
+	--gray-100: #4A4A40;
+	--gray-200: #5C5C52;
+	--gray-300: #78786C;
+	--gray-400: #96968A;
+	--gray-500: #B4B4A8;
+	--gray-600: #C8C8BC;
+	--gray-700: #DED8CF;
+	--gray-800: #F0EBE5;
+	--gray-900: #F8F6F2;
+	--gray-999-basis: 48, 30%, 98%;
 	--gray-999_40: hsla(var(--gray-999-basis), 0.4);
-	--gray-999: #ffffff;
+	--gray-999: var(--background);
 
-	--accent-light: #c561f6;
-	--accent-regular: #7611a6;
-	--accent-dark: #1c0056;
-	--accent-overlay: hsla(280, 89%, 67%, 0.33);
-	--accent-subtle-overlay: var(--accent-overlay);
-	--accent-text-over: var(--gray-999);
+	/* Accent colors for legacy support */
+	--accent-light: var(--primary);
+	--accent-regular: var(--primary);
+	--accent-dark: #3D4A34;
+	--accent-overlay: rgba(93, 112, 82, 0.15);
+	--accent-subtle-overlay: rgba(93, 112, 82, 0.08);
+	--accent-text-over: var(--primary-foreground);
 
-	--link-color: var(--accent-regular);
+	--link-color: var(--primary);
 
-	/* Gradients */
-	--gradient-stop-1: var(--accent-light);
-	--gradient-stop-2: var(--accent-regular);
-	--gradient-stop-3: var(--accent-dark);
-	--gradient-subtle: linear-gradient(150deg, var(--gray-900) 19%, var(--gray-999) 150%);
+	/* Gradients - Organic, soft transitions */
+	--gradient-stop-1: var(--primary);
+	--gradient-stop-2: var(--secondary);
+	--gradient-stop-3: #8B6B4A;
+	--gradient-subtle: linear-gradient(150deg, var(--muted) 19%, var(--background) 150%);
 	--gradient-accent: linear-gradient(
 		150deg,
-		var(--gradient-stop-1),
-		var(--gradient-stop-2),
-		var(--gradient-stop-3)
+		var(--primary),
+		var(--secondary),
+		#8B6B4A
 	);
 	--gradient-accent-orange: linear-gradient(
 		150deg,
-		#ca7879,
-		var(--accent-regular),
-		var(--accent-dark)
+		var(--secondary),
+		var(--primary),
+		#3D4A34
 	);
-	--gradient-stroke: linear-gradient(180deg, var(--gray-900), var(--gray-700));
+	--gradient-stroke: linear-gradient(180deg, var(--border), var(--muted));
 
-	/* Shadows */
-	--shadow-sm: 0px 6px 3px rgba(9, 11, 17, 0.01), 0px 4px 2px rgba(9, 11, 17, 0.01),
-		0px 2px 2px rgba(9, 11, 17, 0.02), 0px 0px 1px rgba(9, 11, 17, 0.03);
-	--shadow-md: 0px 28px 11px rgba(9, 11, 17, 0.01), 0px 16px 10px rgba(9, 11, 17, 0.03),
-		0px 7px 7px rgba(9, 11, 17, 0.05), 0px 2px 4px rgba(9, 11, 17, 0.06);
-	--shadow-lg: 0px 62px 25px rgba(9, 11, 17, 0.01), 0px 35px 21px rgba(9, 11, 17, 0.05),
-		0px 16px 16px rgba(9, 11, 17, 0.1), 0px 4px 9px rgba(9, 11, 17, 0.12);
+	/* Shadows - Soft, colored, natural */
+	--shadow-sm: 0 2px 8px -2px rgba(93, 112, 82, 0.08),
+		0 1px 3px -1px rgba(93, 112, 82, 0.06);
+	--shadow-md: 0 4px 20px -2px rgba(93, 112, 82, 0.12),
+		0 2px 8px -2px rgba(93, 112, 82, 0.08);
+	--shadow-lg: 0 10px 40px -10px rgba(93, 112, 82, 0.18),
+		0 4px 16px -4px rgba(93, 112, 82, 0.1);
+	--shadow-soft: 0 4px 20px -2px rgba(93, 112, 82, 0.15);
+	--shadow-float: 0 10px 40px -10px rgba(193, 140, 93, 0.2);
 
-	/* Text Sizes */
+	/* Text Sizes - 1.25 scale */
 	--text-sm: 0.875rem;
 	--text-base: 1rem;
 	--text-md: 1.125rem;
@@ -63,57 +84,92 @@
 	--text-4xl: 3.5rem;
 	--text-5xl: 4.5rem;
 
-	/* Fonts */
+	/* Fonts - Warm, organic typography */
 	--font-system: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
 		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-	--font-body: 'Public Sans', var(--font-system);
-	--font-brand: Rubik, var(--font-system);
+	--font-body: 'OPPO Sans 4.0', var(--font-system);
+	--font-brand: 'Fraunces', Georgia, serif;
+
+	/* Border Radius - Organic shapes */
+	--radius-sm: 0.5rem;
+	--radius-md: 1rem;
+	--radius-lg: 1.5rem;
+	--radius-xl: 2rem;
+	--radius-2xl: 2.5rem;
+	--radius-3xl: 3rem;
+	--radius-full: 9999px;
 
 	/* Transitions */
-	--theme-transition: 0.2s ease-in-out;
+	--theme-transition: 0.3s ease-in-out;
+	--hover-transition: 0.2s ease-out;
 }
 
+/* Dark Mode - Natural nighttime palette */
 :root.theme-dark {
-	--gray-0: #ffffff;
-	--gray-50: #f3f4f7;
-	--gray-100: #e3e6ee;
-	--gray-200: #c3cadb;
-	--gray-300: #a3acc8;
-	--gray-400: #8490b5;
-	--gray-500: #6474a2;
-	--gray-600: #505d84;
-	--gray-700: #3d4663;
-	--gray-800: #283044;
-	--gray-900: #141925;
-	--gray-999-basis: 225, 31%, 5%;
-	--gray-999: #090b11;
+	/* Core Colors - Forest at dusk */
+	--background: #2A2620;        /* Deep Earth - Lightened */
+	--foreground: #FDFCF8;        /* Warm White - Much brighter, almost white */
+	--primary: #9BB58B;           /* Moonlit Moss - Brighter */
+	--primary-foreground: #1A1915;
+	--secondary: #E0B484;         /* Amber Clay - Brighter */
+	--secondary-foreground: #1A1915;
+	--accent: #4A443A;            /* Night Sand - Lightened */
+	--accent-foreground: #E8E4DC;
+	--muted: #3D3830;             /* Dark Stone - Lightened */
+	--muted-foreground: #D8D4CC;  /* Dried Grass - Much brighter */
+	--border: #5C5850;            /* Dark Timber - More visible */
+	--destructive: #D4806E;
 
-	--accent-light: #1c0056;
-	--accent-regular: #7611a6;
-	--accent-dark: #c561f6;
-	--accent-overlay: hsla(280, 89%, 67%, 0.33);
-	--accent-subtle-overlay: hsla(281, 81%, 36%, 0.33);
-	--accent-text-over: var(--gray-0);
+	/* Legacy gray mappings - inverted */
+	--gray-0: var(--foreground);
+	--gray-50: #F5F2EA;
+	--gray-100: #E8E4DC;
+	--gray-200: #D8D4CC;
+	--gray-300: #C4C0B4;
+	--gray-400: #9C9890;
+	--gray-500: #787470;
+	--gray-600: #5C5850;
+	--gray-700: #4A443A;
+	--gray-800: #3D3830;
+	--gray-900: #2A2620;
+	--gray-999-basis: 30, 12%, 16%;
+	--gray-999: var(--background);
 
-	--link-color: var(--accent-dark);
+	/* Accent adjustments */
+	--accent-light: #4A5A3E;
+	--accent-regular: var(--primary);
+	--accent-dark: #C4DDB4;
+	--accent-overlay: rgba(155, 181, 139, 0.25);
+	--accent-subtle-overlay: rgba(155, 181, 139, 0.12);
+	--accent-text-over: var(--background);
 
-	--gradient-stop-1: #4c11c6;
-	--gradient-subtle: linear-gradient(150deg, var(--gray-900) 19%, var(--gray-999) 81%);
+	--link-color: var(--primary);
+
+	/* Gradients - Dark mode */
+	--gradient-stop-1: var(--primary);
+	--gradient-subtle: linear-gradient(150deg, var(--muted) 19%, var(--background) 81%);
 	--gradient-accent-orange: linear-gradient(
 		150deg,
-		#ca7879,
-		var(--accent-regular),
-		var(--accent-light)
+		var(--secondary),
+		var(--primary),
+		#6D8A60
 	);
-	--gradient-stroke: linear-gradient(180deg, var(--gray-600), var(--gray-800));
+	--gradient-stroke: linear-gradient(180deg, var(--border), var(--muted));
 
-	--shadow-sm: 0px 6px 3px rgba(255, 255, 255, 0.01), 0px 4px 2px rgba(255, 255, 255, 0.01),
-		0px 2px 2px rgba(255, 255, 255, 0.02), 0px 0px 1px rgba(255, 255, 255, 0.03);
-	--shadow-md: 0px 28px 11px rgba(255, 255, 255, 0.01), 0px 16px 10px rgba(255, 255, 255, 0.03),
-		0px 7px 7px rgba(255, 255, 255, 0.05), 0px 2px 4px rgba(255, 255, 255, 0.06);
-	--shadow-lg: 0px 62px 25px rgba(255, 255, 255, 0.01), 0px 35px 21px rgba(255, 255, 255, 0.05),
-		0px 16px 16px rgba(255, 255, 255, 0.1), 0px 4px 9px rgba(255, 255, 255, 0.12);
+	/* Shadows - Warmer glow effect for dark mode */
+	--shadow-sm: 0 2px 8px -2px rgba(0, 0, 0, 0.4),
+		0 1px 3px -1px rgba(0, 0, 0, 0.3);
+	--shadow-md: 0 4px 20px -2px rgba(0, 0, 0, 0.5),
+		0 2px 8px -2px rgba(0, 0, 0, 0.35);
+	--shadow-lg: 0 10px 40px -10px rgba(0, 0, 0, 0.6),
+		0 4px 16px -4px rgba(0, 0, 0, 0.4);
+	--shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.45);
+	--shadow-float: 0 10px 40px -10px rgba(0, 0, 0, 0.55);
 }
+
+/* ===================================
+   Base Styles
+   =================================== */
 
 html,
 body {
@@ -122,13 +178,30 @@ body {
 }
 
 body {
-	background-color: var(--gray-999);
-	color: var(--gray-200);
+	background-color: var(--background);
+	color: var(--muted-foreground);
 	font-family: var(--font-body);
 	-webkit-font-smoothing: antialiased;
-	line-height: 1.5;
+	line-height: 1.6;
 	/* Auto spacing between Chinese and English/numbers */
 	text-autospace: normal;
+}
+
+/* Paper grain texture overlay */
+body::before {
+	content: '';
+	position: fixed;
+	inset: 0;
+	background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+	opacity: 0.03;
+	mix-blend-mode: multiply;
+	pointer-events: none;
+	z-index: 9999;
+}
+
+:root.theme-dark body::before {
+	mix-blend-mode: soft-light;
+	opacity: 0.05;
 }
 
 *,
@@ -145,17 +218,27 @@ img {
 
 a {
 	color: var(--link-color);
+	text-decoration: none;
+	transition: color var(--hover-transition);
 }
+
+a:hover {
+	color: var(--secondary);
+}
+
+/* ===================================
+   Typography
+   =================================== */
 
 h1,
 h2,
 h3,
 h4,
 h5 {
-	line-height: 1.1;
+	line-height: 1.2;
 	font-family: var(--font-brand);
 	font-weight: 600;
-	color: var(--gray-100);
+	color: var(--foreground);
 }
 
 h1 {
@@ -178,7 +261,13 @@ h5 {
 	font-size: var(--text-xl);
 }
 
-/* Utilities */
+p {
+	color: var(--muted-foreground);
+}
+
+/* ===================================
+   Utilities
+   =================================== */
 
 .sr-only {
 	position: absolute;
@@ -204,6 +293,7 @@ h5 {
 	flex-direction: column;
 }
 
+/* Gap utilities */
 .gap-2 {
 	gap: 0.5rem;
 }
@@ -256,6 +346,29 @@ h5 {
 	}
 }
 
+/* Card background */
 .bg-card {
-  background: var(--gray-999-basis);
+	background: var(--muted);
+}
+
+/* Organic shapes utilities */
+.rounded-organic {
+	border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+
+.rounded-organic-alt {
+	border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+/* Focus states - Organic style */
+:focus-visible {
+	outline: none;
+	box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--primary);
+	border-radius: var(--radius-sm);
+}
+
+/* Selection */
+::selection {
+	background-color: var(--primary);
+	color: var(--primary-foreground);
 }

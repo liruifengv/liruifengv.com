@@ -1,58 +1,120 @@
 ---
 import Icon from './Icon.astro';
+import { iconPaths } from './IconPaths';
+
+const skills: {
+  icon: keyof typeof iconPaths;
+  title: string;
+  description: string;
+}[] = [
+	{
+		icon: 'terminal-window',
+		title: 'Web 开发',
+		description: '专注 Web 开发。使用 JS、Rust、Go。',
+	},
+	{
+		icon: 'trophy',
+		title: 'Astro',
+		description: 'Astro 项目成员，中文文档维护翻译。',
+	},
+	{
+		icon: 'strategy',
+		title: 'AI',
+		description: '正在学习并分享 AI Agent 开发',
+	},
+];
 ---
 
-<section class="box skills">
-	<div class="stack gap-2 lg:gap-4">
-		<Icon icon="terminal-window" color="var(--accent-regular)" size="2.5rem" gradient />
-		<h2>Web 开发</h2>
-		<p>专注 Web 开发。使用 JS、Rust、Go。</p>
-	</div>
-	<div class="stack gap-2 lg:gap-4">
-		<Icon icon="trophy" color="var(--accent-regular)" size="2.5rem" gradient />
-		<h2>Astro</h2>
-		<p>Astro 项目成员，中文文档维护翻译。</p>
-	</div>
-	<div class="stack gap-2 lg:gap-4">
-		<Icon icon="strategy" color="var(--accent-regular)" size="2.5rem" gradient />
-		<h2>AI</h2>
-		<p>正在学习并分享 AI Agent 开发</p>
-	</div>
+<section class="skills-container">
+	{
+		skills.map((skill, index) => (
+			<div class="skill-card" style={`--card-index: ${index}`}>
+				<div class="skill-icon-wrapper">
+					<Icon icon={skill.icon} color="var(--primary)" size="1.75rem" />
+				</div>
+				<h3 class="skill-title">{skill.title}</h3>
+				<p class="skill-description">{skill.description}</p>
+			</div>
+		))
+	}
 </section>
 
 <style>
-	.box {
-		border: 1px solid var(--gray-800);
-		border-radius: 0.75rem;
-		padding: 1.5rem;
-		background-color: var(--gray-999_40);
-		box-shadow: var(--shadow-sm);
+	.skills-container {
+		display: grid;
+		gap: 1.5rem;
 	}
 
-	.skills {
+	.skill-card {
 		display: flex;
 		flex-direction: column;
-		gap: 3rem;
+		gap: 1rem;
+		padding: 1.5rem;
+		background: var(--muted);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-2xl);
+		transition: all var(--theme-transition);
 	}
 
-	.skills h2 {
-		@apply text-xl md:text-2xl;
+	/* Asymmetric border radius variants */
+	.skill-card[style*='--card-index: 0'] {
+		border-radius: var(--radius-3xl) var(--radius-lg) var(--radius-2xl) var(--radius-xl);
 	}
 
-	.skills p {
-		color: var(--gray-400);
+	.skill-card[style*='--card-index: 1'] {
+		border-radius: var(--radius-xl) var(--radius-2xl) var(--radius-lg) var(--radius-3xl);
+	}
+
+	.skill-card[style*='--card-index: 2'] {
+		border-radius: var(--radius-lg) var(--radius-3xl) var(--radius-xl) var(--radius-2xl);
+	}
+
+	.skill-card:hover {
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-md);
+	}
+
+	.skill-icon-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 3.5rem;
+		height: 3.5rem;
+		background: rgba(93, 112, 82, 0.1);
+		border-radius: var(--radius-xl);
+		transition: all var(--hover-transition);
+	}
+
+	.skill-card:hover .skill-icon-wrapper {
+		background: var(--primary);
+	}
+
+	.skill-card:hover .skill-icon-wrapper :global(svg) {
+		stroke: var(--primary-foreground) !important;
+		fill: var(--primary-foreground) !important;
+	}
+
+	.skill-title {
+		font-family: var(--font-brand);
+		font-size: var(--text-xl);
+		font-weight: 600;
+		color: var(--foreground);
+	}
+
+	.skill-description {
+		color: var(--muted-foreground);
+		font-size: var(--text-base);
+		line-height: 1.6;
 	}
 
 	@media (min-width: 50em) {
-		.box {
-			border-radius: 1.5rem;
-			padding: 2.5rem;
+		.skills-container {
+			grid-template-columns: repeat(3, 1fr);
+			gap: 2rem;
 		}
 
-		.skills {
-			display: grid;
-			grid-template-columns: repeat(3, 1fr);
-			gap: 5rem;
+		.skill-card {
+			padding: 2rem;
 		}
 	}
 </style>

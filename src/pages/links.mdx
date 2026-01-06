@@ -4,30 +4,67 @@ title: "友链"
 ---
 
 import LinkItem from '@components/LinkItem.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '@components/PageHeader.astro';
 import { links } from '../links';
 
-<main class="max-w-7xl mx-auto px-4 py-8">
-  <h1 class="text-3xl font-bold text-center mb-8">友链</h1>
-  <h4 class="text-lg text-center font-semibold mb-4 text-accent-regular">海内存知己，天涯若比邻</h4>
-  <section class="mb-12">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {links.map((link) => (
-        <LinkItem name={link.name} href={link.href} logo={link.logo} description={link.description} />
-      ))}
-    </div>
+<div class="wrapper">
+  <PageHeader title="友链" description="海内存知己，天涯若比邻" />
+  <section class="links-grid">
+    {links.map((link) => (
+      <LinkItem name={link.name} href={link.href} logo={link.logo} description={link.description} />
+    ))}
   </section>
-</main>
-
-<div class="w-full max-w-3xl mx-auto p-4  rounded-lg mb-8">
-  <h2 class="text-2xl font-bold mb-4 text-center">添加我的友链</h2>
-  <p class="text-lg mb-4 text-center">你可以将我的友链添加到你的网站中。</p>
-  ```json
-    {
-      "name": "liruifengv",
-      "href": "https://liruifengv.com",
-      "logo": "https://bucket.liruifengv.com/avatar.jpg",
-      "description": "Web 开发者，Astro 项目成员，开源爱好者。"
-    }
-  ```
 </div>
+
+<div class="wrapper add-link-section">
+  <h2 class="add-link-title">添加我的友链</h2>
+  <p class="add-link-desc">你可以将我的友链添加到你的网站中。</p>
+
+```json
+{
+  "name": "liruifengv",
+  "href": "https://liruifengv.com",
+  "logo": "https://bucket.liruifengv.com/avatar.jpg",
+  "description": "Web 开发者，Astro 项目成员，开源爱好者。"
+}
+```
+
+</div>
+
+<style>{`
+  .links-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .links-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .links-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .add-link-section {
+    margin-top: 3rem;
+    padding-bottom: 2rem;
+  }
+
+  .add-link-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .add-link-desc {
+    text-align: center;
+    color: var(--muted-foreground);
+    margin-bottom: 1rem;
+  }
+`}</style>

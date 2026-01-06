@@ -3,88 +3,110 @@ import type { Page } from "astro";
 import type { CollectionEntry } from "astro:content";
 import BaseLayout from './BaseLayout.astro';
 import PostList from '../components/PostList.astro';
-import Hero from '../components/Hero.astro';
-import LinkButton from '../components/LinkButton.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Icon from '../components/Icon.astro';
 
 interface Props {
-  page: Page<CollectionEntry<"posts">> | undefined;
-  title: string;
-  description?: string;
+	page: Page<CollectionEntry<"posts">> | undefined;
+	title: string;
+	description?: string;
 }
 
 const { page, title, description } = Astro.props;
 
 if (!page) {
-  throw new Error("No page data provided");
+	throw new Error("No page data provided");
 }
 ---
 
+<BaseLayout title={title + ' | ' + 'liruifengv'} description={description}>
+	<div class="wrapper">
+		<PageHeader title={title} />
 
-<BaseLayout
-	title={title + ' | ' + 'liruifengv'}
-	description={description}
->
-	<div class="stack gap-20">
-		<main class="wrapper stack gap-8 w-full">
-			<Hero
-				title={title}
-				align="center"
-			/>
-      <PostList posts={page.data} />
-      <div class="flex justify-center items-center">
-        {
-          page.url.prev && (
-            <>
-              <LinkButton
-                href={page.url.prev}
-                className={`mr-4 select-none rounded-full border-2 w-8 h-8 flex items-center justify-center dark:border-white fill-gray-100`}
-                ariaLabel="Previous"
-                disabled={!page.url.prev}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class={`${page.url.prev}-svg w-6 h-6`}
-                >
-                  <path d="M12.707 17.293 8.414 13H18v-2H8.414l4.293-4.293-1.414-1.414L4.586 12l6.707 6.707z" />
-                </svg>
-              </LinkButton>
-            </>
-          )
-        }
-        {
-          page.url.next && (
-            <>
-              <LinkButton
-                href={page.url.next}
-                className={`ml-4 select-none  rounded-full border-2 w-8 h-8 flex items-center justify-center`}
-                ariaLabel="Next"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class={`${page.url.next}-svg w-6 h-6 fill-gray-100`}
-                >
-                  <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z" />
-                </svg>
-              </LinkButton>
-            </>
-          )
-        }
-      </div>
-		</main>
-	</div>
+		<div class="posts-section">
+			<PostList posts={page.data} />
+
+				<!-- Pagination -->
+				{(page.url.prev || page.url.next) && (
+					<nav class="pagination" aria-label="Pagination">
+						{page.url.prev ? (
+							<a href={page.url.prev} class="pagination-link prev" aria-label="Previous page">
+								<Icon icon="arrow-left" size="1.25em" />
+								<span>上一页</span>
+							</a>
+						) : (
+							<span class="pagination-link disabled">
+								<Icon icon="arrow-left" size="1.25em" />
+								<span>上一页</span>
+							</span>
+						)}
+
+						<span class="pagination-info">
+							{page.currentPage} / {page.lastPage}
+						</span>
+
+						{page.url.next ? (
+							<a href={page.url.next} class="pagination-link next" aria-label="Next page">
+								<span>下一页</span>
+								<Icon icon="arrow-right" size="1.25em" />
+							</a>
+						) : (
+							<span class="pagination-link disabled">
+								<span>下一页</span>
+								<Icon icon="arrow-right" size="1.25em" />
+							</span>
+						)}
+					</nav>
+				)}
+			</div>
+		</div>
 </BaseLayout>
 
 <style>
-  .disabled {
-    @apply pointer-events-none select-none opacity-50
-  }
-  svg {
-    dark:text-white
-  }
-  .list{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-  }
+	.posts-section {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+	}
+
+	/* Pagination */
+	.pagination {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1rem;
+		margin-bottom: 3rem;
+	}
+
+	.pagination-link {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.75rem 1.25rem;
+		font-size: var(--text-sm);
+		font-weight: 500;
+		color: var(--foreground);
+		background: var(--muted);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-full);
+		text-decoration: none;
+		transition: all var(--hover-transition);
+	}
+
+	.pagination-link:hover:not(.disabled) {
+		background: var(--primary);
+		color: var(--primary-foreground);
+		border-color: var(--primary);
+	}
+
+	.pagination-link.disabled {
+		opacity: 0.4;
+		cursor: not-allowed;
+	}
+
+	.pagination-info {
+		padding: 0.5rem 1rem;
+		font-size: var(--text-sm);
+		color: var(--muted-foreground);
+	}
 </style>

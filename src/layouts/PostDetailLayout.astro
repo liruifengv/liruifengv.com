@@ -2,7 +2,7 @@
 import { type CollectionEntry, getCollection } from 'astro:content';
 
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ContactCTA from '../components/ContactCTA.astro'
+import ContactCTA from '../components/ContactCTA.astro';
 import Tag from '../components/Tag.astro';
 import Comments from "@components/Comment";
 import { formatDate } from "@utils/date.ts";
@@ -21,103 +21,259 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 
-const { title, author, description, ogImage, canonicalURL, pubDatetime, tags } =
-  post.data;
+const { title, author, description, ogImage, canonicalURL, pubDatetime, tags } = post.data;
 
 const { Content, remarkPluginFrontmatter } = await post.render();
 
 const { readingTime, words } = remarkPluginFrontmatter;
 
 const ogImageUrl = typeof ogImage === "string" ? ogImage : ogImage?.src;
-const ogUrl = new URL(ogImageUrl ?? `/posts/${post.slug}.png`, Astro.url.origin)
-  .href;
-
+const ogUrl = new URL(ogImageUrl ?? `/posts/${post.slug}.png`, Astro.url.origin).href;
 ---
 
 <BaseLayout
-  title={title + ' | ' + 'liruifengv'}
-  author={author}
-  description={description}
-  ogImage={ogUrl}
-  canonicalURL={canonicalURL}
-  >
-	<div class="stack gap-20">
-		<div class="stack gap-8">
-			<header>
-				<div class="wrapper stack gap-2">
-					<div class="flex items-center flex-col gap-2">
-            <div class="text-2xl md:text-3xl font-bold">{title}</div>
+	title={title + ' | ' + 'liruifengv'}
+	author={author}
+	description={description}
+	ogImage={ogUrl}
+	canonicalURL={canonicalURL}
+>
+	<div class="post-page">
+		<!-- Article Header -->
+		<header class="post-header">
+			<div class="wrapper">
+				<div class="header-content">
+					<h1 class="post-title">{title}</h1>
 
-            <div class="flex flex-col md:flex-row md:gap-2">
-              <div class="text-base">发布于：{formatDate(pubDatetime)}</div>
-              <div class="flex gap-2">
-                <p class="text-base inline-block">字数：{words}</p>
-                <p class="text-base inline-block">阅读时间：{readingTime}</p>
-              </div>
-            </div>
-            <div class="tags">
-              {tags.map((t) => <Tag name={t}/>)}
-            </div>
-					</di>
+					<div class="post-meta">
+						<span class="meta-item">发布于：{formatDate(pubDatetime)}</span>
+						<span class="meta-divider">·</span>
+						<span class="meta-item">{words} 字</span>
+						<span class="meta-divider">·</span>
+						<span class="meta-item">{readingTime}</span>
+					</div>
+
+					<div class="post-tags">
+						{tags.map((t) => <Tag name={t} />)}
+					</div>
 				</div>
-			</header>
-			<main class="wrapper">
-        <article
-          id="article"
-          role="article"
-          class="mx-auto max-w-3xl prose-base dark:prose-invert prose-img:rounded-xl prose-li:list-disc prose-code:bg-gray-800 prose-code:text-[#108ee9] prose-code:px-1 prose-blockquote:border-l-2 prose-a:underline prose-a:underline-offset-2 prose-blockquote:border-l-gray-500"
-        >
-          <Content />
-          <div class="mt-5">
-            加我微信 <code>liruifengv2333</code>，进群交流，抱团取暖。
-            <ul>
-              <li>AI Agent 开发交流群</li>
-              <li>新生代程序员群</li>
-              <li>Astro 学习交流群</li>
-            </ul>
-            <div>关注公众号 <code>程序员李瑞丰</code>，带来更多原创内容。</div>
-            <img src="https://bucket.liruifengv.com/qrcode.png?v=1"  class="h-32"/>
-            很高兴见到你，欢迎来玩儿~
-          </div>
-          <Comments client:only="react" />
-        </article>
+			</div>
+		</header>
 
-			</main>
-      <ContactCTA />
+		<!-- Article Content -->
+		<main class="post-content">
+			<div class="wrapper">
+				<article
+					id="article"
+					role="article"
+					class="article-body prose prose-lg dark:prose-invert max-w-3xl mx-auto"
+				>
+					<Content />
 
-		</div>
+					<!-- Author CTA -->
+					<div class="author-cta">
+						<p>
+							加我微信 <code>liruifengv2333</code>，进群交流，抱团取暖。
+						</p>
+						<ul>
+							<li>AI Agent 开发交流群</li>
+							<li>新生代程序员群</li>
+							<li>Astro 学习交流群</li>
+						</ul>
+						<p>关注公众号 <code>程序员李瑞丰</code>，带来更多原创内容。</p>
+						<img
+							src="https://bucket.liruifengv.com/qrcode.png?v=1"
+							alt="公众号二维码"
+							class="qrcode"
+						/>
+						<p class="welcome-text">很高兴见到你，欢迎来玩儿~</p>
+					</div>
+
+					<Comments client:only="react" />
+				</article>
+			</div>
+		</main>
+
+		<ContactCTA />
 	</div>
 </BaseLayout>
 
-<style is="inline">
-	header {
-		padding-bottom: 1.5rem;
-		border-bottom: 1px solid var(--gray-800);
-	}
-
-	.details {
+<style>
+	.post-page {
 		display: flex;
 		flex-direction: column;
-		gap: 1.5rem;
-		justify-content: space-between;
-		align-items: center;
 	}
 
-	.tags {
+	/* Header */
+	.post-header {
+		padding: 2rem 0 1.5rem;
+		border-bottom: 1px solid var(--border);
+	}
+
+	.header-content {
 		display: flex;
-    flex-wrap: wrap;
+		flex-direction: column;
+		align-items: center;
+		gap: 1.25rem;
+		text-align: center;
 	}
 
-	.description {
-		font-size: var(--text-lg);
-		max-width: 54ch;
+	.post-title {
+		font-family: var(--font-brand);
+		font-size: var(--text-2xl);
+		font-weight: 700;
+		color: var(--foreground);
+		line-height: 1.3;
+		max-width: 28ch;
+	}
+
+	.post-meta {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.5rem;
+		color: var(--muted-foreground);
+		font-size: var(--text-sm);
+	}
+
+	.meta-divider {
+		opacity: 0.5;
+	}
+
+	.post-tags {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.5rem;
+	}
+
+	/* Content */
+	.post-content {
+		padding: 3rem 0;
+	}
+
+	.article-body {
+		color: var(--muted-foreground);
+		line-height: 1.8;
+	}
+
+	.article-body :global(h1),
+	.article-body :global(h2),
+	.article-body :global(h3),
+	.article-body :global(h4) {
+		font-family: var(--font-brand);
+		color: var(--foreground);
+		margin-top: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.article-body :global(p) {
+		margin-bottom: 1.5rem;
+	}
+
+	.article-body :global(a) {
+		color: var(--primary);
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
+	.article-body :global(a:hover) {
+		color: var(--secondary);
+	}
+
+	.article-body :global(code) {
+		background: rgba(93, 112, 82, 0.1);
+		color: var(--primary);
+		padding: 0.125rem 0.375rem;
+		border-radius: 0.25rem;
+		font-size: 0.9em;
+	}
+
+	.article-body :global(pre) {
+		background: #1e1e1e !important;
+		border-radius: var(--radius-lg);
+		padding: 1.5rem;
+		margin: 1.5rem 0;
+		overflow-x: auto;
+	}
+
+	.article-body :global(pre code) {
+		background: transparent;
+		padding: 0;
+		color: #d4d4d4;
+	}
+
+	.article-body :global(blockquote) {
+		border-left: 3px solid var(--primary);
+		background: var(--muted);
+		padding: 1rem 1.5rem;
+		border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+		margin: 1.5rem 0;
+	}
+
+	.article-body :global(img) {
+		border-radius: var(--radius-lg);
+		margin: 1.5rem 0;
+	}
+
+	.article-body :global(ul),
+	.article-body :global(ol) {
+		padding-left: 1.5rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.article-body :global(li) {
+		margin-bottom: 0.5rem;
+	}
+
+	/* Author CTA */
+	.author-cta {
+		margin-top: 3rem;
+		padding: 2rem;
+		background: var(--muted);
+		border-radius: var(--radius-2xl);
+		border: 1px solid var(--border);
+	}
+
+	.author-cta :global(code) {
+		background: var(--background);
+	}
+
+	.qrcode {
+		height: 8rem;
+		width: auto;
+		margin: 1rem 0;
+	}
+
+	.welcome-text {
+		color: var(--primary);
+		font-weight: 500;
 	}
 
 	@media (min-width: 50em) {
-
-		.details {
-			flex-direction: row;
-			gap: 2.5rem;
+		.post-header {
+			padding: 4rem 0 3rem;
 		}
+
+		.post-title {
+			font-size: var(--text-3xl);
+		}
+
+		.post-content {
+			padding: 4rem 0;
+		}
+	}
+</style>
+
+<style is:global>
+	/* Override prose styles for better integration */
+	.prose {
+		--tw-prose-body: var(--muted-foreground);
+		--tw-prose-headings: var(--foreground);
+		--tw-prose-links: var(--primary);
+		--tw-prose-bold: var(--foreground);
+		--tw-prose-quotes: var(--foreground);
+		--tw-prose-quote-borders: var(--primary);
+		--tw-prose-code: var(--primary);
 	}
 </style>

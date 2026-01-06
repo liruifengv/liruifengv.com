@@ -1,10 +1,9 @@
 ---
-import Hero from '../../components/Hero.astro';
 import Tag from '../../components/Tag.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
 
 import { getCollection } from "astro:content";
-
 
 const posts = await getCollection("posts");
 const tags: Array<[string, number]> = [
@@ -15,17 +14,22 @@ const tags: Array<[string, number]> = [
 ].sort((a, b) => {
   return b[1] - a[1];
 });
-
 ---
 
 <BaseLayout title="全部标签 | liruifengv" description="liruifengv 的博客文章的全部标签">
-  <Hero
-    title="全部标签"
-    align="center"
-  />
-  <div class="mt-5 flex w-full items-center justify-center px-5">
-    <div class="md:w-3/4">
+  <div class="wrapper">
+    <PageHeader title="全部标签" />
+    <div class="tags-container">
       {tags.map(tag => <Tag name={tag[0]} count={tag[1]} />)}
     </div>
   </div>
 </BaseLayout>
+
+<style>
+  .tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+</style>

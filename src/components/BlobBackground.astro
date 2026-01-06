@@ -1,0 +1,102 @@
+---
+/**
+ * BlobBackground - Organic blob shapes for decorative backgrounds
+ *
+ * @prop {number} shapeIndex - Which blob shape variant to use (0-5)
+ * @prop {'primary' | 'secondary' | 'accent'} color - Color theme
+ * @prop {string} position - Position classes (e.g., "top-0 right-0")
+ * @prop {string} size - Size classes (e.g., "w-96 h-96")
+ * @prop {number} blur - Blur amount (default: 3xl = 64px)
+ * @prop {number} opacity - Opacity percentage (default: 30)
+ */
+
+interface Props {
+	shapeIndex?: number;
+	color?: 'primary' | 'secondary' | 'accent';
+	position?: string;
+	size?: string;
+	blur?: 'xl' | '2xl' | '3xl';
+	opacity?: number;
+	animate?: boolean;
+}
+
+const {
+	shapeIndex = 0,
+	color = 'primary',
+	position = 'top-0 right-0',
+	size = 'w-96 h-96',
+	blur = '3xl',
+	opacity = 30,
+	animate = false
+} = Astro.props;
+
+// Organic blob shape variants
+const shapes = [
+	'60% 40% 30% 70% / 60% 30% 70% 40%',     // Classic blob
+	'30% 70% 70% 30% / 30% 30% 70% 70%',     // Inverse blob
+	'40% 60% 50% 50% / 50% 40% 60% 50%',     // Subtle blob
+	'70% 30% 30% 70% / 70% 70% 30% 30%',     // Diagonal blob
+	'50% 50% 30% 70% / 40% 60% 40% 60%',     // Asymmetric blob
+	'65% 35% 45% 55% / 55% 45% 55% 45%',     // Gentle blob
+];
+
+const colorMap = {
+	primary: 'bg-primary',
+	secondary: 'bg-secondary',
+	accent: 'bg-accent',
+};
+
+const blurMap = {
+	xl: 'blur-xl',
+	'2xl': 'blur-2xl',
+	'3xl': 'blur-3xl',
+};
+
+const selectedShape = shapes[shapeIndex % shapes.length];
+---
+
+<div
+	class:list={[
+		'blob-shape absolute -z-10 pointer-events-none',
+		colorMap[color],
+		blurMap[blur],
+		position,
+		size,
+		animate && 'animate-blob'
+	]}
+	style={`border-radius: ${selectedShape}; opacity: ${opacity / 100};`}
+	aria-hidden="true"
+/>
+
+<style>
+	.blob-shape {
+		transition: transform 0.3s ease-out;
+	}
+
+	/* Blob animation */
+	@keyframes blob {
+		0% {
+			transform: translate(0px, 0px) scale(1);
+		}
+		33% {
+			transform: translate(30px, -50px) scale(1.1);
+		}
+		66% {
+			transform: translate(-20px, 20px) scale(0.9);
+		}
+		100% {
+			transform: translate(0px, 0px) scale(1);
+		}
+	}
+
+	.animate-blob {
+		animation: blob 7s infinite;
+	}
+
+	/* Reduce motion for accessibility */
+	@media (prefers-reduced-motion: reduce) {
+		.animate-blob {
+			animation: none;
+		}
+	}
+</style>

@@ -1,34 +1,58 @@
 ---
 export interface Props {
-  name: string;
-  count?: number;
+	name: string;
+	count?: number;
 }
 
 const { name, count } = Astro.props;
 ---
 
 <a
-  href={`/tags/${name.toLowerCase()}`}
-  transition:name={name.toLowerCase()}
-  class={`text-base pr-4 group`}
+	href={`/tags/${name.toLowerCase()}`}
+	transition:name={name.toLowerCase()}
+	class="tag-link"
 >
-  <span>
-    <span class="tag">{name.toLowerCase()}{count && count > 0 && `(${count})`}</span>
-  </span>
+	<span class="tag">
+		{name.toLowerCase()}
+		{count && count > 0 && <span class="tag-count">({count})</span>}
+	</span>
 </a>
 
 <style>
+	.tag-link {
+		text-decoration: none;
+	}
+
 	.tag {
-		padding: 0.5rem 1rem;
-		color: var(--accent-text-over);
-		border: 1px solid var(--accent-regular);
-		background-color: var(--accent-regular);
-		border-radius: 999rem;
-		font-size: var(--text-md);
+		display: inline-flex;
+		align-items: center;
+		gap: 0.25rem;
+		padding: 0.375rem 0.875rem;
+		font-size: var(--text-sm);
+		font-weight: 500;
+		color: var(--primary);
+		background: rgba(93, 112, 82, 0.1);
+		border: 1px solid transparent;
+		border-radius: var(--radius-full);
 		white-space: nowrap;
-    display: inline-block;
-    margin-bottom: 0.5rem;
-    min-width: 5rem;
-    text-align: center;
+		transition: all var(--hover-transition);
+	}
+
+	.tag:hover {
+		background: var(--primary);
+		color: var(--primary-foreground);
+	}
+
+	.tag-count {
+		opacity: 0.7;
+	}
+
+	:global(.theme-dark) .tag {
+		background: rgba(139, 163, 123, 0.15);
+	}
+
+	:global(.theme-dark) .tag:hover {
+		background: var(--primary);
+		color: var(--background);
 	}
 </style>

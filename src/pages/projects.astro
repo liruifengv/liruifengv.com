@@ -1,6 +1,6 @@
 ---
-import Hero from '../components/Hero.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
 
 const projects = [
   {
@@ -42,63 +42,72 @@ const projects = [
 ---
 
 <BaseLayout title="我的项目 | liruifengv" description="我开发或维护的项目">
-  <Hero title="项目" tagline="我开发或维护的项目"/>
-  <section class="projects">
-    {projects.map(project => (
-      <a
-        class="box"
-        href={project.link}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <h2>{project.title}</h2>
-        <p>{project.description}</p>
-      </a>
-    ))}
-  </section>
+  <div class="wrapper">
+    <PageHeader title="项目" description="我开发或维护的项目" />
+    <section class="projects">
+      {projects.map(project => (
+        <a
+          class="project-card"
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <h2 class="project-title">{project.title}</h2>
+          <p class="project-desc">{project.description}</p>
+        </a>
+      ))}
+    </section>
+  </div>
 </BaseLayout>
 
 <style>
-	.box {
-		border: 1px solid var(--gray-800);
-		border-radius: 0.75rem;
-		padding: 1.5rem;
-		background-color: var(--gray-999_40);
-		box-shadow: var(--shadow-sm);
-	}
-
   .projects {
-    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .project-card {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    cursor: pointer;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease-in-out;
   }
 
-	.projects h2 {
-		font-size: var(--text-lg);
-	}
-
-  .projects h2:hover {
-    color: var(--link-color);
+  .project-card:hover {
+    transform: scale(1.05);
   }
 
-	.projects p {
-		color: var(--gray-400);
-    @apply mt-2;
-	}
+  .project-title {
+    font-size: var(--text-base);
+    font-weight: 500;
+    color: var(--foreground);
+    margin: 0;
+  }
 
-	@media (min-width: 50em) {
-		.box {
-			border-radius: 1.5rem;
-			padding: 2.5rem;
-		}
+  .project-desc {
+    font-size: var(--text-sm);
+    color: var(--muted-foreground);
+    line-height: 1.5;
+    margin: 0;
+    flex: 1;
+  }
 
-		.projects {
-			display: grid;
-			grid-template-columns: repeat(3, 1fr);
-			gap: 3rem;
-      padding: 3rem;
-		}
-	}
+  @media (min-width: 640px) {
+    .projects {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .projects {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
 </style>

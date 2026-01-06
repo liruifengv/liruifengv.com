@@ -9,25 +9,30 @@ const textLinks: { label: string; href: string }[] = [
 	{ label: '首页', href: '/' },
 	{ label: '文章', href: '/posts/' },
 	{ label: '标签', href: '/tags/' },
-  { label: '项目', href: '/projects/' },
+	{ label: '项目', href: '/projects/' },
 	{ label: '友链', href: '/links/' },
 	{ label: '关于', href: '/about/' },
 ];
 
-/** Icon links to social media — edit these with links to your profiles! */
+/** Icon links to social media */
 const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[] = [
-	{ label: 'Twitter', href: 'https://twitter.com/liruifengv', icon: 'twitter-logo' },
 	{ label: 'GitHub', href: 'https://github.com/liruifengv', icon: 'github-logo' },
-	// { label: 'RSS', href: 'https://liruifengv.com/rss.xml', icon: 'rss' },
 ];
 ---
 
-<nav>
-	<div class="menu-header">
-		<a href="/" class="site-title">
-			<Icon icon="terminal-window" color="var(--accent-regular)" size="1.6em" gradient />
-			{SITE.title}
+<nav class="nav-container">
+	<div class="nav-inner">
+		<!-- Logo -->
+		<a href="/" class="logo-link">
+			<img
+				src="https://bucket.liruifengv.com/avatar-new.png"
+				alt="liruifengv"
+				class="logo-avatar"
+			/>
+			<span class="logo-text">{SITE.title}</span>
 		</a>
+
+		<!-- Mobile menu button -->
 		<menu-button>
 			<template>
 				<button class="menu-button" aria-expanded="false">
@@ -36,83 +41,58 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 				</button>
 			</template>
 		</menu-button>
-	</div>
-	<noscript>
-		<ul class="nav-items">
-			{
-				textLinks.map(({ label, href }) => (
-					<li>
-						<a
-							aria-current={Astro.url.pathname === href}
-							class:list={[
-								'link',
-								{
-									active:
-										Astro.url.pathname === href ||
-										(href !== '/' && Astro.url.pathname.startsWith(href)),
-								},
-							]}
-							href={href}
-						>
-							{label}
-						</a>
-					</li>
-				))
-			}
-		</ul>
-	</noscript>
-	<noscript>
-		<div class="menu-footer">
-			<div class="socials">
-				{
-					iconLinks.map(({ href, icon, label }) => (
-						<a href={href} class="social">
-							<span class="sr-only">{label}</span>
-							<Icon icon={icon} />
-						</a>
-					))
-				}
-			</div>
-		</div>
-	</noscript>
-	<div id="menu-content" hidden>
-		<ul class="nav-items">
-			{
-				textLinks.map(({ label, href }) => (
-					<li>
-						<a
-							aria-current={Astro.url.pathname === href}
-							class:list={[
-								'link',
-								{
-									active:
-										Astro.url.pathname === href ||
-										(href !== '/' && Astro.url.pathname.startsWith(href)),
-								},
-							]}
-							href={href}
-						>
-							{label}
-						</a>
-					</li>
-				))
-			}
-		</ul>
-		<div class="menu-footer">
-			<div class="socials">
-				{
-					iconLinks.map(({ href, icon, label }) => (
-						<a href={href} class="social">
-							<span class="sr-only">{label}</span>
-							<Icon icon={icon} />
-						</a>
-					))
-				}
-			</div>
 
-			<div class="theme-toggle">
+		<!-- Desktop Navigation Links (center) -->
+		<div id="menu-content" class="menu-content">
+			<ul class="nav-items">
+				{
+					textLinks.map(({ label, href }) => (
+						<li>
+							<a
+								aria-current={Astro.url.pathname === href}
+								class:list={[
+									'nav-link',
+									{
+										active:
+											Astro.url.pathname === href ||
+											(href !== '/' && Astro.url.pathname.startsWith(href)),
+									},
+								]}
+								href={href}
+							>
+								{label}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+
+			<!-- Mobile menu footer -->
+			<div class="menu-footer">
+				<div class="socials">
+					{
+						iconLinks.map(({ href, icon, label }) => (
+							<a href={href} class="social-link" target="_blank" rel="noopener noreferrer">
+								<span class="sr-only">{label}</span>
+								<Icon icon={icon} />
+							</a>
+						))
+					}
+				</div>
 				<ThemeToggle />
 			</div>
+		</div>
+
+		<!-- Right side actions -->
+		<div class="nav-actions">
+			{
+				iconLinks.map(({ href, icon, label }) => (
+					<a href={href} class="action-link" target="_blank" rel="noopener noreferrer">
+						<Icon icon={icon} size="1.25em" />
+					</a>
+				))
+			}
+			<ThemeToggle />
 		</div>
 	</div>
 </nav>
@@ -122,31 +102,30 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 		constructor() {
 			super();
 
-			// Inject menu toggle button when JS runs.
 			this.appendChild(this.querySelector('template')!.content.cloneNode(true));
 			const btn = this.querySelector('button')!;
-
-			// Hide menu (shown by default to support no-JS browsers).
 			const menu = document.getElementById('menu-content')!;
-			menu.hidden = true;
-			// Add "menu-content" class in JS to avoid covering content in non-JS browsers.
-			menu.classList.add('menu-content');
-
-			/** Set whether the menu is currently expanded or collapsed. */
-			const setExpanded = (expand: boolean) => {
-				btn.setAttribute('aria-expanded', expand ? 'true' : 'false');
-				menu.hidden = !expand;
-			};
-
-			// Toggle menu visibility when the menu button is clicked.
-			btn.addEventListener('click', () => setExpanded(menu.hidden));
-
-			// Hide menu button for large screens.
-			const handleViewports = (e: MediaQueryList | MediaQueryListEvent) => {
-				setExpanded(e.matches);
-				btn.hidden = e.matches;
-			};
 			const mediaQueries = window.matchMedia('(min-width: 50em)');
+
+			let isOpen = false;
+
+			const setExpanded = (expand: boolean) => {
+				isOpen = expand;
+				btn.setAttribute('aria-expanded', expand ? 'true' : 'false');
+				menu.classList.toggle('is-open', expand);
+			};
+
+			btn.addEventListener('click', () => setExpanded(!isOpen));
+
+			const handleViewports = (e: MediaQueryList | MediaQueryListEvent) => {
+				// On desktop, menu visibility is handled by CSS
+				btn.hidden = e.matches;
+				if (e.matches) {
+					// Reset mobile menu state when switching to desktop
+					setExpanded(false);
+				}
+			};
+
 			handleViewports(mediaQueries);
 			mediaQueries.addEventListener('change', handleViewports);
 		}
@@ -155,214 +134,261 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 </script>
 
 <style>
-	nav {
+	/* Navigation container */
+	.nav-container {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
 		z-index: 9999;
-		position: relative;
-		font-family: var(--font-brand);
-		font-weight: 500;
-		margin-bottom: 1rem;
+		padding: 1rem 1.5rem;
 	}
 
-	.menu-header {
+	.nav-inner {
 		display: flex;
 		justify-content: space-between;
-		gap: 0.5rem;
-		padding: 1.5rem;
-	}
-
-	.site-title {
-		display: flex;
-		gap: 0.5rem;
 		align-items: center;
-		line-height: 1.1;
-		color: var(--gray-0);
-		text-decoration: none;
+		gap: 1rem;
+		max-width: 60rem;
+		margin: 0 auto;
+		padding: 0.75rem 1.25rem;
+		background: rgba(253, 252, 248, 0.8);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		border: 1px solid rgba(222, 216, 207, 0.6);
+		border-radius: var(--radius-xl);
+		box-shadow: 0 4px 24px rgba(93, 112, 82, 0.08);
 	}
 
-	.menu-button {
-		position: relative;
+	:global(.theme-dark) .nav-inner {
+		background: rgba(26, 25, 21, 0.8);
+		border-color: rgba(74, 68, 58, 0.6);
+	}
+
+	/* Logo styles */
+	.logo-link {
 		display: flex;
-		border: 0;
-		border-radius: 999rem;
-		padding: 0.5rem;
-		font-size: 1.5rem;
-		color: var(--gray-300);
-		background: radial-gradient(var(--gray-900), var(--gray-800) 150%);
-		box-shadow: var(--shadow-md);
+		align-items: center;
+		gap: 0.625rem;
+		text-decoration: none;
+		color: var(--foreground);
+		font-family: var(--font-brand);
+		font-weight: 700;
+		font-size: var(--text-lg);
+		transition: opacity var(--hover-transition);
 	}
 
-	.menu-button[aria-expanded='true'] {
-		color: var(--gray-0);
-		background: linear-gradient(180deg, var(--gray-600), transparent),
-			radial-gradient(var(--gray-900), var(--gray-800) 150%);
+	.logo-link:hover {
+		opacity: 0.8;
+		color: var(--foreground);
+	}
+
+	.logo-avatar {
+		width: 2.5rem;
+		height: 2.5rem;
+		border-radius: 50%;
+		object-fit: cover;
+		border: 2px solid var(--border);
+	}
+
+	.logo-text {
+		display: none;
+	}
+
+	/* Menu button - Mobile */
+	.menu-button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.5rem;
+		height: 2.5rem;
+		padding: 0;
+		border: none;
+		border-radius: var(--radius-lg);
+		background: transparent;
+		color: var(--foreground);
+		font-size: 1.5rem;
+		cursor: pointer;
+		transition: background-color var(--hover-transition);
+	}
+
+	.menu-button:hover {
+		background: var(--muted);
 	}
 
 	.menu-button[hidden] {
 		display: none;
 	}
 
-	.menu-button::before {
-		position: absolute;
-		inset: -1px;
-		content: '';
-		background: var(--gradient-stroke);
-		border-radius: 999rem;
-		z-index: -1;
-	}
-
-	.menu-content {
-		position: absolute;
-		left: 0;
-		right: 0;
-	}
-
-	.nav-items {
-		margin: 0;
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-		font-size: var(--text-md);
-		line-height: 1.2;
-		list-style: none;
-		padding: 2rem;
-    padding-top: 0;
-		background-color: var(--gray-999);
-		border-bottom: 1px solid var(--gray-800);
-	}
-
-	.link {
-		display: inline-block;
-		color: var(--gray-300);
-		text-decoration: none;
-	}
-
-	.link.active {
-		color: var(--gray-0);
-	}
-
-	.menu-footer {
-		--icon-size: var(--text-xl);
-		--icon-padding: 0.5rem;
-
-		display: flex;
-		justify-content: space-between;
-		gap: 0.75rem;
-		padding: 1.5rem 2rem 1.5rem 1.5rem;
-		background-color: var(--gray-999);
-		border-radius: 0 0 0.75rem 0.75rem;
-		box-shadow: var(--shadow-lg);
-	}
-
-	.socials {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.625rem;
-		font-size: var(--icon-size);
-	}
-
-	.social {
-		display: flex;
-		padding: var(--icon-padding);
-		text-decoration: none;
-		color: var(--accent-dark);
-		transition: color var(--theme-transition);
-	}
-
-	.social:hover,
-	.social:focus {
-		color: var(--accent-regular);
-	}
-
-	.theme-toggle {
-		display: flex;
-		align-items: center;
-		height: calc(var(--icon-size) + 2 * var(--icon-padding));
-	}
-
+	/* Hide menu-button wrapper on desktop */
 	@media (min-width: 50em) {
-		nav {
-			display: grid;
-			grid-template-columns: 1fr auto 1fr;
-			align-items: center;
-			padding: 1.5rem 3rem;
-			gap: 1rem;
-		}
-
-		.menu-header {
-			padding: 0;
-		}
-
-		.site-title {
-			font-size: var(--text-lg);
-		}
-
-		.menu-content {
-			display: contents;
-		}
-
-		.nav-items {
-			position: relative;
-			flex-direction: row;
-			font-size: var(--text-sm);
-			border-radius: 999rem;
-			border: 0;
-			padding: 0.5rem 0.5625rem;
-			background: radial-gradient(var(--gray-900), var(--gray-800) 150%);
-			box-shadow: var(--shadow-md);
-		}
-
-		.nav-items::before {
-			position: absolute;
-			inset: -1px;
-			content: '';
-			background: var(--gradient-stroke);
-			border-radius: 999rem;
-			z-index: -1;
-		}
-
-		.link {
-			padding: 0.5rem 1rem;
-			border-radius: 999rem;
-			transition:
-				color var(--theme-transition),
-				background-color var(--theme-transition);
-		}
-
-		.link:hover,
-		.link:focus {
-			color: var(--gray-100);
-			background-color: var(--accent-subtle-overlay);
-		}
-
-		.link.active {
-			color: var(--accent-text-over);
-			background-color: var(--accent-regular);
-		}
-
-		.menu-footer {
-			--icon-padding: 0.375rem;
-
-			justify-self: flex-end;
-			align-items: center;
-			padding: 0;
-			background-color: transparent;
-			box-shadow: none;
-		}
-
-		.socials {
+		menu-button {
 			display: none;
 		}
 	}
 
-	@media (min-width: 60em) {
-		.socials {
+	/* Mobile menu content */
+	.menu-content {
+		display: none;
+		position: absolute;
+		top: calc(100% + 0.5rem);
+		left: 1rem;
+		right: 1rem;
+		background: var(--background);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-xl);
+		box-shadow: 0 10px 40px rgba(93, 112, 82, 0.15);
+		overflow: hidden;
+	}
+
+	.menu-content.is-open {
+		display: block;
+	}
+
+	/* Navigation items */
+	.nav-items {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		list-style: none;
+		padding: 1rem;
+		margin: 0;
+	}
+
+	.nav-link {
+		display: block;
+		padding: 0.875rem 1rem;
+		color: var(--muted-foreground);
+		text-decoration: none;
+		font-weight: 500;
+		font-size: var(--text-base);
+		border-radius: var(--radius-lg);
+		transition: color var(--hover-transition), background-color var(--hover-transition);
+	}
+
+	.nav-link:hover {
+		color: var(--foreground);
+		background: var(--muted);
+	}
+
+	.nav-link.active {
+		color: var(--primary);
+		font-weight: 600;
+	}
+
+	/* Menu footer */
+	.menu-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1rem;
+		border-top: 1px solid var(--border);
+		background: var(--muted);
+	}
+
+	.socials {
+		display: flex;
+		gap: 0.5rem;
+	}
+
+	.social-link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.5rem;
+		height: 2.5rem;
+		color: var(--muted-foreground);
+		border-radius: var(--radius-lg);
+		transition: color var(--hover-transition), background-color var(--hover-transition);
+	}
+
+	.social-link:hover {
+		background: var(--primary);
+		color: var(--primary-foreground);
+	}
+
+	/* Right side actions - hidden on mobile */
+	.nav-actions {
+		display: none;
+	}
+
+	/* Desktop styles */
+	@media (min-width: 50em) {
+		.nav-container {
+			padding: 1.25rem 2rem;
+		}
+
+		.nav-inner {
+			display: grid;
+			grid-template-columns: 1fr auto 1fr;
+			padding: 0.625rem 1rem 0.625rem 1.25rem;
+			border-radius: var(--radius-2xl);
+		}
+
+		.logo-text {
+			display: block;
+		}
+
+		.menu-content {
 			display: flex;
-			justify-content: flex-end;
+			position: static;
+			justify-content: center;
+			background: transparent;
+			border: none;
+			box-shadow: none;
+		}
+
+		.nav-items {
+			flex-direction: row;
 			gap: 0;
+			padding: 0;
+		}
+
+		.nav-link {
+			padding: 0.5rem 1rem;
+			font-size: var(--text-sm);
+			border-radius: var(--radius-lg);
+		}
+
+		.nav-link:hover {
+			background: transparent;
+			color: var(--primary);
+		}
+
+		.nav-link.active {
+			background: transparent;
+		}
+
+		.menu-footer {
+			display: none;
+		}
+
+		.nav-actions {
+			display: flex;
+			align-items: center;
+			justify-self: end;
+			gap: 0.5rem;
+		}
+
+		.action-link {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 2.5rem;
+			height: 2.5rem;
+			color: var(--muted-foreground);
+			border-radius: var(--radius-lg);
+			transition: color var(--hover-transition), background-color var(--hover-transition);
+		}
+
+		.action-link:hover {
+			color: var(--foreground);
+			background: var(--muted);
 		}
 	}
+
 	@media (forced-colors: active) {
-		.link.active {
+		.nav-link.active {
 			color: SelectedItem;
 		}
 	}

@@ -1,75 +1,214 @@
 ---
 import Icon from './Icon.astro';
+import { iconPaths } from './IconPaths';
+
 const currentYear = new Date().getFullYear();
+
+const socialLinks: {
+  label: string;
+  href: string;
+  icon: keyof typeof iconPaths;
+}[] = [
+	{ label: 'GitHub', href: 'https://github.com/liruifengv', icon: 'github-logo' },
+	{ label: 'Twitter', href: 'https://twitter.com/liruifengv', icon: 'twitter-logo' },
+	{ label: 'Email', href: 'mailto:liruifeng1024@gmail.com', icon: 'paper-plane-tilt' },
+];
+
+const siteLinks = [
+	{ label: '文章', href: '/posts/' },
+	{ label: '项目', href: '/projects/' },
+	{ label: '关于', href: '/about/' },
+	{ label: 'RSS', href: '/rss.xml' },
+];
 ---
 
-<footer>
-	<div class="group">
-		<p class="flex gap-2 items-center justify-center">
-			<a href="https://astro.build"><img src="https://astro.badg.es/v2/built-with-astro/tiny.svg" alt="Built with Astro" width="120" height="20"></a>
-		</p>
-		<p>&copy; {currentYear} liruifengv</p>
+<footer class="footer">
+	<div class="wrapper">
+		<div class="footer-content">
+			<!-- Brand -->
+			<div class="footer-brand">
+				<a href="/" class="brand-link">
+					<img
+						src="https://bucket.liruifengv.com/avatar-new.png"
+						alt="liruifengv"
+						class="brand-avatar"
+					/>
+					<span class="brand-name">liruifengv</span>
+				</a>
+				<p class="brand-tagline">Web 开发者 · 开源爱好者</p>
+			</div>
+
+			<!-- Links -->
+			<nav class="footer-nav" aria-label="Footer navigation">
+				{siteLinks.map(link => (
+					<a href={link.href}>{link.label}</a>
+				))}
+			</nav>
+
+			<!-- Social -->
+			<div class="footer-social">
+				{socialLinks.map(link => (
+					<a
+						href={link.href}
+						class="social-link"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label={link.label}
+					>
+						<Icon icon={link.icon} size="1.25rem" color="currentColor" />
+					</a>
+				))}
+			</div>
+		</div>
+
+		<!-- Bottom bar -->
+		<div class="footer-bottom">
+			<p class="copyright">&copy; {currentYear} liruifengv. All rights reserved.</p>
+			<a href="https://astro.build" class="built-with" target="_blank" rel="noopener noreferrer">
+				<img
+					src="https://astro.badg.es/v2/built-with-astro/tiny.svg"
+					alt="Built with Astro"
+					width="120"
+					height="20"
+				/>
+			</a>
+		</div>
 	</div>
-	<p class="socials">
-		<a href="https://twitter.com/liruifengv"> Twitter</a>
-		<a href="https://github.com/liruifengv"> GitHub</a>
-		<a href="mailto:liruifeng1024@gmail.com"> Email</a>
-		<a href="https://liruifengv.com/rss.xml"> RSS</a>
-		<a href="/year"> Archive</a>
-	</p>
 </footer>
+
 <style>
-	footer {
-		display: flex;
-		flex-direction: column;
-		gap: 3rem;
+	.footer {
 		margin-top: auto;
-		padding: 3rem 2rem 3rem;
-		text-align: center;
-		color: var(--gray-400);
-		font-size: var(--text-sm);
+		padding: 3rem 0 2rem;
+		border-top: 1px solid var(--border);
 	}
 
-	footer a {
-		color: var(--gray-400);
-		text-decoration: 1px solid underline transparent;
-		text-underline-offset: 0.25em;
-		transition: text-decoration-color var(--theme-transition);
-	}
-
-	footer a:hover,
-	footer a:focus {
-		text-decoration-color: currentColor;
-	}
-
-	.group {
+	.footer-content {
 		display: flex;
 		flex-direction: column;
+		align-items: center;
+		gap: 2rem;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid var(--border);
+	}
+
+	/* Brand */
+	.footer-brand {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 		gap: 0.5rem;
 	}
 
-	.socials {
+	.brand-link {
 		display: flex;
-		justify-content: center;
-		gap: 1rem;
+		align-items: center;
+		gap: 0.75rem;
+		text-decoration: none;
+		color: var(--foreground);
+		font-family: var(--font-brand);
+		font-weight: 700;
+		font-size: var(--text-lg);
+	}
+
+	.brand-link:hover {
+		opacity: 0.8;
+	}
+
+	.brand-avatar {
+		width: 2rem;
+		height: 2rem;
+		border-radius: 50%;
+		object-fit: cover;
+	}
+
+	.brand-tagline {
+		color: var(--muted-foreground);
+		font-size: var(--text-sm);
+		margin: 0;
+	}
+
+	/* Nav */
+	.footer-nav {
+		display: flex;
 		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.25rem;
+	}
+
+	.footer-nav a {
+		color: var(--muted-foreground);
+		font-size: var(--text-sm);
+		text-decoration: none;
+		padding: 0.5rem 1rem;
+		border-radius: var(--radius-full);
+		transition: all var(--hover-transition);
+	}
+
+	.footer-nav a:hover {
+		color: var(--foreground);
+		background: var(--muted);
+	}
+
+	/* Social */
+	.footer-social {
+		display: flex;
+		gap: 0.5rem;
+	}
+
+	.social-link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.5rem;
+		height: 2.5rem;
+		color: var(--muted-foreground);
+		border-radius: var(--radius-lg);
+		transition: all var(--hover-transition);
+	}
+
+	.social-link:hover {
+		color: var(--primary);
+		background: var(--muted);
+	}
+
+	/* Bottom */
+	.footer-bottom {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5rem;
+		padding-top: 1.5rem;
+	}
+
+	.copyright {
+		color: var(--muted-foreground);
+		font-size: var(--text-sm);
+		margin: 0;
+	}
+
+	.built-with img {
+		display: block;
 	}
 
 	@media (min-width: 50em) {
-		footer {
+		.footer {
+			padding: 4rem 0 2rem;
+		}
+
+		.footer-content {
 			flex-direction: row;
 			justify-content: space-between;
-			padding: 2.5rem 5rem;
+			align-items: flex-start;
 		}
 
-		.group {
+		.footer-brand {
+			align-items: flex-start;
+		}
+
+		.footer-bottom {
 			flex-direction: row;
-			gap: 1rem;
-			flex-wrap: wrap;
-		}
-
-		.socials {
-			justify-content: flex-end;
+			justify-content: space-between;
 		}
 	}
 </style>

@@ -1,16 +1,52 @@
-<div class="pill"><slot /></div>
+---
+interface Props {
+	variant?: 'primary' | 'secondary' | 'outline';
+}
+
+const { variant = 'primary' } = Astro.props;
+---
+
+<span class:list={['pill', variant]}>
+	<slot />
+</span>
 
 <style>
 	.pill {
-		display: flex;
-		padding: 0.5rem 1rem;
+		display: inline-flex;
+		align-items: center;
 		gap: 0.5rem;
-		color: var(--accent-text-over);
-		border: 1px solid var(--accent-regular);
-		background-color: var(--accent-regular);
-		border-radius: 999rem;
-		font-size: var(--text-md);
+		padding: 0.5rem 1rem;
+		font-size: var(--text-sm);
+		font-weight: 500;
 		line-height: 1.35;
 		white-space: nowrap;
+		border-radius: var(--radius-full);
+		transition: all var(--hover-transition);
+	}
+
+	/* Primary variant - Moss green background */
+	.pill.primary {
+		color: var(--primary-foreground);
+		background: var(--primary);
+		border: 1px solid var(--primary);
+	}
+
+	/* Secondary variant - Terracotta */
+	.pill.secondary {
+		color: var(--secondary-foreground);
+		background: var(--secondary);
+		border: 1px solid var(--secondary);
+	}
+
+	/* Outline variant */
+	.pill.outline {
+		color: var(--primary);
+		background: transparent;
+		border: 1.5px solid var(--primary);
+	}
+
+	.pill.outline:hover {
+		background: var(--primary);
+		color: var(--primary-foreground);
 	}
 </style>

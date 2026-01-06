@@ -7,50 +7,83 @@ interface Props {
 }
 
 const { posts } = Astro.props;
-
 ---
 
-<div class="list-wrapper flex justify-center">
-  <div class="list w-full md:w-2/3 lg:w-1/2">
-    {
-      posts.map((post) => (
-        <li>
-          <a href={`/posts/${post.slug}`}>
-            <p class="title">{post.data.title}</p>
-            <div class="time">
-              {formatDate(post.data.pubDatetime)}
-            </div>
-          </a>
-        </li>
-      ))
-    }
-  </div>
+<div class="posts-list-wrapper">
+	<ul class="posts-list">
+		{
+			posts.map((post, index) => (
+				<li class="post-item" style={`--item-index: ${index % 3}`}>
+					<a href={`/posts/${post.slug}`} class="post-link">
+						<span class="post-title">{post.data.title}</span>
+						<span class="post-date">{formatDate(post.data.pubDatetime)}</span>
+					</a>
+				</li>
+			))
+		}
+	</ul>
 </div>
 
-
 <style>
-  .list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  a {
-    text-decoration: none;
-  }
-  li {
-    list-style: none;
-  }
-  .title:hover {
-    color: var(--link-color);
-  }
-	.title {
-		z-index: 1;
-		color: var(--gray-200);
-    @apply text-base md:text-lg;
+	.posts-list-wrapper {
+		display: flex;
+		justify-content: center;
 	}
-  .time {
-    color: var(--gray-400);
-    font-size: 0.8rem;
-    margin: 0.5rem;
-  }
+
+	.posts-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		width: 100%;
+		max-width: 48rem;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.post-item {
+		border-radius: var(--radius-lg);
+		transition: all var(--hover-transition);
+	}
+
+	.post-item:hover {
+		background: var(--muted);
+		transform: translateX(4px);
+	}
+
+	.post-link {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		padding: 1rem 1.25rem;
+		text-decoration: none;
+	}
+
+	.post-title {
+		color: var(--foreground);
+		font-weight: 500;
+		font-size: var(--text-base);
+		transition: color var(--hover-transition);
+	}
+
+	.post-item:hover .post-title {
+		color: var(--primary);
+	}
+
+	.post-date {
+		color: var(--muted-foreground);
+		font-size: var(--text-sm);
+	}
+
+	@media (min-width: 50em) {
+		.post-link {
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.post-title {
+			font-size: var(--text-lg);
+		}
+	}
 </style>

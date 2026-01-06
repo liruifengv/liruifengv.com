@@ -41,6 +41,17 @@ const socialImageURL = new URL(ogImage ?? "og.png", Astro.url.origin).href;
     <meta name="author" content={author} />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
+    <!-- load font -->
+    <link
+      rel="preload"
+      href="/fonts/OPPO_Sans_4/result.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link rel="stylesheet" href="/fonts/OPPO_Sans_4/result.css" /></noscript
+    >
+
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -53,17 +64,13 @@ const socialImageURL = new URL(ogImage ?? "og.png", Astro.url.origin).href;
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={socialImageURL} />
-    
+
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;1,400&family=Rubik:wght@500;600&display=swap"
-      rel="stylesheet"
-    />
 
     <script is:inline src="/toggle-theme.js"></script>
-    
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LH9N740HBE"
     ></script>
@@ -79,10 +86,29 @@ const socialImageURL = new URL(ogImage ?? "og.png", Astro.url.origin).href;
     </script>
 	</head>
 	<body>
-		<div class="stack min-h-screen">
+		<div class="page-layout stack min-h-screen">
 			<Nav />
-			<slot />
+			<div class="main-content">
+				<slot />
+			</div>
 			<Footer />
 		</div>
 	</body>
 </html>
+
+<style>
+	.page-layout {
+		/* Account for fixed navbar */
+		padding-top: 5rem;
+	}
+
+	.main-content {
+		flex: 1;
+	}
+
+	@media (min-width: 50em) {
+		.page-layout {
+			padding-top: 6rem;
+		}
+	}
+</style>

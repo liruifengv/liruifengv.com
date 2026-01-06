@@ -1,300 +1,416 @@
 ---
 import { getCollection } from 'astro:content';
 
-// Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
+// Layout import
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 // Component Imports
+import BlobBackground from '../components/BlobBackground.astro';
 import CallToAction from '../components/CallToAction.astro';
-import ContactCTA from '../components/ContactCTA.astro'
+import ContactCTA from '../components/ContactCTA.astro';
 import Hero from '../components/Hero.astro';
 import Icon from '../components/Icon.astro';
 import Pill from '../components/Pill.astro';
-import { Image } from 'astro:assets';
-
-// Page section components
 import Skills from '../components/Skills.astro';
+import { Image } from 'astro:assets';
 import { formatDate } from '../utils/date';
-// Content Fetching: List four most recent work projects
-const posts = (await getCollection('posts')).filter((post) => post.data.featured).sort(
-          (a, b) =>
-            Math.floor(new Date(b.data.pubDatetime).getTime() / 1000) -
-            Math.floor(new Date(a.data.pubDatetime).getTime() / 1000)
-        );
+
+// Content Fetching
+const posts = (await getCollection('posts'))
+	.filter((post) => post.data.featured)
+	.sort(
+		(a, b) =>
+			Math.floor(new Date(b.data.pubDatetime).getTime() / 1000) -
+			Math.floor(new Date(a.data.pubDatetime).getTime() / 1000)
+	);
 
 const projects = [
-  {
-    title: 'We Drawing',
-    description: 'AI 画图。每天一句中国古诗词，生成 AI 图片。',
-    link: 'https://github.com/liruifengv/we-drawing'
-  },
-  {
-    title: 'astro-cn.com',
-    description: 'Astro 中文网站 Showcase。展示一些使用 Astro 构建的中文网站！',
-    link: 'https://github.com/liruifengv/astro-cn.com'
-  },
-]
+	{
+		title: 'We Drawing',
+		description: 'AI 画图。每天一句中国古诗词，生成 AI 图片。',
+		link: 'https://github.com/liruifengv/we-drawing',
+	},
+	{
+		title: 'astro-cn.com',
+		description: 'Astro 中文网站 Showcase。展示一些使用 Astro 构建的中文网站！',
+		link: 'https://github.com/liruifengv/astro-cn.com',
+	},
+];
 ---
 
 <BaseLayout>
-	<div class="stack gap-15">
-		<div class="wrapper stack gap-8 lg:gap-20">
-			<header class="hero">
-				<Hero
-					title="liruifengv"
-					tagline="Web 开发者，Astro 项目成员，开源爱好者。"
-					align="start"
-				>
-					<div class="roles">
-						<Pill><Icon icon="code" size="1.33em" />Developer</Pill>
-						<!-- <Pill><Icon icon="microphone-stage" size="1.33em" /> Speaker</Pill> -->
-						<Pill><Icon icon="pencil-line" size="1.33em" /> Writer</Pill>
+	<div class="page-wrapper">
+		<!-- Hero Section with Blob Background -->
+		<section class="hero-section">
+			<div class="wrapper">
+				<div class="hero-grid">
+					<Hero title="liruifengv" tagline="Web 开发者，Astro 项目成员，开源爱好者。" align="start">
+						<div class="hero-roles">
+							<Pill><Icon icon="code" size="1.2em" />Developer</Pill>
+							<Pill variant="secondary"><Icon icon="pencil-line" size="1.2em" />Writer</Pill>
+						</div>
+					</Hero>
+
+					<div class="hero-image-wrapper">
+						<Image
+							src="https://bucket.liruifengv.com/avatar-new.png"
+							alt="liruifengv's avatar"
+							width={400}
+							height={400}
+							class="hero-image"
+						/>
 					</div>
-				</Hero>
+				</div>
+			</div>
+		</section>
 
-                <Image src="https://bucket.liruifengv.com/avatar-new.png" alt="liruifengv's avatar" width={400} height={400} />
-			</header>
-
+		<!-- Skills Section -->
+		<section class="skills-section wrapper">
 			<Skills />
-		</div>
+		</section>
 
-		<main class="wrapper stack gap-20">
-			<section class="section with-background with-cta">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<h4 class="text-2xl font-bold">精选文章<h4/>
-					<p class="text-lg">
-            这里是我最近写的一些文章，感兴趣的话可以看看！
-          </p>
-				</header>
+		<!-- Featured Posts Section -->
+		<section class="section-wrapper">
+			<div class="wrapper">
+				<div class="section-card">
+					<div class="section-header">
+						<div class="section-title-group">
+							<h2 class="section-title">精选文章</h2>
+							<p class="section-description">这里是我最近写的一些文章，感兴趣的话可以看看！</p>
+						</div>
+						<CallToAction href="/posts/" variant="outline">
+							查看全部
+							<Icon icon="arrow-right" size="1.2em" />
+						</CallToAction>
+					</div>
 
-				<div class="gallery">
-          {
-            posts.map((post) => (
-              <li>
-                <a href={`/posts/${post.slug}`}>
-                  <p class="title">{post.data.title}</p>
-                  <div class="time">
-                    {formatDate(post.data.pubDatetime)}
-                  </div>
-                </a>
-              </li>
-            ))
-          }
+					<ul class="posts-list">
+						{
+							posts.map((post) => (
+								<li class="post-item">
+									<a href={`/posts/${post.slug}`} class="post-link">
+										<span class="post-title">{post.data.title}</span>
+										<span class="post-date">{formatDate(post.data.pubDatetime)}</span>
+									</a>
+								</li>
+							))
+						}
+					</ul>
 				</div>
+			</div>
+		</section>
 
-				<div class="cta">
-					<CallToAction href="/posts/">
+		<!-- Projects Section -->
+		<section class="section-wrapper">
+			<div class="wrapper">
+				<div class="section-header">
+					<div class="section-title-group">
+						<h2 class="section-title">最近项目</h2>
+					</div>
+					<CallToAction href="/projects/" variant="outline">
 						查看全部
 						<Icon icon="arrow-right" size="1.2em" />
 					</CallToAction>
 				</div>
-			</section>
 
-      <section class="section with-cta">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<h4 class="text-2xl font-bold">最近项目<h4/>
-				</header>
-
-        <section class="projects gallery">
-          {projects.map(project => (
-            <a
-              class="box"
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <h2>{project.title}</h2>
-              <p>{project.description}</p>
-            </a>
-          ))}
-        </section>
-
-				<div class="cta">
-					<CallToAction href="/projects/">
-						查看全部
-						<Icon icon="arrow-right" size="1.2em" />
-					</CallToAction>
+				<div class="projects-grid">
+					{
+						projects.map((project, index) => (
+							<a
+								href={project.link}
+								class="project-card"
+								target="_blank"
+								rel="noopener noreferrer"
+								style={`--card-radius-variant: ${index % 3}`}
+							>
+								<h3 class="project-title">{project.title}</h3>
+								<p class="project-description">{project.description}</p>
+								<span class="project-arrow">
+									<Icon icon="arrow-right" size="1.2em" />
+								</span>
+							</a>
+						))
+					}
 				</div>
-			</section>
+			</div>
+		</section>
 
-		</main>
-    <ContactCTA />
-
+		<!-- Contact CTA -->
+		<ContactCTA />
 	</div>
 </BaseLayout>
 
 <style>
-	.hero {
+	.page-wrapper {
 		display: flex;
 		flex-direction: column;
+		gap: 4rem;
+	}
+
+	/* Hero Section */
+	.hero-section {
+		position: relative;
+		overflow: hidden;
+		padding-block: 2rem;
+	}
+
+	.hero-blobs {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		z-index: -1;
+	}
+
+	.hero-grid {
+		display: flex;
+		flex-direction: column-reverse;
 		align-items: center;
-		gap: 2rem;
+		gap: 1.5rem;
 	}
 
-	.roles {
-		display: none;
+	.hero-roles {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-top: 1rem;
 	}
 
-	.hero img {
-		aspect-ratio: 5 / 4;
+	.hero-image-wrapper {
+		position: relative;
+	}
+
+	.hero-image {
+		width: 160px;
+		height: 160px;
 		object-fit: cover;
-		object-position: top;
-		border-radius: 1.5rem;
+		border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+		border: 4px solid var(--background);
+		box-shadow: var(--shadow-lg);
+		transition: transform var(--theme-transition);
+	}
+
+	.hero-image:hover {
+		transform: rotate(-2deg) scale(1.02);
 	}
 
 	@media (min-width: 50em) {
-		.hero {
+		.hero-section {
+			padding-block: 3rem;
+		}
+
+		.hero-grid {
 			display: grid;
-			grid-template-columns: 6fr 4fr;
-			padding-inline: 2.5rem;
-			gap: 3.75rem;
+			grid-template-columns: 1fr auto;
+			gap: 3rem;
+			align-items: center;
+			max-width: 56rem;
+			margin: 0 auto;
 		}
 
-		.roles {
-			margin-top: 0.5rem;
-			display: flex;
-			gap: 0.5rem;
+		.hero-image {
+			width: 240px;
+			height: 240px;
 		}
 	}
 
-	/* ====================================================== */
-
-	.section {
-		display: grid;
-		gap: 2rem;
+	/* Skills Section */
+	.skills-section {
+		padding-block: 2rem;
 	}
 
+	/* Section Wrapper */
+	.section-wrapper {
+		padding-block: 2rem;
+	}
+
+	/* Section Card */
+	.section-card {
+		background: rgba(254, 250, 250, 0.6);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-2xl);
+		padding: 2rem;
+		box-shadow: var(--shadow-sm);
+	}
+
+	:global(.theme-dark) .section-card {
+		background: rgba(42, 38, 32, 0.4);
+	}
+
+	/* Section Header */
 	.section-header {
-		justify-self: center;
-		text-align: center;
-		max-width: 50ch;
-		font-size: var(--text-md);
-		color: var(--gray-300);
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		margin-bottom: 2rem;
 	}
 
-	.section-header h3 {
+	.section-title-group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.section-title {
+		font-family: var(--font-brand);
 		font-size: var(--text-2xl);
+		font-weight: 700;
+		color: var(--foreground);
+	}
+
+	.section-description {
+		color: var(--muted-foreground);
+		font-size: var(--text-base);
 	}
 
 	@media (min-width: 50em) {
-		.section {
-			grid-template-columns: repeat(4, 1fr);
-			grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
-			gap: 3rem;
-		}
-
-		.section.with-cta {
-			grid-template-areas: 'header header header cta' 'gallery gallery gallery gallery';
-		}
-
 		.section-header {
-			grid-area: header;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: flex-start;
+		}
+
+		.section-card {
+			padding: 3rem;
+		}
+	}
+
+	/* Posts List */
+	.posts-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.post-item {
+		border-radius: var(--radius-lg);
+		transition: background var(--hover-transition);
+	}
+
+	.post-item:hover {
+		background: var(--muted);
+	}
+
+	.post-link {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		padding: 1rem;
+		text-decoration: none;
+	}
+
+	.post-title {
+		color: var(--foreground);
+		font-weight: 500;
+		font-size: var(--text-base);
+		transition: color var(--hover-transition);
+	}
+
+	.post-item:hover .post-title {
+		color: var(--primary);
+	}
+
+	.post-date {
+		color: var(--muted-foreground);
+		font-size: var(--text-sm);
+	}
+
+	@media (min-width: 50em) {
+		.post-link {
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.post-title {
 			font-size: var(--text-lg);
 		}
-
-		.section-header h3 {
-			font-size: var(--text-4xl);
-		}
-
-		.with-cta .section-header {
-			justify-self: flex-start;
-			text-align: left;
-		}
-
-		.gallery {
-			grid-area: gallery;
-		}
-
-		.cta {
-			grid-area: cta;
-		}
 	}
 
-	/* ====================================================== */
+	/* Projects Grid */
+	.projects-grid {
+		display: grid;
+		gap: 1.5rem;
+		margin-top: 2rem;
+	}
 
-	.mention-card {
+	.project-card {
+		position: relative;
 		display: flex;
-		height: 7rem;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
-		border: 1px solid var(--gray-800);
-		border-radius: 1.5rem;
-		color: var(--gray-300);
-		background: var(--gradient-subtle);
-		box-shadow: var(--shadow-sm);
-	}
-
-	@media (min-width: 50em) {
-		.mention-card {
-			border-radius: 1.5rem;
-			height: 9.5rem;
-		}
-	}
-
-  /* selected post list */
-  .list {
-    display: flex;
-    flex-direction: column;
-  }
-  a {
-    text-decoration: none;
-  }
-  li {
-    list-style: none;
-  }
-  .title:hover {
-    color: var(--link-color);
-  }
-	.title {
-		z-index: 1;
-		margin: 0.5rem;
-		color: var(--gray-200);
-    @apply text-base md:text-lg;
-	}
-  .time {
-    color: var(--gray-400);
-    font-size: 0.8rem;
-    margin: 0.5rem;
-  }
-
-  .box {
-		border: 1px solid var(--gray-800);
-		border-radius: 0.75rem;
+		flex-direction: column;
+		gap: 0.75rem;
 		padding: 1.5rem;
-		background-color: var(--gray-999_40);
-		box-shadow: var(--shadow-sm);
+		background: var(--muted);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-2xl);
+		text-decoration: none;
+		transition: all var(--theme-transition);
+		overflow: hidden;
 	}
 
-  .projects {
-    display: flex;
-    gap: 2rem;
-    flex-direction: column;
-    cursor: pointer;
-  }
-
-	.projects h2 {
-		font-size: var(--text-lg);
+	/* Asymmetric border radius variants */
+	.project-card[style*='--card-radius-variant: 0'] {
+		border-radius: var(--radius-3xl) var(--radius-lg) var(--radius-2xl) var(--radius-lg);
 	}
 
-  .projects h2:hover {
-    color: var(--link-color);
-  }
+	.project-card[style*='--card-radius-variant: 1'] {
+		border-radius: var(--radius-lg) var(--radius-2xl) var(--radius-lg) var(--radius-3xl);
+	}
 
-	.projects p {
-		color: var(--gray-400);
-    @apply mt-2;
+	.project-card[style*='--card-radius-variant: 2'] {
+		border-radius: var(--radius-2xl) var(--radius-lg) var(--radius-3xl) var(--radius-lg);
+	}
+
+	.project-card:hover {
+		transform: translateY(-4px);
+		box-shadow: var(--shadow-lg);
+		border-color: var(--primary);
+	}
+
+	.project-title {
+		font-family: var(--font-brand);
+		font-size: var(--text-xl);
+		font-weight: 600;
+		color: var(--foreground);
+		transition: color var(--hover-transition);
+	}
+
+	.project-card:hover .project-title {
+		color: var(--primary);
+	}
+
+	.project-description {
+		color: var(--muted-foreground);
+		font-size: var(--text-base);
+		line-height: 1.6;
+	}
+
+	.project-arrow {
+		position: absolute;
+		bottom: 1.5rem;
+		right: 1.5rem;
+		color: var(--muted-foreground);
+		opacity: 0;
+		transform: translateX(-10px);
+		transition: all var(--hover-transition);
+	}
+
+	.project-card:hover .project-arrow {
+		opacity: 1;
+		transform: translateX(0);
+		color: var(--primary);
 	}
 
 	@media (min-width: 50em) {
-		.box {
-			border-radius: 1.5rem;
-			padding: 2.5rem;
-		}
-    .projects {
-      display: grid;
+		.projects-grid {
 			grid-template-columns: repeat(2, 1fr);
-			gap: 3rem;
-    }
+			gap: 2rem;
+		}
+
+		.project-card {
+			padding: 2rem;
+		}
 	}
 </style>
