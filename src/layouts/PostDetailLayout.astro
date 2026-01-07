@@ -48,7 +48,7 @@ const ogUrl = new URL(ogImageUrl ?? `/posts/${post.slug}.png`, Astro.url.origin)
 					<div class="post-meta">
 						<span class="meta-item">发布于：{formatDate(pubDatetime)}</span>
 						<span class="meta-divider">·</span>
-						<span class="meta-item">{words} 字</span>
+						<span class="meta-item">{words}</span>
 						<span class="meta-divider">·</span>
 						<span class="meta-item">{readingTime}</span>
 					</div>
