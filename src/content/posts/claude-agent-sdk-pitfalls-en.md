@@ -1,7 +1,7 @@
 ---
 title: "Common Pitfalls with the Claude Agent SDK"
 description: "Sharing the frustrations and challenges I faced while working with the Claude Agent SDK"
-pubDatetime: 2026-01-14
+pubDatetime: 2026-01-15
 author: liruifengv
 featured: true
 draft: false
