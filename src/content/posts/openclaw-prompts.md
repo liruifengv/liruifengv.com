@@ -14,7 +14,7 @@ tags:
 
 当第一次打开 OpenClaw，发送 `你好`，会收到这么一条回复：
 
-![初见](../../assets/images/openclaw-prompts/img-1.jpg)
+![初见](https://bucket.liruifengv.com/openclaw-prompts/img-1.jpg)
 
 好像真的是一个初次诞生的 AI，交由你来取名字，决定性格，认领他做他的主人。
 
