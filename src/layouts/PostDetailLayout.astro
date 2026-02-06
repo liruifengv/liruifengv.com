@@ -6,6 +6,8 @@ import ContactCTA from '../components/ContactCTA.astro';
 import Tag from '../components/Tag.astro';
 import Comments from "@components/Comment";
 import { formatDate } from "@utils/date.ts";
+import OpenclawGroup from "@assets/images/openclaw-prompts/wechat-group.jpg"
+import { Image } from 'astro:assets';
 
 interface Props {
 	post: CollectionEntry<'posts'>;
@@ -75,10 +77,14 @@ const ogUrl = new URL(ogImageUrl ?? `/posts/${post.slug}.png`, Astro.url.origin)
 						<p>
 							加我微信 <code>liruifengv2333</code>，进群交流，抱团取暖。
 						</p>
+
 						<ul>
-							<li>AI Agent 开发交流群</li>
-							<li>新生代程序员群</li>
-							<li>Astro 学习交流群</li>
+							<li>AI Agent 开发交流群（学习 Agent 开发，技术同学进）</li>
+							<li>Astro 学习交流群（使用 Astro 开发网站的同学进）</li>
+							<li>
+    						    OpenClaw 🦞交流群
+    							<Image src={OpenclawGroup} alt="OpenClaw 🦞交流群" width={200}/>
+    						</li>
 						</ul>
 						<p>关注公众号 <code>瑞丰同学</code>，带来更多原创内容。</p>
 						<img
