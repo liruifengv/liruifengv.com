@@ -8,6 +8,7 @@ draft: false
 tags:
   - Agent
   - AI
+  - OpenClaw
 ---
 
 玩了 OpenClaw 的应该都会感觉到龙虾的拟人化特别强，好像有自我意识，并且能自我进化。

@@ -8,6 +8,7 @@ draft: false
 tags:
   - Agent
   - AI
+  - OpenClaw
 ---
 
 今天聊一下这几天爆火的现象级 AI Agent，龙虾🦞OpenClaw 和 moltbook。
